@@ -2,8 +2,10 @@ package hw02;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 public class hw02 {
-    public static void task1() {
+    public static void info() {
         System.out.println("Домашнее задание по уроку \"Переменные\"");
+    }
+    public static void task1() {
         //Объявите переменные всех типов, что мы изучили на уроке, и присвойте им любые значения (инициализируйте их).
         System.out.println("Задача 1");
         char charMyVal = 65;
