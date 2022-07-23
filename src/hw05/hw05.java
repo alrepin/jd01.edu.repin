@@ -1,7 +1,7 @@
 package hw05;
 public class hw05 {
     //Объявление массивов для совместного использования в заданиях
-    final static int[] intArr = new int[]{1, 2, 3};
+    final static int[] intArr = new int[3];
     final static double[] dblArr = new double[]{1.57, 7.654, 9.986};
     final static boolean[] boolArr = {true, false};
 
@@ -17,13 +17,13 @@ public class hw05 {
 с помощью ключевого слова или сразу заполненный элементами.
          */
         System.out.println("Задача 1:");
-        //int[] intArr = new int[]{1, 2, 3};
+        for (int i = 0; i < intArr.length; i += 1) {
+            intArr[i] = (i + 1);
+        }
         for (int j : intArr) System.out.print("[" + j + "] ");
         System.out.println("\n----------");
-        //double[] dblArr = new double[]{1.57, 7.654, 9.986};
         for (double v : dblArr) System.out.print("[" + v + "] ");
         System.out.println("\n----------");
-        //boolean[] boolArr = {true, false};
         for (int i = 0; i < boolArr.length; i += 1) {
             System.out.print("[" + boolArr[i] + "] ");
         }
