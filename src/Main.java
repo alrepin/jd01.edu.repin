@@ -1,16 +1,12 @@
-import hw00.hw00;
+import hw05.hw05;
 public class Main {
     public static void main(String[] args) {
-        hw00.info();
-        //Домашнее задание по уроку "":
+        hw05.info();
+        //Домашнее задание по уроку "Массивы":
         //https://my.sky.pro/student-cabinet/stream-lesson/
-        /*
-        hw00.info();
-        hw00.task1();
-        hw00.task2();
-        hw00.task3();
-        hw00.task4();
-        hw00.task5();
-         */
+        hw05.task1();
+        hw05.task2();
+        hw05.task3();
+        hw05.task4();
     }
 }
