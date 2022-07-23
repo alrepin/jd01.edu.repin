@@ -2,6 +2,7 @@
 //import hw02.hw02;
 //import hw03.hw03;
 
+import hw04.hw04;
 public class Main {
     public static void main(String[] args) {
         //Домашнее задание по уроку "Установка инструментов разработчика" зачтено:
@@ -27,6 +28,14 @@ public class Main {
         hw03.hw03.task3();
         hw03.hw03.task4();
         hw03.hw03.task5();
+         */
+        //Домашнее задание по уроку "Циклы" зачтено:
+        //https://my.sky.pro/student-cabinet/stream-lesson/16822/homework
+        /*
+        hw04.info();
+        hw04.task1();
+        hw04.task2();
+        hw04.task3();
          */
     }
 }
