@@ -114,7 +114,7 @@ public class hw05 {
                 delim = ".\n";
             }
             if (intArr[i] % 2 != 0) {
-                intArr[i] = intArr[i]+1;
+                intArr[i] = intArr[i] + 1;
             }
             System.out.print(intArr[i] + delim);
         }
