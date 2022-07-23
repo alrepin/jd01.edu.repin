@@ -1,8 +1,8 @@
 //import hw01.hw01;
 //import hw02.hw02;
 //import hw03.hw03;
-
 import hw04.hw04;
+import hw05.hw05;
 public class Main {
     public static void main(String[] args) {
         //Домашнее задание по уроку "Установка инструментов разработчика" зачтено:
@@ -37,5 +37,14 @@ public class Main {
         hw04.task2();
         hw04.task3();
          */
+        //Домашнее задание по уроку "Массивы" зачтено:
+        //https://my.sky.pro/student-cabinet/stream-lesson/16823/homework
+        /*
+        hw05.info();
+        hw05.task1();
+        hw05.task2();
+        hw05.task3();
+        hw05.task4();
+        */
     }
 }
