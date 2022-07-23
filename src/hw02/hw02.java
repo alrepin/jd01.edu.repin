@@ -59,7 +59,7 @@ public class hw02 {
         intIcecreamItemCount = sc.nextInt();
         System.out.println("Пакетов молока по 100 мл :");
         intMilkItemCount = sc.nextInt();
-        sc.close();
+        //sc.close();
         System.out.println("Вес завтрака (г): " +
                 (intEggItemCount * intEggItemWeight + intBananaItemCount * intBananaItemWeight +
                         intMilkItemCount * intMilkItemWeight + intIcecreamItemWeight * intIcecreamItemCount));

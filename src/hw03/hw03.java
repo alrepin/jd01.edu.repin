@@ -7,9 +7,9 @@ public class hw03 {
         System.out.println("Домашнее задание по уроку \"Условные операторы\"");
     }
     public static void task1() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Ваша ОС: введите 0 — iOS, 1 — Android");
-        int clientOS = sc.nextInt();
+        Scanner sc3 = new Scanner(System.in);
+        int clientOS = sc3.nextInt();
         if (clientOS == 0 ) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         }  else if (clientOS == 1 ) {
@@ -20,9 +20,9 @@ public class hw03 {
 
     }
     public static void task2() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Ваша ОС: введите 0 — iOS, 1 — Android");
-        int clientOS = sc.nextInt();
+        Scanner sc3 = new Scanner(System.in);
+        int clientOS = sc3.nextInt();
         switch (clientOS) {
             case 1:
             case 0:
@@ -32,7 +32,7 @@ public class hw03 {
                 return;
         }
         System.out.println("Введите год производства Вашего устройства");
-        int clientDeviceYear = sc.nextInt();
+        int clientDeviceYear = sc3.nextInt();
         //sc.close();
 
         if (clientDeviceYear < 2015) {
@@ -59,9 +59,9 @@ public class hw03 {
         }
     }
     public static void task3() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Введите год для проверки на високосность:");
-        double year = sc.nextDouble();
+        Scanner sc3 = new Scanner(System.in);
+        double year = sc3.nextDouble();
 
         if ((year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0) ) {
             System.out.println("Вы ввели високосный год");
@@ -71,9 +71,9 @@ public class hw03 {
         //sc.close();
     }
     public static void task4() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Введите дистанцию до клиента в пределах тарифной сетки до 100 км.:");
-        int deliveryDistance = sc.nextInt();
+        Scanner sc3 = new Scanner(System.in);
+        int deliveryDistance = sc3.nextInt();
 
         int deliveryTime = 0;
         boolean flagErr = false;
@@ -100,9 +100,9 @@ public class hw03 {
         //sc.close();
     }
     public static void task5() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Введите номер месяца (1-12):");
-        int monthNumber = sc.nextInt();
+        Scanner sc3 = new Scanner(System.in);
+        int monthNumber = sc3.nextInt();
         //sc.close();
         if ((monthNumber > 12) || (monthNumber < 1)) {
             System.out.println("Можно вводить только целые числа от 1 до 12");
