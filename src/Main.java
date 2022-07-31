@@ -1,7 +1,7 @@
 import hw06.hw06;
 public class Main {
     public static void main(String[] args) {
-        //Домашнее задание по уроку "Массивы ч.2":
+        //Домашнее задание по уроку "Массивы ч.2" зачтено:
         //https://my.sky.pro/student-cabinet/stream-lesson/16824/homework
         hw06.info();
         hw06.task1();

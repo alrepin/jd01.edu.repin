@@ -52,9 +52,7 @@ public class hw06 {
          */
         System.out.println("Задача 3:");
         double paymentAvg = (double) paymentSum / mnthRprt.length;
-        System.out.print("Средняя сумма трат за месяц составила ");
-        System.out.printf("%.2f",+ paymentAvg);
-        System.out.println( " рублей.");
+        System.out.printf("Средняя сумма трат за месяц составила %.2f рублей\n", paymentAvg);
     }
     public static void task4() {
         /*
