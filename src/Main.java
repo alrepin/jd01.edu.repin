@@ -1,29 +1,30 @@
-//import hw01.hw01;
-//import hw02.hw02;
-//import hw03.hw03;
+import hw01.hw01;
+import hw02.hw02;
+import hw03.hw03;
 import hw04.hw04;
 import hw05.hw05;
+import hw06.hw06;
 public class Main {
     public static void main(String[] args) {
         //Домашнее задание по уроку "Установка инструментов разработчика" зачтено:
         //https://my.sky.pro/student-cabinet/stream-lesson/16819/homework
-        hw01.hw01.task01();
+        hw01.task01();
         //Домашнее задание по уроку "Переменные" зачтено:
         //https://my.sky.pro/student-cabinet/stream-lesson/16820/homework
-        hw02.hw02.info();
-        hw02.hw02.task1();
-        hw02.hw02.task2();
-        hw02.hw02.task3();
-        hw02.hw02.task4();
-        hw02.hw02.task5();
+        hw02.info();
+        hw02.task1();
+        hw02.task2();
+        hw02.task3();
+        hw02.task4();
+        hw02.task5();
         //Домашнее задание по уроку "Условные операторы" зачтено:
         //https://my.sky.pro/student-cabinet/stream-lesson/16821/homework
-        hw03.hw03.info();
-        hw03.hw03.task1();
-        hw03.hw03.task2();
-        hw03.hw03.task3();
-        hw03.hw03.task4();
-        hw03.hw03.task5();
+        hw03.info();
+        hw03.task1();
+        hw03.task2();
+        hw03.task3();
+        hw03.task4();
+        hw03.task5();
         //Домашнее задание по уроку "Циклы" зачтено:
         //https://my.sky.pro/student-cabinet/stream-lesson/16822/homework
         hw04.info();
@@ -37,5 +38,12 @@ public class Main {
         hw05.task2();
         hw05.task3();
         hw05.task4();
+        //Домашнее задание по уроку "Массивы ч.2" зачтено:
+        //https://my.sky.pro/student-cabinet/stream-lesson/16824/homework
+        hw06.info();
+        hw06.task1();
+        hw06.task2();
+        hw06.task3();
+        hw06.task4();
     }
 }
