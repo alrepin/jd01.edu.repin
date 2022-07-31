@@ -2,7 +2,7 @@ package hw03;
 
 import java.util.Scanner;
 
-public class hw03 {
+public class Hw03 {
     public static void info() {
         System.out.println("Домашнее задание по уроку \"Условные операторы\"");
     }

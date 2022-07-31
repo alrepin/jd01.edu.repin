@@ -1,5 +1,5 @@
 package hw05;
-public class hw05 {
+public class Hw05 {
     //Объявление массивов для совместного использования в заданиях
     final static int[] intArr = new int[3];
     final static double[] dblArr = new double[]{1.57, 7.654, 9.986};

@@ -1,7 +1,7 @@
 package hw02;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-public class hw02 {
+public class Hw02 {
     public static void info() {
         System.out.println("Домашнее задание по уроку \"Переменные\"");
     }

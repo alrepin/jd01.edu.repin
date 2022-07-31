@@ -1,5 +1,5 @@
 package hw06;
-public class hw06 {
+public class Hw06 {
     static int[] mnthRprt = generateRandomArray();
     static int paymentSum = 0;
     public static void info() {

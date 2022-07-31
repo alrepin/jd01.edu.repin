@@ -1,7 +1,7 @@
 package hw04;
 import java.util.Date;
 
-public class hw04 {
+public class Hw04 {
     public static void info() {
         System.out.println("Домашнее задание по уроку \"Циклы\"");
 
