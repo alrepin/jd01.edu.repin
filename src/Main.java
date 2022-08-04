@@ -4,6 +4,7 @@ import hw03.Hw03;
 import hw04.Hw04;
 import hw05.Hw05;
 import hw06.Hw06;
+import hw07.Hw07;
 public class Main {
     public static void main(String[] args) {
         //Домашнее задание по уроку "Установка инструментов разработчика" зачтено:
@@ -45,5 +46,11 @@ public class Main {
         Hw06.task2();
         Hw06.task3();
         Hw06.task4();
+        //Домашнее задание по уроку "Строки" зачтено:
+        //https://my.sky.pro/student-cabinet/stream-lesson/16825/homework
+        Hw07.info();
+        Hw07.task1();
+        Hw07.task2();
+        Hw07.task3();
     }
 }
