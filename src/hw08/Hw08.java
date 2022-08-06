@@ -3,7 +3,7 @@ package hw08;
 import java.time.LocalDate;
 
 public class Hw08 {
-    public static void info() {
+    public static void hwCaption() {
         System.out.println("\nДомашнее задание по уроку \"Методы\"\n");
     }
 
@@ -15,7 +15,7 @@ public class Hw08 {
         }
     }
 
-    public static void task1() {
+    public static void soutIsVarYearAleapYear(int year) {
         /*
 Реализуйте метод, который получает в качестве параметра год, а затем проверяет, является ли он високосным, и выводит
 результат в консоль.  Эту проверку вы уже реализовывали в задании по условным операторам.
@@ -24,7 +24,6 @@ public class Hw08 {
 Если год не високосный, то, соответственно: “номер года — не високосный год”.
         */
         System.out.println("Задача 1");
-        int year = 2001;
         if (Hw08.isLeap(year)) {
             System.out.println(year + " — високосный год");
         } else {
@@ -32,7 +31,7 @@ public class Hw08 {
         }
     }
 
-    public static String checkInstall(int clientOS, int clientDeviceYear){
+    public static String tellWhichSoftwareHaveToInstall(int clientOS, int clientDeviceYear){
         if (clientOS>1 || clientOS<0){return "ОШИБКА: Можно вводить только 0 и 1 идентификаторы ОС";}
         String[] arrClientOS = {"iOS", "Android"};
         String[] arrSoftVersion = {"лайт версию", "версию"};
@@ -44,7 +43,7 @@ public class Hw08 {
                 arrClientOS[clientOS] + " по ссылке";
     }
 
-    public static void task2() {
+    public static void soutWhichSoftwareHaveToInstall(int clientOS, int clientDeviceYear) {
         /*
 Рефакторинг Hw03.task2 через создание метода
 Для обозначения года создания используйте переменную clientDeviceYear, где необходимо указать 2015 год.
@@ -56,9 +55,7 @@ int currentYear = LocalDate.now().getYear();
 (обычную или lite) и для какой ОС (Android или iOS) нужно установить пользователю.
         */
         System.out.println("Задача 2");
-        int clientDeviceYear = 2022;
-        int clientOS = 1;
-        System.out.println(checkInstall(clientOS, clientDeviceYear));
+        System.out.println(tellWhichSoftwareHaveToInstall(clientOS, clientDeviceYear));
     }
 
     public static int calculateDeliveryTime(int deliveryDistance){
@@ -86,7 +83,7 @@ int currentYear = LocalDate.now().getYear();
         }
     }
 
-    public static void task3() {
+    public static void soutDeliveryTime(int deliveryDistance) {
         /*
 Рефакторинг Hw03.task4 через создание метода
 Программа выдает сообщение в консоль:
@@ -94,7 +91,6 @@ int currentYear = LocalDate.now().getYear();
 Объявите целочисленную переменную deliveryDistance = 95, которая содержит дистанцию до клиента.
         */
         System.out.println("Задача 3");
-        int deliveryDistance = 95;
         int DeliveryTime = calculateDeliveryTime(deliveryDistance);
         if (DeliveryTime !=0 ) {
             System.out.println("Потребуется дней: " + DeliveryTime);

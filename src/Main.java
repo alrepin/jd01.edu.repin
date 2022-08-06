@@ -1,13 +1,12 @@
 import hw08.Hw08;
-import lesson08.Lesson08;
 
 public class Main {
     public static void main(String[] args) {
-        //Домашнее задание по уроку "Методы":
+        //Домашнее задание по уроку "Методы" зачтено:
         //https://my.sky.pro/student-cabinet/stream-lesson/16826/homework
-        Hw08.info();
-        Hw08.task1();
-        Hw08.task2();
-        Hw08.task3();
+        Hw08.hwCaption();
+        Hw08.soutIsVarYearAleapYear(2000);
+        Hw08.soutWhichSoftwareHaveToInstall(1,2010);
+        Hw08.soutDeliveryTime(95);
     }
 }
