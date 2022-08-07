@@ -4,8 +4,9 @@ import hw03.Hw03;
 import hw04.Hw04;
 import hw05.Hw05;
 import hw06.Hw06;
-import hw07.Hw07;
-import hw08.Hw08;
+import topic07.hw.Hw07;
+import topic07.lesson.Lesson07;
+import topic08.hw.Hw08;
 
 public class Main {
     public static void main(String[] args) {
@@ -50,7 +51,7 @@ public class Main {
         Hw06.task4();
         //Домашнее задание по уроку "Строки" зачтено:
         //https://my.sky.pro/student-cabinet/stream-lesson/16825/homework
-        Hw07.info();
+        Hw07.hwCaption();
         Hw07.task1();
         Hw07.task2();
         Hw07.task3();

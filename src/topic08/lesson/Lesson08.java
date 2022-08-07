@@ -1,12 +1,6 @@
-package lesson08;
-
-import hw08.Hw08;
+package topic08.lesson;
 
 public class Lesson08 {
-    public static void main(String[] args) {
-        lesson();
-    }
-
     public static int sum(int[] numbers){
         int sum = 0;
         for (int i = 0; i < numbers.length; i++) {
@@ -24,7 +18,7 @@ public class Lesson08 {
         System.out.println("----------------------------------------");
     }
 
-    public static void lesson() {
+    public static void main() {
         System.out.println("Занятие\n");
         int[] issuesByMonths = {4, 6, 7, 9, 2, 5, 12, 3, 7, 10, 6, 7, 1, 8,};
         printSeparator();
