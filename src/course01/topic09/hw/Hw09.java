@@ -1,12 +1,7 @@
-package topic09.hw;
+package course01.topic09.hw;
 
 public class Hw09 {
-    public static void hwCaption() {
-        System.out.println("Домашнее задание по уроку \"Объекты и классы\"");
-    }
-
     public static void main() {
-        hwCaption();
         Author[] authors = new Author[2];
         for (int i = 0; i < authors.length; i++) {
             authors[i] = new Author("name" + (i + 1), "surname" + (i + 1));

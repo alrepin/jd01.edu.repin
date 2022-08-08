@@ -1,9 +1,15 @@
-import topic09.hw.Hw09;
-import topic09.lesson.Lesson09;
 public class Main {
+    public static void hwCaption(String caption, boolean isReady, int linkNum) {
+        String strIsReady = "";
+        if (isReady) {
+            strIsReady = "зачтено";
+        }
+        System.out.println("\nДомашнее задание по уроку \"" + caption + "\" " + strIsReady);
+        System.out.println("https://my.sky.pro/student-cabinet/stream-lesson/" + linkNum + "/homework");
+    }
+
     public static void main(String[] args) {
-        //Домашнее задание по уроку "Объекты и классы":
-        //https://my.sky.pro/student-cabinet/stream-lesson/16827/homework
-        Hw09.main();
+        hwCaption("Объекты и классы", true, 16827);
+        course01.topic09.hw.Hw09.main();
     }
 }

@@ -1,6 +1,4 @@
-package topic09.lesson;
-
-import java.sql.Array;
+package course01.topic09.lesson;
 
 public class Lesson09 {
 

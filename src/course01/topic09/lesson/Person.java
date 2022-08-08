@@ -1,4 +1,4 @@
-package topic09.lesson;
+package course01.topic09.lesson;
 public class Person {
     private String name;
     private int age;

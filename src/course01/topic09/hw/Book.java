@@ -1,4 +1,4 @@
-package topic09.hw;
+package course01.topic09.hw;
 public class Book {
     private String name;
     private Author author;
