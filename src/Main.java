@@ -7,6 +7,7 @@ public class Main {
         System.out.println("\nДомашнее задание по уроку \"" + caption + "\" " + strIsReady);
         System.out.println("https://my.sky.pro/student-cabinet/stream-lesson/" + linkNum + "/homework");
     }
+
     public static void main(String[] args) {
         hwCaption("Установка инструментов разработчика", true, 16819);
         course01.topic01.hw.Hw01.main();
@@ -24,6 +25,7 @@ public class Main {
         course01.topic07.hw.Hw07.main();
         hwCaption("Методы", true, 16826);
         course01.topic08.hw.Hw08.main();
-
+        hwCaption("Объекты и классы", true, 16827);
+        course01.topic09.hw.Hw09.main();
     }
 }
