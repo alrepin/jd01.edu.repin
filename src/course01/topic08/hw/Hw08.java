@@ -1,10 +1,12 @@
-package topic08.hw;
+package course01.topic08.hw;
 
 import java.time.LocalDate;
 
 public class Hw08 {
-    public static void hwCaption() {
-        System.out.println("\nДомашнее задание по уроку \"Методы\"\n");
+    public static void main() {
+        Hw08.soutIsVarYearAleapYear(2000);
+        Hw08.soutWhichSoftwareHaveToInstall(1,2010);
+        Hw08.soutDeliveryTime(95);
     }
 
     public static boolean isLeap(int year){

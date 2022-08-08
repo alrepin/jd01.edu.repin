@@ -1,11 +1,16 @@
-package hw02;
+package course01.topic02.hw;
 import java.text.DecimalFormat;
-import java.util.Scanner;
+
 public class Hw02 {
-    public static void info() {
-        System.out.println("Домашнее задание по уроку \"Переменные\"");
+    public static void main() {
+        testVarsInit();
+        compareFighters();
+        calculateBreakfastWeight();
+        calculateDietPeriod();
+        calculateAndShowSalaryChanging();
     }
-    public static void task1() {
+
+    public static void testVarsInit() {
         //Объявите переменные всех типов, что мы изучили на уроке, и присвойте им любые значения (инициализируйте их).
         System.out.println("Задача 1");
         char charMyVal = 65;
@@ -19,7 +24,7 @@ public class Hw02 {
         System.out.println("65 символ: " + charMyVal);
 
     }
-    public static void task2() {
+    public static void compareFighters() {
         /*Вес одного боксера – 78,2 кг
           Вес второго боксера – 82,7 кг
           Подсчитайте и выведите в консоль общий вес двух бойцов.
@@ -31,7 +36,7 @@ public class Hw02 {
         System.out.println("Разность веса бойцов: " + Double.toString(Math.abs(dblFighter1 - dblFighter2)) + " кг");
 
     }
-    public static void task3() {
+    public static void calculateBreakfastWeight() {
         /*Подсчитайте вес (количество грамм) спорт-завтрака, а затем переведите его в килограммы.
          * возможные ингридиенты:
          * – Бананы – 5 штук (1 банан - 80 грамм);
@@ -40,26 +45,20 @@ public class Hw02 {
          * – Яйца сырые – 4 яйца (1 яйцо - 70 грамм).
          * */
         System.out.println("Задача 3");
-        Scanner sc = new Scanner(System.in);
         int intBananaItemWeight = 80;
         int intMilkItemWeight = 105;
         int intIcecreamItemWeight = 100;
         int intEggItemWeight = 70;
 
-        int intEggItemCount = 0;
-        int intBananaItemCount = 0;
-        int intMilkItemCount = 0;
-        int intIcecreamItemCount = 0;
+        int intEggItemCount = 4;
+        int intBananaItemCount = 5;
+        int intMilkItemCount = 2;
+        int intIcecreamItemCount = 2;
 
-        System.out.println("Кол-во яиц :");
-        intEggItemCount = sc.nextInt();
-        System.out.println("Кол-во бананов :");
-        intBananaItemCount = sc.nextInt();
-        System.out.println("Брикетов мороженного по 100 г :");
-        intIcecreamItemCount = sc.nextInt();
-        System.out.println("Пакетов молока по 100 мл :");
-        intMilkItemCount = sc.nextInt();
-        //sc.close();
+        System.out.println("Кол-во яиц :" + intEggItemCount);
+        System.out.println("Кол-во бананов :" + intBananaItemCount);
+        System.out.println("Брикетов мороженого по 100 г :" + intMilkItemCount);
+        System.out.println("Пакетов молока по 100 мл :" + intMilkItemCount);
         System.out.println("Вес завтрака (г): " +
                 (intEggItemCount * intEggItemWeight + intBananaItemCount * intBananaItemWeight +
                         intMilkItemCount * intMilkItemWeight + intIcecreamItemWeight * intIcecreamItemCount));
@@ -68,7 +67,7 @@ public class Hw02 {
                         intMilkItemCount * intMilkItemWeight + intIcecreamItemWeight * intIcecreamItemCount) / (double) 1000));
 
     }
-    public static void task4() {
+    public static void calculateDietPeriod() {
         /*
         спортсмену нужно сбросить 7 кг
         Посчитайте, сколько дней уйдёт на похудение, если спортсмен будет терять каждый день по 250 грамм и сколько, если каждый день будет худеть на 500 грамм.
@@ -83,7 +82,8 @@ public class Hw02 {
         System.out.println("Для похудения на 7 кг. с минимальными усилиями потребуется " + df.format(7000 / intMinDayDelta) + " дней.");
         System.out.println("Для похудения на 7 кг. в среднем потребуется " + df.format(7000 / dblMidDayDelta) + " дней.");
     }
-    public static void task5() {
+
+    public static void calculateAndShowSalaryChanging() {
         /*
         Маша получает 67 760 рублей в месяц
         Денис получает 83 690 рублей в месяц

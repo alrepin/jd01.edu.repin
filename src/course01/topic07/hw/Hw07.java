@@ -1,6 +1,13 @@
-package topic07.hw;
+package course01.topic07.hw;
 public class Hw07 {
     static String fullName = "";
+
+    public static void main() {
+        concatAndShowFIOstr();
+        makeAndShowFIOupperCase();
+        replaceYoToE();
+    }
+
     public static String customReplaceAll(String str, String oldStr, String newStr) {
 
         if ("".equals(str) || "".equals(oldStr) || oldStr.equals(newStr)) {
@@ -27,6 +34,7 @@ public class Hw07 {
         }
         return builder.toString();
     }
+
     public static String untransliterate(String inpStr){
         String[] abcCyr =   {" ","щ","ё","ш","ц","ж","ч","а","б","в","г","д","е","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ъ","ы","ь","э", "ю","я","А","Б","В","Г","Д","Е","Ё", "Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х", "Ц", "Ч","Ш", "Щ","Ъ","Ы","Ь","Э","Ю","Я","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
         String[] abcLat = {" ","sch","yo","sh","ts","zh","ch","a","b","v","g","d","e","z","i","y","k","l","m","n","o","p","r","s","t","u","f","h", "","i", "","e","ju","ja","A","B","V","G","D","E","E","Zh","Z","I","Y","K","L","M","N","O","P","R","S","T","U","F","H","Ts","Ch","Sh","Sch", "","I", "","E","Ju","Ja","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
@@ -36,11 +44,8 @@ public class Hw07 {
         }
         return inpStr;
     }
-    public static void hwCaption() {
-        System.out.println("Домашнее задание по уроку \"Строки\"");
-    }
 
-    public static void task1() {
+    public static void concatAndShowFIOstr() {
         System.out.println("Задача 1");
         /*
 Напишите четыре строки:
@@ -57,7 +62,7 @@ public class Hw07 {
         fullName = lastName + ' ' + firstName + ' ' + middleName;
         System.out.println("ФИО сотрудника — " + fullName + '.');
     }
-    public static void task2() {
+    public static void makeAndShowFIOupperCase() {
         System.out.println("Задача 2");
         /*
 изменить написание Ф. И. О. сотрудника с  “Ivanov Ivan Ivanovich” на полностью заглавные буквы.
@@ -71,7 +76,7 @@ public class Hw07 {
             System.out.println("Данные о сотруднике отсутствуют");
         }
     }
-    public static void task3() {
+    public static void replaceYoToE() {
         System.out.println("Задача 3");
         /*
 заменить символ “ё” на символ “е”.

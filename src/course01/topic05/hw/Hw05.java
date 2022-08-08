@@ -1,14 +1,18 @@
-package hw05;
+package course01.topic05.hw;
 public class Hw05 {
     //Объявление массивов для совместного использования в заданиях
     final static int[] intArr = new int[3];
     final static double[] dblArr = new double[]{1.57, 7.654, 9.986};
     final static boolean[] boolArr = {true, false};
 
-    public static void info() {
-        System.out.println("Домашнее задание по уроку \"Массивы\"");
+    public static void main() {
+        defineArrays();
+        showListsWithArraysItems();
+        showReversedListsWithArraysItems();
+        incrementOddArrayItemsToEven();
     }
-    public static void task1() {
+
+    public static void defineArrays() {
         /*
 Объявите три массива:
 1. Целочисленный массив, заполненный тремя цифрами – 1, 2 и 3 – с помощью ключевого слова new.
@@ -29,7 +33,8 @@ public class Hw05 {
         }
         System.out.print("\n\n");
     }
-    public static void task2() {
+
+    public static void showListsWithArraysItems() {
     /*
 Пройдите по каждому из трех массивов и распечатайте все элементы всех трех массивов, начиная с первого элемента,
 через запятую. Запятая между последним элементом одного массива и первым элементом следующего не нужна.
@@ -63,9 +68,12 @@ public class Hw05 {
             System.out.print(boolArr[i] + delim);
         }
     }
-    public static void task3() {
+
+    public static void showReversedListsWithArraysItems() {
         /*
-задача – распечатать все элементы всех трех массивов, но начинать нужно не с первого элемента массива, а с последнего. Элементы должны быть распечатаны через запятую, при этом элементы одного массива располагаются на одной строчке, а элементы другого массива – на другой.
+задача – распечатать все элементы всех трех массивов, но начинать нужно не с первого элемента массива, а с последнего.
+Элементы должны быть распечатаны через запятую, при этом элементы одного массива располагаются на одной строчке,
+а элементы другого массива – на другой.
 Запятая между последним элементом одного массива и первым элементом следующего не нужна.
 Результат должен быть:
 3, 2, 1
@@ -99,7 +107,8 @@ public class Hw05 {
             System.out.print(boolArr[i] + delim);
         }
     }
-    public static void task4() {
+
+    public static void incrementOddArrayItemsToEven() {
         /*
 Пройдитесь по первому целочисленному массиву и все нечетные числа в нем сделайте четными (нужно прибавить 1).
 Важно: код должен работать с любым целочисленным массивом, поэтому для решения задания вам нужно использовать циклы.

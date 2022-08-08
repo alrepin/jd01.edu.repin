@@ -1,9 +1,13 @@
-package hw06;
+package course01.topic06.hw;
 public class Hw06 {
-    static int[] mnthRprt = generateRandomArray();
+    static int[] monthReport = generateRandomArray();
     static int paymentSum = 0;
-    public static void info() {
-        System.out.println("Домашнее задание по уроку \"Массивы ч.2\"");
+
+    public static void main() {
+        countPaymentSum();
+        countPaymentMinMax();
+        countPaymentAvg();
+        reverseAndShowArrayItems();
     }
 
     public static int[] generateRandomArray() {
@@ -14,27 +18,29 @@ public class Hw06 {
         }
         return arr;
     }
-    public static void task1() {
+
+    public static void countPaymentSum() {
         /*
 посчитать сумму всех выплат за месяц.
 Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
 в формате: «Сумма трат за месяц составила … рублей».
          */
         System.out.println("Задача 1:");
-        for (int curPayment : mnthRprt) {
+        for (int curPayment : monthReport) {
             paymentSum += curPayment;
         }
         System.out.println("Сумма трат за месяц составила " + paymentSum + " рублей.");
     }
-    public static void task2() {
+
+    public static void countPaymentMinMax() {
         /*
 найти минимальную и максимальную трату за день и вывести в консоль результат
 в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
          */
         System.out.println("Задача 2:");
-        int paymentMin = mnthRprt[0];
-        int paymentMax = mnthRprt[0];
-        for (int curPayment : mnthRprt) {
+        int paymentMin = monthReport[0];
+        int paymentMax = monthReport[0];
+        for (int curPayment : monthReport) {
             if (paymentMin > curPayment) {
                 paymentMin = curPayment;
             }
@@ -45,16 +51,18 @@ public class Hw06 {
         System.out.println("Минимальная сумма трат за день составила " + paymentMin + " рублей.");
         System.out.println("Максимальная сумма трат за день составила " + paymentMax + " рублей.");
     }
-    public static void task3() {
+
+    public static void countPaymentAvg() {
         /*
 посчитать среднее значение трат за месяц (то есть сумму всех трат за месяц поделить на количество дней),
 и вывести в консоль результат в формате: «Средняя сумма трат за месяц составила … рублей».
          */
         System.out.println("Задача 3:");
-        double paymentAvg = (double) paymentSum / mnthRprt.length;
+        double paymentAvg = (double) paymentSum / monthReport.length;
         System.out.printf("Средняя сумма трат за месяц составила %.2f рублей\n", paymentAvg);
     }
-    public static void task4() {
+
+    public static void reverseAndShowArrayItems() {
         /*
 Данные с именами сотрудников хранятся в виде массива символов (char[]).
 Напишите код, который в случае бага, когда Ф. И. О. сотрудников начали отображаться в обратную сторону

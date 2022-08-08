@@ -1,15 +1,17 @@
-package hw03;
-
-import java.util.Scanner;
+package course01.topic03.hw;
 
 public class Hw03 {
-    public static void info() {
-        System.out.println("Домашнее задание по уроку \"Условные операторы\"");
+    public static void main() {
+        whichSoftwareHaveToInstallSimple();
+        whichSoftwareHaveToInstall();
+        checkYearForLeap();
+        calculateDeliveryTimeSimple();
+        defineSeasonByMonthNumber();
     }
-    public static void task1() {
-        System.out.println("Ваша ОС: введите 0 — iOS, 1 — Android");
-        Scanner sc3 = new Scanner(System.in);
-        int clientOS = sc3.nextInt();
+
+    public static void whichSoftwareHaveToInstallSimple() {
+        System.out.println("Задача 1");
+        int clientOS = 1;
         if (clientOS == 0 ) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         }  else if (clientOS == 1 ) {
@@ -19,10 +21,11 @@ public class Hw03 {
         }
 
     }
-    public static void task2() {
-        System.out.println("Ваша ОС: введите 0 — iOS, 1 — Android");
-        Scanner sc3 = new Scanner(System.in);
-        int clientOS = sc3.nextInt();
+
+    public static void whichSoftwareHaveToInstall() {
+        System.out.println("Задача 2");
+        int clientOS = 0;
+        int clientDeviceYear = 2022;
         switch (clientOS) {
             case 1:
             case 0:
@@ -31,10 +34,6 @@ public class Hw03 {
                 System.out.println("Можно вводить только 0 и 1");
                 return;
         }
-        System.out.println("Введите год производства Вашего устройства");
-        int clientDeviceYear = sc3.nextInt();
-        //sc.close();
-
         if (clientDeviceYear < 2015) {
             clientDeviceYear = 10;
         } else {
@@ -58,23 +57,20 @@ public class Hw03 {
                 System.out.println("Что-то пошло не так)");
         }
     }
-    public static void task3() {
-        System.out.println("Введите год для проверки на високосность:");
-        Scanner sc3 = new Scanner(System.in);
-        double year = sc3.nextDouble();
 
+    public static void checkYearForLeap() {
+        System.out.println("Задача 3");
+        int year = 1900;
         if ((year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0) ) {
-            System.out.println("Вы ввели високосный год");
+            System.out.println("Вы ввели високосный " + year + " год ");
         }  else {
-            System.out.println("Вы ввели НЕ високосный год");
+            System.out.println("Вы ввели НЕ високосный " + year + " год");
         }
-        //sc.close();
     }
-    public static void task4() {
-        System.out.println("Введите дистанцию до клиента в пределах тарифной сетки до 100 км.:");
-        Scanner sc3 = new Scanner(System.in);
-        int deliveryDistance = sc3.nextInt();
 
+    public static void calculateDeliveryTimeSimple() {
+        System.out.println("Задача 4");
+        int deliveryDistance = 30;
         int deliveryTime = 0;
         boolean flagErr = false;
         switch ((deliveryDistance-1) / 20) {
@@ -93,17 +89,15 @@ public class Hw03 {
                 flagErr = true;
         }
         if (!flagErr) {
-            System.out.println("Потребуется дней: " + deliveryTime);
+            System.out.println("Потребуется дней: " + deliveryTime + " для дистанции = " + deliveryDistance + " км.");
         } else {
             System.out.println("Что-то пошло не так)");
         }
-        //sc.close();
     }
-    public static void task5() {
-        System.out.println("Введите номер месяца (1-12):");
-        Scanner sc3 = new Scanner(System.in);
-        int monthNumber = sc3.nextInt();
-        //sc.close();
+
+    public static void defineSeasonByMonthNumber() {
+        System.out.println("Задача 5");
+        int monthNumber = 5;
         if ((monthNumber > 12) || (monthNumber < 1)) {
             System.out.println("Можно вводить только целые числа от 1 до 12");
             return;

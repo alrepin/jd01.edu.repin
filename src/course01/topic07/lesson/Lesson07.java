@@ -1,4 +1,4 @@
-package topic07.lesson;
+package course01.topic07.lesson;
 
 public class Lesson07 {
     public static void main() {

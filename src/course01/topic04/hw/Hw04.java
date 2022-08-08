@@ -1,12 +1,14 @@
-package hw04;
+package course01.topic04.hw;
 import java.util.Date;
 
 public class Hw04 {
-    public static void info() {
-        System.out.println("Домашнее задание по уроку \"Циклы\"");
-
+    public static void main() {
+        showNumStrAndInvertStr();
+        showFridayReminds();
+        showCometVisitYears();
     }
-    public static void task1() {
+
+    public static void showNumStrAndInvertStr() {
         System.out.println("Задача 1:");
 /*
 Выведите в одну строку через пробел числа от 1 до 10, используя цикл while.
@@ -27,7 +29,7 @@ public class Hw04 {
         }
         System.out.print("\n");
     }
-    public static void task2() {
+    public static void showFridayReminds() {
         System.out.println("Задача 2:");
 /*
 Создайте переменную типа int, которая хранит в себе номер первой пятницы месяца (число от 1 до 7).
@@ -41,7 +43,7 @@ public class Hw04 {
             System.out.println("Сегодня пятница,"+ i +"-е число. Необходимо подготовить отчет.");
         }
     }
-    public static void task3() {
+    public static void showCometVisitYears() {
         System.out.println("Задача 3:");
 /*
 Для начала нам нужно посчитать траекторию движения кометы, которая пролетает рядом с Землей каждый 79-й год, начиная с нулевого.

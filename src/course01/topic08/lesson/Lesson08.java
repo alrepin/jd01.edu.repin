@@ -1,4 +1,4 @@
-package topic08.lesson;
+package course01.topic08.lesson;
 
 public class Lesson08 {
     public static int sum(int[] numbers){
