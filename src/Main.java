@@ -1,4 +1,5 @@
-import course00.topic00.lesson.Lesson00;
+import course01.topic10.hw.Hw10;
+import course01.topic10.lesson.Lesson10;
 public class Main {
     public static void hwCaption(String caption, boolean isReady, int linkNum) {
         String strIsReady = "";
@@ -10,8 +11,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        hwCaption("", false, 168);
-        course00.topic00.hw.Hw00.main();
-        course00.topic00.lesson.Lesson00.main();
+        hwCaption("Методы объектов", false, 16828);
+        Hw10.main();
+        Lesson10.main();
     }
 }
