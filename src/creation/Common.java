@@ -1,4 +1,4 @@
-package course01.topic10.creation;
+package creation;
 
 public class Common {
 

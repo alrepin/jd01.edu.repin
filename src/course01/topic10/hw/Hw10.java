@@ -5,7 +5,7 @@ public class Hw10 {
         Author[] authors = new Author[2];
 
         for (int i = 0; i < authors.length; i++) {
-            authors[i] = new Author(course01.topic10.creation.Common.randomName(), course01.topic10.creation.Common.randomSurname());
+            authors[i] = new Author(creation.Common.randomName(), creation.Common.randomSurname());
             System.out.println("authors[" + i + "] = " + authors[i]);
         }
 
@@ -13,7 +13,7 @@ public class Hw10 {
 
         Book[] books = new Book[2];
         for (int i = 0; i < books.length; i++) {
-            books[i] = new Book("\"" + (course01.topic10.creation.Common.randomBookName()) + "\"", authors[i], 2000 + i);
+            books[i] = new Book("\"" + (creation.Common.randomBookName()) + "\"", authors[i], 2000 + i);
             System.out.println("books[" + i + "] = " + books[i]);
         }
         System.out.println("books[0].equals(books[1]) = " + books[0].equals(books[1]));
