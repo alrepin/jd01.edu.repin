@@ -1,13 +1,6 @@
-public class Main {
-    public static void hwCaption(String caption, boolean isReady, int linkNum) {
-        String strIsReady = "";
-        if (isReady) {
-            strIsReady = "зачтено";
-        }
-        System.out.println("\nДомашнее задание по уроку \"" + caption + "\" " + strIsReady);
-        System.out.println("https://my.sky.pro/student-cabinet/stream-lesson/" + linkNum + "/homework");
-    }
+import course01.topic10.hw.Hw10;
 
+public class Main {
     public static void main(String[] args) {
         hwCaption("Установка инструментов разработчика", true, 16819);
         course01.topic01.hw.Hw01.main();
@@ -27,5 +20,7 @@ public class Main {
         course01.topic08.hw.Hw08.main();
         hwCaption("Объекты и классы", true, 16827);
         course01.topic09.hw.Hw09.main();
+        course01.topic10.creation.Common.hwCaption("Методы объектов", false, 16828);
+        Hw10.main();
     }
 }
