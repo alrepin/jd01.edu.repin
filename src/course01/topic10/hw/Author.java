@@ -1,27 +1,24 @@
 package course01.topic10.hw;
-
 import java.util.Objects;
 
 public class Author {
     private final String name;
-
     private final String surname;
-
     public Author(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public final String getName(){
+    public String getName(){
         return this.name;
     }
 
-    public final String getSurname(){
+    public String getSurname(){
         return this.surname;
     }
 
     @Override
-    public final String toString() {
+    public String toString() {
         return "Автор: " + this.name + " " + this.surname;
     }
 
