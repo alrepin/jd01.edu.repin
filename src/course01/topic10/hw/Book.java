@@ -3,9 +3,7 @@ import java.util.Objects;
 
 public class Book {
     private final String name;
-
     private final Author author;
-
     private int year;
 
     public Book(String name, Author author, int year) {
@@ -14,11 +12,11 @@ public class Book {
         this.year = year;
     }
 
-    public final String getName(){
+    public String getName(){
         return this.name;
     }
 
-    public final Author getAuthor(){
+    public Author getAuthor(){
         return this.author;
     }
 
@@ -31,7 +29,7 @@ public class Book {
     }
 
     @Override
-    public final String toString() {
+    public String toString() {
         return "Название: " + this.name + " г.и.: " + this.year + " " + this.getAuthor();
     }
 
