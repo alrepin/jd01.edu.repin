@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         creation.Common.hwCaption("Установка инструментов разработчика", true, 16819);
         course01.topic01.hw.Hw01.main();
         creation.Common.hwCaption("Переменные", true, 16820);
@@ -20,5 +20,6 @@ public class Main {
         course01.topic09.hw.Hw09.main();
         creation.Common.hwCaption("Методы объектов", true, 16828);
         course01.topic10.hw.Hw10.main();
+        course01.course_work.Cw01.main();
     }
 }
