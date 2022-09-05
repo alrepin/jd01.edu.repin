@@ -4,13 +4,13 @@ public class Lesson02 {
     public static void main() {
         System.out.println("Занятие\n");
 
-        Person[] people = {
+        /*Person[] people = {
                 new Person("Сара", 30, 112),
                 new Person("Джон", 12, 113),
                 new Person("Иван", 12, 114),
                 new Person("Том", 12, 115),
                 new Person("Джо", 23, 116),
-        };
+        };*/
 
         Customer[] customers = {
                 new Customer("Сара", 30, 112, 11321),
@@ -24,7 +24,7 @@ public class Lesson02 {
         };
 
         PrintService printService = new PrintService();
-        printService.print(people);
+        //printService.print(people);
         printService.print(customers);
         printService.print(gamers);
     }
