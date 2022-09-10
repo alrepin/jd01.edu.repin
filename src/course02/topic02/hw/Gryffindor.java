@@ -7,6 +7,10 @@ public class  Gryffindor extends Hogwarts{
     private int honour;
     private int bravery;
 
+    public String facultyCaption() {
+        return "Гриффиндор";
+    }
+
     public Gryffindor(String name, int sorcery, int transgression, int nobility, int honour, int bravery) {
         super(name, sorcery, transgression);
         this.nobility = chkValueIn0_100interval("nobility", nobility);
@@ -19,8 +23,7 @@ public class  Gryffindor extends Hogwarts{
     }
 
     public void setNobility(int nobility) {
-        chkValueIn0_100interval("nobility", nobility);
-        this.nobility = nobility;
+        this.nobility = chkValueIn0_100interval("nobility", nobility);
     }
 
     public int getHonour() {
@@ -28,8 +31,7 @@ public class  Gryffindor extends Hogwarts{
     }
 
     public void setHonour(int honour) {
-        chkValueIn0_100interval("honour", honour);
-        this.honour = honour;
+        this.honour = chkValueIn0_100interval("honour", honour);
     }
 
     public int getBravery() {
@@ -37,8 +39,12 @@ public class  Gryffindor extends Hogwarts{
     }
 
     public void setBravery(int bravery) {
-        chkValueIn0_100interval("bravery", bravery);
-        this.bravery = bravery;
+        this.bravery = chkValueIn0_100interval("bravery", bravery);
+    }
+
+    @Override
+    public int calculateFacultyRatio() {
+        return nobility + honour + bravery;
     }
 
     @Override

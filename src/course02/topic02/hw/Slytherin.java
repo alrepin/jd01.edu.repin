@@ -9,6 +9,10 @@ public class Slytherin extends Hogwarts {
     private int resourcefulness;
     private int powerLust;
 
+    public String facultyCaption() {
+        return "Слизерин";
+    }
+
     public Slytherin(String name, int sorcery, int transgression, int cunning, int determination, int ambition, int resourcefulness, int powerLust) {
         super(name, sorcery, transgression);
         this.cunning = chkValueIn0_100interval("cunning", cunning);
@@ -56,6 +60,11 @@ public class Slytherin extends Hogwarts {
 
     public void setPowerLust(int powerLust) {
         this.powerLust = chkValueIn0_100interval("powerLust", powerLust);
+    }
+
+    @Override
+    public int calculateFacultyRatio() {
+        return cunning + determination + ambition + resourcefulness + powerLust;
     }
 
     @Override

@@ -8,6 +8,10 @@ public class Ravenclaw extends Hogwarts{
     private int wit;
     private int creation;
 
+    public String facultyCaption() {
+        return "Когтевран";
+    }
+
     public Ravenclaw(String name, int sorcery, int transgression, int smart, int wisdom, int wit, int creation) {
         super(name, sorcery, transgression);
         this.smart = chkValueIn0_100interval("smart", smart);
@@ -46,6 +50,11 @@ public class Ravenclaw extends Hogwarts{
 
     public void setCreation(int creation) {
         this.creation = chkValueIn0_100interval("creation", creation);
+    }
+
+    @Override
+    public int calculateFacultyRatio() {
+        return smart + wisdom + wit + creation;
     }
 
     @Override

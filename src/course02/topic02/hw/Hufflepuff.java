@@ -7,6 +7,10 @@ public class Hufflepuff extends Hogwarts{
     private int loyalty;
     private int honesty;
 
+    public String facultyCaption() {
+        return "Пуффендуй";
+    }
+
     public Hufflepuff(String name, int sorcery, int transgression, int industriousness, int loyalty, int honesty) {
         super(name, sorcery, transgression);
         this.industriousness = chkValueIn0_100interval("industriousness", industriousness);
@@ -36,6 +40,11 @@ public class Hufflepuff extends Hogwarts{
 
     public void setHonesty(int honesty) {
         this.honesty = chkValueIn0_100interval("honesty", honesty);
+    }
+
+    @Override
+    public int calculateFacultyRatio() {
+        return industriousness + loyalty + honesty;
     }
 
     @Override
