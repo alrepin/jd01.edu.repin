@@ -17,21 +17,18 @@ public class Common {
     public static String randomBookName(){
         String[] arrWords = {"Война", "Мир", "Лёд", "Пламя", "Зима", "Лето", "Добро", "Зло"};
         java.util.Random random = new java.util.Random();
-        random = null;
         return arrWords[random.nextInt(7) + 1] + " и " + arrWords[random.nextInt(7) + 1];
     }
 
     public static String randomName(){
         String[] arrName = {"Петр", "Иван", "Василий", "Сидор", "Евгений", "Федор"};
         java.util.Random random = new java.util.Random();
-        random = null;
         return arrName[random.nextInt(5) + 1];
     }
 
     public static String randomSurname(){
         String[] arrSurname = {"Петров", "Иванов", "Пупкин", "Сидоров", "Пушкин", "Федоров"};
         java.util.Random random = new java.util.Random();
-        random = null;
         return arrSurname[random.nextInt(5) + 1];
     }
 
@@ -47,7 +44,6 @@ public class Common {
                 result = currentRandom;
             }
             }
-        random = null;
         return result;
         }
 
@@ -66,7 +62,6 @@ public class Common {
                 result = currentRandom;
             }
         }
-        random = null;
         return result;
     }
 }
