@@ -21,7 +21,9 @@ public class Main {
         creation.Common.hwCaption("Методы объектов", true, 16828);
         course01.topic10.hw.Hw10.main();
         course01.course_work.Cw01.main();
-        creation.Common.hwCaption("ООП — инкапсуляция и наследование ч. 1", false, 16831);
+        creation.Common.hwCaption("ООП — инкапсуляция и наследование ч. 1", true, 16831);
         course02.topic02.hw.Hw02.main();
+        creation.Common.hwCaption("ООП — полиморфизм и интерфейсы (ч2)", true, 16832);
+        course02.topic02_2.hw.Hw02_2.main();
     }
 }
