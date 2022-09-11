@@ -22,5 +22,9 @@ public abstract class Vehicle {
         return wheelCount;
     }
 
+    public void printCaption() {
+        System.out.println("Обслуживаем " + this.getModelName());
+    }
 
+    abstract void check();
 }

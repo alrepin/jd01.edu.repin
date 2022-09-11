@@ -4,4 +4,10 @@ public class Launch extends Vehicle implements EngineInstalled{
     public Launch(String modelName) {
         super(modelName);
     }
+
+    @Override
+    public void check() {
+        this.printCaption();
+        this.checkEngine();
+    }
 }
