@@ -1,19 +1,7 @@
 package course02.topic02_2.hw;
 
-public class Truck {
-
-    public String modelName;
-    public int wheelsCount;
-
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
-    }
-
-    public void checkEngine() {
-        System.out.println("Проверяем двигатель");
-    }
-
-    public void checkTrailer() {
-        System.out.println("Проверяем прицеп");
+public class Truck extends Vehicle implements TiresInstalled, EngineInstalled, TrailerInstalled {
+    public Truck(String modelName, int wheelCount) {
+        super(modelName, wheelCount);
     }
 }
