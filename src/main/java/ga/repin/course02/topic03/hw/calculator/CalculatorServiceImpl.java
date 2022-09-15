@@ -26,7 +26,7 @@ public class CalculatorServiceImpl implements CalculatorService{
 
     public String operationWelcome() {
         return htmlFormat("Добро пожаловать в калькулятор"
-                + "<br><a href=\"/calculator/plus?num1=5&num2=5\">[СЛОЖЕНИЕ]</a> - "
+                + "<hr><a href=\"/calculator/plus?num1=5&num2=5\">[СЛОЖЕНИЕ]</a> - "
                 + descriptionPlus + ";"
                 + "<br><a href=\"/calculator/minus?num1=5&num2=5\">[ВЫЧИТАНИЕ]</a> - "
                 + descriptionMinus + ";"
