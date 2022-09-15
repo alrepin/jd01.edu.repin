@@ -41,7 +41,7 @@ public class Main {
         ga.repin.course02.topic02.hw.Hw02.main();
         Common.hwCaption("ООП — полиморфизм и интерфейсы (ч2)", true, 16832);
         Hw02_2.main();
+        Common.hwCaption("2.3. Введение в Maven и Spring Boot", true, 16833);
         ga.repin.course02.topic03.hw.calculator.CalculatorApplication.main(args);
-
     }
 }
