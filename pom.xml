@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ga.repin</groupId>
-	<artifactId>repin-spring-calculator</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>repin spring calculator</name>
-	<description>Calculator project for Spring Boot</description>
+	<artifactId>education</artifactId>
+	<version>0.0.1</version>
+	<name>skypro education</name>
+	<description>Skypro education project</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

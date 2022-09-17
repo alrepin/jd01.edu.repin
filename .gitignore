@@ -16,6 +16,7 @@ target/
 ### IntelliJ IDEA ###
 /out/
 .idea
+!.idea/workspace.xml
 *.iws
 *.iml
 *.ipr
