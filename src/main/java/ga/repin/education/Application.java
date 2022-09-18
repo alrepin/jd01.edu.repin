@@ -35,6 +35,7 @@ public class Application {
 		ga.repin.education.course02.topic02_2.hw.Hw02_2.main();
 		Common.hwCaption("2.3. Введение в Maven и Spring Boot", true, 16833);
 		SpringApplication.run(Application.class, args);
-
+		Common.hwCaption("2.4. Работа с исключениями", true, 16834);
+		SpringApplication.run(Application.class, args);
 	}
 }
