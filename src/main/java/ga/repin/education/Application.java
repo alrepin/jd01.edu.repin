@@ -3,10 +3,11 @@ package ga.repin.education;
 import ga.repin.education.creation.Common;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class Application {
-
+	public static ApplicationContext appContext = null;
 	public static void main(String[] args) {
 		Common.hwCaption("Установка инструментов разработчика", true, 16819);
 		ga.repin.education.course01.topic01.hw.Hw01.main();
@@ -34,8 +35,8 @@ public class Application {
 		Common.hwCaption("ООП — полиморфизм и интерфейсы (ч2)", true, 16832);
 		ga.repin.education.course02.topic02_2.hw.Hw02_2.main();
 		Common.hwCaption("2.3. Введение в Maven и Spring Boot", true, 16833);
-		SpringApplication.run(Application.class, args);
 		Common.hwCaption("2.4. Работа с исключениями", true, 16834);
-		SpringApplication.run(Application.class, args);
+		appContext = SpringApplication.run(Application.class, args);
+
 	}
 }

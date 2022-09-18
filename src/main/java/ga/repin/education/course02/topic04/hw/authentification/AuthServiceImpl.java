@@ -9,7 +9,7 @@ public class AuthServiceImpl implements AuthService {
     private String htmlFormat(String unformattedString) {
         return "<html><body link=\"Chartreuse\" vlink=\"Chartreuse\" bgcolor=\"green\" text=\"Chartreuse\"><h2>"
                 + unformattedString
-                + "<hr><a href=\"/.\">[ДОМОЙ]</a>   <a href=\"/auth\">[НАЗАД]</a><hr>"
+                + "<hr><a href=\"/.\">[ДОМОЙ]</a>   <a href=\"javascript:history.back()\">[НАЗАД]</a><hr>"
                 + "</h2></body></html>";
     }
 
@@ -38,7 +38,7 @@ public class AuthServiceImpl implements AuthService {
         }
         try {
             verificateAuthenticationData(login, password, confirmPassword);
-        } catch (WrongLoginException | WrongPasswordException e) {
+        } catch (Exception e) {
             return htmlFormat(e.getMessage());
         }
         return htmlFormat("Введены корректные данные.");
