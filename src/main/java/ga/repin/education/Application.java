@@ -7,8 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+    public static void main(String[] args) {
+        Common.hwCaption("2.4. Работа с исключениями", false, 16834);
+        SpringApplication.run(Application.class, args);
 
-	}
+    }
 }
