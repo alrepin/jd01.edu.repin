@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculatorServiceImpl implements CalculatorService{
     private String htmlFormat(String unformattedString) {
-        return "<html><body link=\"red\" vlink=\"red\" bgcolor=\"black\" text=\"# 7FFF00\"><h2>"
+        return "<html><body link=\"Yellow\" vlink=\"Yellow\" bgcolor=\"olive\" text=\"Yellow\"><h2>"
                 + unformattedString
                 + "<hr><a href=\"/.\">[ДОМОЙ]</a>   <a href=\".\">[НАЗАД]</a><hr>"
                 + "</h2></body></html>";

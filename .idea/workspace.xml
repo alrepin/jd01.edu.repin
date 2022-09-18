@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="afe74640-807f-42f0-b7f9-9ea2e8d7da27" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw/authentification/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw/authentification/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw/authentification/AuthServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw/authentification/Authentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw/authentification/WrongLoginException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw/authentification/WrongPasswordException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic03/hw/calculator/CalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/CalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic03/hw/calculator/CalculatorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/CalculatorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic03/hw/calculator/CalculatorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/ServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic03/hw/calculator/CalculatorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic03/hw/calculator/CalculatorServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
