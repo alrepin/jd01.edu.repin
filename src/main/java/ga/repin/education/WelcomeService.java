@@ -1,7 +1,9 @@
 package ga.repin.education;
 
-public interface Service {
+public interface WelcomeService {
     String operationIndex();
 
     String stopSpring(String pass);
+
+    String letSwitchTheme();
 }
