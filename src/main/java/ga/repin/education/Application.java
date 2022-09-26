@@ -40,6 +40,6 @@ public class Application {
 		Common.hwCaption("2.6. Коллекции: сеты и мапы", false, 16836);
 		ga.repin.education.course02.topic06.hw.Hw06.main();
 
-		appContext = SpringApplication.run(Application.class, args);
+		//appContext = SpringApplication.run(Application.class, args);
 	}
 }
