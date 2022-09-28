@@ -39,7 +39,7 @@ public class Application {
 		Common.hwCaption("2.5. Коллекции и сеты", true, 16835);
 		Common.hwCaption("2.6. Коллекции: сеты и мапы", true, 16836);
 		ga.repin.education.course02.topic06.hw.Hw06.main();
-		Common.hwCaption("2.7. Коллекции: многообразие реализаций", false, 16837);
+		Common.hwCaption("2.7. Коллекции: многообразие реализаций", true, 16837);
 		appContext = SpringApplication.run(Application.class, args);
 	}
 }
