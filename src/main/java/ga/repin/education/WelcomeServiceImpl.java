@@ -16,6 +16,7 @@ public class WelcomeServiceImpl implements WelcomeService {
                 + "<hr><a href=\"/calculator\">2.3 КАЛЬКУЛЯТОР</a>"
                 + "<br><a href=\"/auth\">2.4 АУТЕНТИФИКАЦИЯ</a>"
                 + "<br><a href=\"/employee\">2.5 API EMPLOYEE DEV</a>"
+                + "<br><a href=\"/v2/employee\">2.7 VERSION 2 API EMPLOYEE DEV</a>"
                 + "<br>"
         );
     }

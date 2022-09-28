@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Common {
-    public static ArrayList<Integer> rndIntGenerated = new ArrayList<Integer>();
-    public static ArrayList<Integer> rnd0_100Generated = new ArrayList<Integer>();
-    public static ArrayList<String> rndFI = new ArrayList<String>();
+    public static List<Integer> rndIntGenerated = new ArrayList<Integer>();
+    public static List<Integer> rnd0_100Generated = new ArrayList<Integer>();
+    public static List<String> rndFI = new ArrayList<String>();
 
     public static boolean isFilled(String... strField) {
         boolean isFilledVar = true;
