@@ -8,6 +8,53 @@ public class Common {
     public static List<Integer> rnd0_100Generated = new ArrayList<Integer>();
     public static List<String> rndFI = new ArrayList<String>();
 
+    public static String customReplaceAll(String str, String oldStr, String newStr) {
+
+        if ("".equals(str) || "".equals(oldStr) || oldStr.equals(newStr)) {
+            return str;
+        }
+        if (newStr == null) {
+            newStr = "";
+        }
+        final int strLength = str.length();
+        final int oldStrLength = oldStr.length();
+        StringBuilder builder = new StringBuilder(str);
+
+        for (int i = 0; i < strLength; i++) {
+            int index = builder.indexOf(oldStr, i);
+
+            if (index == -1) {
+                if (i == 0) {
+                    return str;
+                }
+                return builder.toString();
+            }
+            builder = builder.replace(index, index + oldStrLength, newStr);
+
+        }
+        return builder.toString();
+    }
+
+    public static String transliterate(String inpStr){
+        String[] abcCyr =   {" ","щ","ё","ш","ц","ж","ч","а","б","в","г","д","е","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ъ","ы","ь","э", "ю","я","А","Б","В","Г","Д","Е","Ё", "Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х", "Ц", "Ч","Ш", "Щ","Ъ","Ы","Ь","Э","Ю","Я","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        String[] abcLat = {" ","sch","yo","sh","ts","zh","ch","a","b","v","g","d","e","z","i","y","k","l","m","n","o","p","r","s","t","u","f","h", "","i", "","e","ju","ja","A","B","V","G","D","E","E","Zh","Z","I","Y","K","L","M","N","O","P","R","S","T","U","F","H","Ts","Ch","Sh","Sch", "","I", "","E","Ju","Ja","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+
+        for (int x = 0; x < abcLat.length; x++ ) {
+            inpStr = customReplaceAll(inpStr, abcCyr[x], abcLat[x]);
+        }
+        return inpStr;
+    }
+
+    public static String untransliterate(String inpStr){
+        String[] abcCyr =   {" ","щ","ё","ш","ц","ж","ч","а","б","в","г","д","е","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ъ","ы","ь","э", "ю","я","А","Б","В","Г","Д","Е","Ё", "Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х", "Ц", "Ч","Ш", "Щ","Ъ","Ы","Ь","Э","Ю","Я","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        String[] abcLat = {" ","sch","yo","sh","ts","zh","ch","a","b","v","g","d","e","z","i","y","k","l","m","n","o","p","r","s","t","u","f","h", "","i", "","e","ju","ja","A","B","V","G","D","E","E","Zh","Z","I","Y","K","L","M","N","O","P","R","S","T","U","F","H","Ts","Ch","Sh","Sch", "","I", "","E","Ju","Ja","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+
+        for (int x = 0; x < abcLat.length; x++ ) {
+            inpStr = customReplaceAll(inpStr, abcLat[x], abcCyr[x]);
+        }
+        return inpStr;
+    }
+
     public static boolean isFilled(String... strField) {
         boolean isFilledVar = true;
         for (int i = 0; i < strField.length; i++) {
