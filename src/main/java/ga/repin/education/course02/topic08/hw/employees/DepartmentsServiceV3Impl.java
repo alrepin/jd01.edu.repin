@@ -32,10 +32,12 @@ public class DepartmentsServiceV3Impl implements DepartmentsServiceV3 {
 
                         "<a href=\"/v3/departments/max-salary?departmentId=1" +
                         "\">[for first department]</a> " +
-                        "<i>/v3/departments/max-salary?departmentId=1</i><br>" +
+                        "<i><font face=\"Times New Roman\" size=\"3\">/v3/departments/max-salary?departmentId=1" +
+                        "</font></i><br>" +
                         "<a href=\"/v3/departments/max-salary?departmentId=2" +
                         "\">[for second department]</a> " +
-                        "<i>/v3/departments/max-salary?departmentId=2</i><br>" +
+                        "<i><font face=\"Times New Roman\" size=\"3\">/v3/departments/max-salary?departmentId=2" +
+                        "</font></i><br>" +
 
                         "<br><li>" +
                         "/v3/departments/min-salary?departmentId=&ltDepartment number&gt " +
@@ -44,10 +46,12 @@ public class DepartmentsServiceV3Impl implements DepartmentsServiceV3 {
 
                         "<a href=\"/v3/departments/min-salary?departmentId=1" +
                         "\">[for first department]</a> " +
-                        "<i>/v3/departments/min-salary?departmentId=1</i><br>" +
+                        "<i><font face=\"Times New Roman\" size=\"3\">/v3/departments/min-salary?departmentId=1" +
+                        "</font></i><br>" +
                         "<a href=\"/v3/departments/min-salary?departmentId=2" +
                         "\">[for second department]</a> " +
-                        "<i>/v3/departments/min-salary?departmentId=2</i><br>" +
+                        "<i><font face=\"Times New Roman\" size=\"3\">/v3/departments/min-salary?departmentId=2" +
+                        "</font></i><br>" +
 
                         "<br><li>" +
                         "/v3/departments/all?departmentId=&ltDepartment number&gt " +
@@ -56,10 +60,12 @@ public class DepartmentsServiceV3Impl implements DepartmentsServiceV3 {
 
                         "<a href=\"/v3/departments/all?departmentId=1" +
                         "\">[for first department]</a> " +
-                        "<i>/v3/departments/all?departmentId=1</i><br>" +
+                        "<i><font face=\"Times New Roman\" size=\"3\">/v3/departments/all?departmentId=1" +
+                        "</font></i><br>" +
                         "<a href=\"/v3/departments/all?departmentId=2" +
                         "\">[for second department]</a> " +
-                        "<i>/v3/departments/all?departmentId=2</i><br>" +
+                        "<i><font face=\"Times New Roman\" size=\"3\">/v3/departments/all?departmentId=2" +
+                        "</font></i><br>" +
 
                         "<br><li>" +
                         "/v3/departments/all " +

@@ -40,7 +40,7 @@ public class Application {
 		Common.hwCaption("2.6. Коллекции: сеты и мапы", true, 16836);
 		ga.repin.education.course02.topic06.hw.Hw06.main();
 		Common.hwCaption("2.7. Коллекции: многообразие реализаций", true, 16837);
-		Common.hwCaption("2.8. Stream API и Optional", false, 16838);
+		Common.hwCaption("2.8. Stream API и Optional", true, 16838);
 		appContext = SpringApplication.run(Application.class, args);
 	}
 }

@@ -24,7 +24,7 @@ public class WelcomeServiceImpl implements WelcomeService {
 
     @Override
     public String stopSpring(String pass) {
-        if (pass.equals("killit")) {
+        if (pass.equals("killme")) {
             SpringApplication.exit(Application.appContext);
         }
         return mainTheme("У вас нет таких привилегий");

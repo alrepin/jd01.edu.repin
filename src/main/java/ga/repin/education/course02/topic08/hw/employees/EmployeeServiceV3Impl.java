@@ -44,14 +44,19 @@ public class EmployeeServiceV3Impl implements EmployeeServiceV3 {
             testAddEmployees = testAddEmployees +
                     "<a href=\"/v3/employee/add?" + testEmployee +
                     testEmployeeParams.get(i - 1) +
-                    "\">[Append " + i + "]</a> <i>/v3/employee/add?" +
-                    testEmployee + testEmployeeParams.get(i - 1) + "</i><br>";
+                    "\">[Append " + i + "]</a> " +
+                    "<i><font face=\"Times New Roman\" size=\"3\">/v3/employee/add?" +
+                    testEmployee + testEmployeeParams.get(i - 1) + "</font></i><br>";
             testRmEmployees = testRmEmployees +
                     "<a href=\"/v3/employee/remove?" + testEmployee +
-                    "\">[Put away " + i + "]</a> <i>/v3/employee/remove?" + testEmployee + "</i><br>";
+                    "\">[Put away " + i + "]</font></a> " +
+                    "<i><font face=\"Times New Roman\" size=\"3\">/v3/employee/remove?" +
+                    testEmployee + "</font></i><br>";
             testFindEmployees = testFindEmployees +
                     "<a href=\"/v3/employee/find?" + testEmployee +
-                    "\">[Search " + i + "]</a> <i>/v3/employee/find?" + testEmployee + "</i><br>";
+                    "\">[Search " + i + "]</a> " +
+                    "<i><font face=\"Times New Roman\" size=\"3\">/v3/employee/find?" +
+                    testEmployee + "</font></i><br>";
             i++;
         }
 
