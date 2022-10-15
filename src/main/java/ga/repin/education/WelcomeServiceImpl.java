@@ -27,7 +27,7 @@ public class WelcomeServiceImpl implements WelcomeService {
                 + "<a href=\"/v3/employee\">2.8 V3 API EMPLOYEE DEV (Stream API)</a>"
                 + commentPrep(hwCaption("2.8. Stream API and Optional", true, "16838"), null)
                 + "<a href=\"/v4/employee\">2.10 V4 API EMPLOYEE DEV (commons-lang3)</a>"
-                + commentPrep(hwCaption("2.10. Libraries", false, "16841"), null)
+                + commentPrep(hwCaption("2.10. Libraries", true, "16841"), null)
         );
     }
 
