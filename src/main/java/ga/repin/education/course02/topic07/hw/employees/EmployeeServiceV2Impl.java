@@ -2,13 +2,13 @@ package ga.repin.education.course02.topic07.hw.employees;
 
 import ga.repin.education.course02.topic07.hw.employees.exceptions.EmployeeAlreadyAddedException;
 import ga.repin.education.course02.topic07.hw.employees.exceptions.EmployeeNotFoundException;
+import ga.repin.education.creation.Common;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-import static ga.repin.education.creation.Common.isFilled;
-import static ga.repin.education.creation.Common.randomFI;
-import static ga.repin.education.creation.HtmlWrappers.mainTheme;
+import static ga.repin.education.creation.Common.*;
+import static ga.repin.education.creation.HtmlWrappers.*;
 
 @Service
 public class EmployeeServiceV2Impl implements EmployeeServiceV2 {
@@ -64,7 +64,7 @@ public class EmployeeServiceV2Impl implements EmployeeServiceV2 {
     }
 
     public Employee addEmployee(String firstName, String lastName) {
-        if (!(isFilled(firstName, lastName))) return null;
+        if (!(Common.isUnicodeFilled(firstName, lastName))) return null;
         Employee employee = new Employee(firstName, lastName);
         if (existsEmployee(employee))
             throw new EmployeeAlreadyAddedException("Ку-ку! Попытка создания дублирующей записи.");
@@ -73,7 +73,7 @@ public class EmployeeServiceV2Impl implements EmployeeServiceV2 {
     }
 
     public Employee removeEmployee(String firstName, String lastName) {
-        if (!(isFilled(firstName, lastName))) return null;
+        if (!(Common.isUnicodeFilled(firstName, lastName))) return null;
         Employee employee = new Employee(firstName, lastName);
         if (!existsEmployee(employee)) {
             throw new EmployeeNotFoundException("Некого удалять - нет такого сотрудника!");
@@ -83,7 +83,7 @@ public class EmployeeServiceV2Impl implements EmployeeServiceV2 {
     }
 
     public Employee findEmployee(String firstName, String lastName) {
-        if (!isFilled(firstName, lastName)) return null;
+        if (!Common.isUnicodeFilled(firstName, lastName)) return null;
         Employee employee = new Employee(firstName, lastName);
         if (!existsEmployee(employee)) {
             throw new EmployeeNotFoundException("Сотрудник с такими данными не найден");

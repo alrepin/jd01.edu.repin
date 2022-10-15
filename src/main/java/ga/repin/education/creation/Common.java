@@ -3,6 +3,12 @@ package ga.repin.education.creation;
 import java.util.ArrayList;
 import java.util.List;
 
+import ga.repin.education.course02.topic10.hw.employees.exceptions.HttpException;
+import org.apache.commons.lang3.*;
+import org.springframework.http.HttpStatus;
+
+import static ga.repin.education.creation.HtmlWrappers.hrefPrep;
+
 public class Common {
     public static List<Integer> rndIntGenerated = new ArrayList<Integer>();
     public static List<Integer> rnd0_100Generated = new ArrayList<Integer>();
@@ -35,35 +41,41 @@ public class Common {
         return builder.toString();
     }
 
-    public static String transliterate(String inpStr){
-        String[] abcCyr =   {" ","щ","ё","ш","ц","ж","ч","а","б","в","г","д","е","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ъ","ы","ь","э", "ю","я","А","Б","В","Г","Д","Е","Ё", "Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х", "Ц", "Ч","Ш", "Щ","Ъ","Ы","Ь","Э","Ю","Я","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
-        String[] abcLat = {" ","sch","yo","sh","ts","zh","ch","a","b","v","g","d","e","z","i","y","k","l","m","n","o","p","r","s","t","u","f","h", "","i", "","e","ju","ja","A","B","V","G","D","E","E","Zh","Z","I","Y","K","L","M","N","O","P","R","S","T","U","F","H","Ts","Ch","Sh","Sch", "","I", "","E","Ju","Ja","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    public static String transliterate(String inpStr) {
+        String[] abcCyr = {" ", "щ", "ё", "ш", "ц", "ж", "ч", "а", "б", "в", "г", "д", "е", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ъ", "ы", "ь", "э", "ю", "я", "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+        String[] abcLat = {" ", "sch", "yo", "sh", "ts", "zh", "ch", "a", "b", "v", "g", "d", "e", "z", "i", "y", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "h", "", "i", "", "e", "ju", "ja", "A", "B", "V", "G", "D", "E", "E", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "F", "H", "Ts", "Ch", "Sh", "Sch", "", "I", "", "E", "Ju", "Ja", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
-        for (int x = 0; x < abcLat.length; x++ ) {
+        for (int x = 0; x < abcLat.length; x++) {
             inpStr = customReplaceAll(inpStr, abcCyr[x], abcLat[x]);
         }
         return inpStr;
     }
 
-    public static String untransliterate(String inpStr){
-        String[] abcCyr =   {" ","щ","ё","ш","ц","ж","ч","а","б","в","г","д","е","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ъ","ы","ь","э", "ю","я","А","Б","В","Г","Д","Е","Ё", "Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х", "Ц", "Ч","Ш", "Щ","Ъ","Ы","Ь","Э","Ю","Я","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
-        String[] abcLat = {" ","sch","yo","sh","ts","zh","ch","a","b","v","g","d","e","z","i","y","k","l","m","n","o","p","r","s","t","u","f","h", "","i", "","e","ju","ja","A","B","V","G","D","E","E","Zh","Z","I","Y","K","L","M","N","O","P","R","S","T","U","F","H","Ts","Ch","Sh","Sch", "","I", "","E","Ju","Ja","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    public static String untransliterate(String inpStr) {
+        String[] abcCyr = {" ", "щ", "ё", "ш", "ц", "ж", "ч", "а", "б", "в", "г", "д", "е", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ъ", "ы", "ь", "э", "ю", "я", "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+        String[] abcLat = {" ", "sch", "yo", "sh", "ts", "zh", "ch", "a", "b", "v", "g", "d", "e", "z", "i", "y", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "h", "", "i", "", "e", "ju", "ja", "A", "B", "V", "G", "D", "E", "E", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "F", "H", "Ts", "Ch", "Sh", "Sch", "", "I", "", "E", "Ju", "Ja", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
-        for (int x = 0; x < abcLat.length; x++ ) {
+        for (int x = 0; x < abcLat.length; x++) {
             inpStr = customReplaceAll(inpStr, abcLat[x], abcCyr[x]);
         }
         return inpStr;
     }
 
-    public static boolean isFilled(String... strField) {
+    public static boolean isUnicodeFilled(String... strField) {
         boolean isFilledVar = true;
         for (int i = 0; i < strField.length; i++) {
-            isFilledVar = isFilledVar && !(strField[i] == null || strField[i].isBlank());
+            isFilledVar = isFilledVar &&
+                    StringUtils.isAlpha(strField[i]) &&
+                    !(strField[i] == null ||
+                            strField[i].isBlank());
         }
-        return isFilledVar;
+        if (!isFilledVar){
+            throw new HttpException("Key params not contains only Unicode letters", HttpStatus.BAD_REQUEST);
+        }
+        return true;
     }
 
-    public static boolean isFilled(Object... obj) {
+    public static boolean isUnicodeFilled(Object... obj) {
         for (int i = 0; i < obj.length; i++) {
             return !(obj[i] == null || (obj[i].toString().equals("")));
         }
@@ -71,12 +83,26 @@ public class Common {
     }
 
     public static void hwCaption(String caption, boolean isReady, int linkNum) {
-        String strIsReady = "";
+        String strIsReady = "not passed yet";
         if (isReady) {
-            strIsReady = "зачтено";
+            strIsReady = "passed";
         }
-        System.out.println("\nДомашнее задание по уроку \"" + caption + "\" " + strIsReady);
+        System.out.println("\nHomework for the lesson \"" + caption + "\" " + strIsReady);
         System.out.println("https://my.sky.pro/student-cabinet/stream-lesson/" + linkNum + "/homework");
+    }
+
+    public static String hwCaption(String caption, boolean isReady, String linkNum) {
+        String strIsReady = "not passed yet";
+        if (isReady) {
+            strIsReady = "passed";
+        }
+        String result = null;
+        result = hrefPrep("https://my.sky.pro/student-cabinet/stream-lesson/" +
+                        linkNum + "/homework",
+                "Homework for the lesson \"" + caption + "\"") +
+                " " +
+                strIsReady;
+        return result;
     }
 
     public static String randomBookName() {
@@ -106,11 +132,12 @@ public class Common {
         String result = "";
         while (rndFI.size() == initSize) {
             currentRandom =
-            "firstName=" +
-                    randomName() +
-                    "&lastName=" +
-                    randomSurname() +
-                    "";;
+                    "firstName=" +
+                            randomName() +
+                            "&lastName=" +
+                            randomSurname() +
+                            "";
+            ;
             if (!rndFI.contains(currentRandom)) {
                 rndFI.add(currentRandom);
                 result = currentRandom;
@@ -118,6 +145,7 @@ public class Common {
         }
         return result;
     }
+
     public static int randomValuePositive() {
         java.util.Random random = new java.util.Random();
         int initSize = rndIntGenerated.size();

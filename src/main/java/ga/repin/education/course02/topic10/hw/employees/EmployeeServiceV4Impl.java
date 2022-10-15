@@ -1,22 +1,21 @@
-package ga.repin.education.course02.topic08.hw.employees;
+package ga.repin.education.course02.topic10.hw.employees;
 
-import ga.repin.education.course02.topic08.hw.employees.exceptions.EmployeeAlreadyAddedException;
-import ga.repin.education.course02.topic08.hw.employees.exceptions.EmployeeNotFoundException;
+import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeAlreadyAddedException;
+import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeNotFoundException;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import static ga.repin.education.course02.topic10.hw.HwConstants.*;
 import static ga.repin.education.creation.Common.*;
-import static ga.repin.education.creation.HtmlWrappers.mainTheme;
+import static ga.repin.education.creation.HtmlWrappers.*;
 
 @Service
-public class EmployeeServiceV3Impl implements EmployeeServiceV3 {
+public class EmployeeServiceV4Impl implements EmployeeServiceV4 {
     private Map<String, Employee> employees;
 
-    public EmployeeServiceV3Impl() {
+    public EmployeeServiceV4Impl() {
         this.employees = new HashMap<>();
     }
 
@@ -42,49 +41,68 @@ public class EmployeeServiceV3Impl implements EmployeeServiceV3 {
         int i = 1;
         for (String testEmployee : testEmployees) {
             testAddEmployees = testAddEmployees +
-                    "<a href=\"/v3/employee/add?" + testEmployee +
-                    testEmployeeParams.get(i - 1) +
-                    "\">[Append " + i + "]</a> " +
-                    "<i><font face=\"Times New Roman\" size=\"3\">/v3/employee/add?" +
-                    testEmployee + testEmployeeParams.get(i - 1) + "</font></i><br>";
+                    hrefPrep(HW_ROOT_URL + "employee/add?" +
+                                    testEmployee + testEmployeeParams.get(i - 1),
+                            "[Append " + i + "]") +
+                    textFieldPrep(HW_ROOT_URL + "employee/add?" +
+                                    testEmployee + testEmployeeParams.get(i - 1));
             testRmEmployees = testRmEmployees +
-                    "<a href=\"/v3/employee/remove?" + testEmployee +
-                    "\">[Put away " + i + "]</font></a> " +
-                    "<i><font face=\"Times New Roman\" size=\"3\">/v3/employee/remove?" +
-                    testEmployee + "</font></i><br>";
+                    hrefPrep(HW_ROOT_URL + "employee/remove?" +
+                                    testEmployee,
+                            "[Put away " + i + "]") +
+                    textFieldPrep(HW_ROOT_URL + "employee/remove?" +
+                                    testEmployee);
             testFindEmployees = testFindEmployees +
-                    "<a href=\"/v3/employee/find?" + testEmployee +
-                    "\">[Search " + i + "]</a> " +
-                    "<i><font face=\"Times New Roman\" size=\"3\">/v3/employee/find?" +
-                    testEmployee + "</font></i><br>";
+                    hrefPrep(HW_ROOT_URL +
+                                    "employee/find?" + testEmployee,
+                            "[Search " + i + "]") +
+                    textFieldPrep(HW_ROOT_URL + "employee/find?" +
+                                    testEmployee);
             i++;
         }
 
         return mainTheme(
-                "<u><a href=\"/v3/employee\">Employee API Description</a></u>" +
-                        " | <a href=\"/v3/departments\">Departments API Description</a><hr>" +
-                        "A JSON interface is offered to manage employees via HTTP.<br>" +
-                        "API access is provided at the following URLs:<br>" +
+                "<u>" +
+                        hrefPrep(
+                                HW_ROOT_URL + "employee", "Employee API Description") +
+                        "</u>" +
+                        " | " +
+                        hrefPrep(
+                                HW_ROOT_URL + "departments", "Departments API Description") +
+                        HR +
+                        "A JSON interface is offered to manage employees via HTTP." + BR +
+                        "API access is provided at the following URLs:" +
+                        commentPrep("You can try to edit the key parameters in the text edits, then " +
+                        " put it to the address bar, then ENTER and see " +
+                        "the correct behavior of the program.",3) +
                         "<ul type=\"square\">" +
                         "<li>" +
-                        "/v3/employee/add?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
+                        HW_ROOT_URL +
+                        "employee/add?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
                         "<br>to add an employee to a list;" +
-                        "</li><i>Test URLs:</i><br>" +
+                        "</li>" +
+                        commentPrep("Test URLs:", 4) +
                         testAddEmployees +
-                        "<br><li>/v3/employee/remove?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
+                        "<br><li>" +
+                        HW_ROOT_URL +
+                        "employee/remove?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
                         "<br>to remove an employee from the list;" +
                         "</li>" +
-                        "<i>Test URLs:</i><br>" +
+                        commentPrep("Test URLs:", 4) +
                         testRmEmployees +
                         "<br><li>" +
-                        "/v3/employee/find?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
+                        HW_ROOT_URL +
+                        "employee/find?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
                         "<br>to get information about an employee;" +
                         "</li>" +
-                        "<i>Test URLs:</i><br>" +
+                        commentPrep("Test URLs:", 4) +
                         testFindEmployees +
                         "<br><li>" +
-                        "/v3/employee/list <br>for a list of employees." +
-                        "<br><a href=\"/v3/employee/list\">[Display a list]</a>" +
+                        HW_ROOT_URL +
+                        "employee/list <br>for a list of employees." +
+                        "<br><a href=\"" +
+                        HW_ROOT_URL +
+                        "employee/list\">[Display a list]</a>" +
                         "</li></ul>"
         );
     }
@@ -92,6 +110,8 @@ public class EmployeeServiceV3Impl implements EmployeeServiceV3 {
     @Override
     public Employee addEmployee(String firstName, String lastName, Integer department, Double salary) {
         if (!(isUnicodeFilled(firstName, lastName))) return null;
+        firstName = StringUtils.capitalize(firstName);
+        lastName = StringUtils.capitalize(lastName);
         Employee employee = new Employee(firstName, lastName, department, salary);
         if (existsEmployee(employee))
             throw new EmployeeAlreadyAddedException("Coo-coo! Attempt to create a duplicate entry.");
