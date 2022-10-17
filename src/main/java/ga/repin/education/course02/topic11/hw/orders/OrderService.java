@@ -7,6 +7,6 @@ public interface OrderService {
 
     Object get();
 
-    String index();
+    String index(String id);
 
 }

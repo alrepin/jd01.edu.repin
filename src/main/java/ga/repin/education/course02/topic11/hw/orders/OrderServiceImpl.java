@@ -7,6 +7,9 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static ga.repin.education.course02.topic11.hw.HwConstants.*;
+import static ga.repin.education.creation.HtmlWrappers.*;
+
 @Service
 @Scope("session")
 public class OrderServiceImpl implements OrderService {
@@ -40,7 +43,32 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public String index() {
-        return "hi";
+    public String index(String id) {
+        return mainTheme(
+                hrefPrep(
+                        HW_ENDPOINT + "/get", "view Orders \uD83D\uDECD - API get method (clickable)") +
+                        HR +
+                        "Orders API Description" +
+                        "A JSON interface is offered to manage orders via HTTP.<br>" +
+                        "API access is provided at the following URLs:<br>" +
+                        "<ul type=\"square\">" +
+
+                        "<li>" +
+                        HW_ENDPOINT +
+                        "/add?ids=&ltarticle numbers of goods delimited with comma&gt " +
+                        "<br>to add chosen positions to the session shopping cart;" +
+                        "</li>" +
+
+                        "<li>" +
+                        HW_ENDPOINT +
+                        "/get" +
+                        "<br>to return current session shopping cart. (Demo link in title)" +
+                        "</li>" +
+                        "</ul>" +
+                        commentPrep("Adding Demo (selecting in form by JS):", 3) +
+                        orderFormSnippet(id) +
+                        BR
+
+        );
     }
 }

@@ -42,20 +42,20 @@ public class EmployeeServiceV4Impl implements EmployeeServiceV4 {
                     hrefPrep(HW_ROOT_URL + "employee/add?" +
                                     testEmployee + testEmployeeParams.get(i - 1),
                             "[Append " + i + "]") +
-                    textFieldPrep(HW_ROOT_URL + "employee/add?" +
-                                    testEmployee + testEmployeeParams.get(i - 1));
+                    commentPrep(HW_ROOT_URL + "employee/add?" +
+                                    testEmployee + testEmployeeParams.get(i - 1), null);
             testRmEmployees = testRmEmployees +
                     hrefPrep(HW_ROOT_URL + "employee/remove?" +
                                     testEmployee,
                             "[Put away " + i + "]") +
-                    textFieldPrep(HW_ROOT_URL + "employee/remove?" +
-                                    testEmployee);
+                    commentPrep(HW_ROOT_URL + "employee/remove?" +
+                                    testEmployee, null);
             testFindEmployees = testFindEmployees +
                     hrefPrep(HW_ROOT_URL +
                                     "employee/find?" + testEmployee,
                             "[Search " + i + "]") +
-                    textFieldPrep(HW_ROOT_URL + "employee/find?" +
-                                    testEmployee);
+                    commentPrep(HW_ROOT_URL + "employee/find?" +
+                                    testEmployee, null);
             i++;
         }
 

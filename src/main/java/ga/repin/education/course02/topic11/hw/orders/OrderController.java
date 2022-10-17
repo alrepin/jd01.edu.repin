@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 
@@ -36,8 +38,8 @@ public class OrderController {
 
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping()
-    public String index() {
-        return orderService.index();
+    public String index(HttpSession session) {
+        return orderService.index(session.getId());
     }
 
     @ResponseStatus(value = HttpStatus.OK)
