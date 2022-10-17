@@ -2,6 +2,7 @@ package ga.repin.education.course02.topic10.hw.employees;
 
 import ga.repin.education.course02.topic10.hw.employees.exceptions.ErrorMessage;
 import ga.repin.education.course02.topic10.hw.employees.exceptions.HttpException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import static ga.repin.education.course02.topic10.hw.HwConstants.*;
 @RequestMapping(HW_ROOT_URL + "departments")
 @RestController
 public class DepartmentsControllerV4 {
+
     private final DepartmentsServiceV4 departmentsServiceV4;
 
     public DepartmentsControllerV4(DepartmentsServiceV4 departmentsServiceV4) {

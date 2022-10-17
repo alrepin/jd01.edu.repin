@@ -91,17 +91,33 @@ public class Common {
         System.out.println("https://my.sky.pro/student-cabinet/stream-lesson/" + linkNum + "/homework");
     }
 
-    public static String hwCaption(String caption, boolean isReady, String linkNum) {
+    public static String hwCaption(String caption, boolean isReady, String linkSkyproNum) {
         String strIsReady = "not passed yet";
         if (isReady) {
             strIsReady = "passed";
         }
         String result = null;
         result = hrefPrep("https://my.sky.pro/student-cabinet/stream-lesson/" +
-                        linkNum + "/homework",
+                        linkSkyproNum + "/homework",
                 "Homework for the lesson \"" + caption + "\"") +
                 " " +
                 strIsReady;
+        return result;
+    }
+
+    public static String hwCaption(String caption, boolean isReady, String linkSkyproNum, int prNum) {
+        String strIsReady = "not passed yet";
+        if (isReady) {
+            strIsReady = "passed";
+        }
+        String result = null;
+        result = hrefPrep("https://github.com/alrepin/education/pull/" +
+                        prNum,
+                "Homework for the lesson \"" + caption + "\"") +
+                " " +
+                hrefPrep("https://my.sky.pro/student-cabinet/stream-lesson/" +
+                        linkSkyproNum + "/homework",strIsReady)
+                ;
         return result;
     }
 

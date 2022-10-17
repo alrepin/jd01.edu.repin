@@ -1,5 +1,6 @@
 package ga.repin.education.course02.topic10.hw.employees;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -13,7 +14,7 @@ import static ga.repin.education.course02.topic10.hw.HwConstants.*;
 @Service
 public class DepartmentsServiceV4Impl implements DepartmentsServiceV4 {
     EmployeeServiceV4 employeeServiceV4;
-
+    @Autowired
     public DepartmentsServiceV4Impl(EmployeeServiceV4 employeeServiceV4) {
         this.employeeServiceV4 = employeeServiceV4;
     }
