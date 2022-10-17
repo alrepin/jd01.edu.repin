@@ -7,7 +7,8 @@ public class HtmlWrappers {
 
     public static String orderFormSnippet(String sessionId){
         return
-                "<form action=\"add\" method=\"GET\" name=\"myForm\">\n" +
+                //"    <div id=\"demo\">Select goods and push +</div>\n" +
+                        "<form action=\"add\" method=\"GET\" name=\"myForm\">\n" +
                         "\n" +
                         "    <select name=\"db\" id=\"db\">\n" +
                         "        <option value=\"1\"> good 1\n" +
@@ -21,12 +22,11 @@ public class HtmlWrappers {
                         "    </select>\n" +
                         "    <input type=\"button\" name=\"addButton\" value=\"+\"/>\n" +
                         "    <input type=\"button\" name=\"removeButton\" value=\"-\"/>\n" +
-                        "    <input type=\"button\" onclick=\"clearOptions()\" value=\"Clear goods\">\n" +
-                        "    <input type=\"button\" onclick=\"addOrder()\" value=\"Add order\">\n" +
+                        "    <input type=\"button\" onclick=\"clearOptions()\" value=\"Clear\">\n" +
+                        "    <input type=\"button\" onclick=\"addOrder()\" value=\"Execute request\">\n" +
                         "    <br>\n" +
                         "    <select name=\"ids\" id=\"ids\" size=\"15\" style=\"width: 300px !important; min-width: 300px; max-width: 300px;\">\n" +
                         "    </select>\n" +
-                        "    <div id=\"demo\"></div>\n" +
                         "</form>\n" +
                         "\n" +
                         "<script>\n" +
@@ -45,10 +45,9 @@ public class HtmlWrappers {
                         "            if (xhr.status != 200) {\n" +
                         "                document.getElementById(\"demo\").innerHTML = `Err ${xhr.status}`;\n" +
                         "            } else {\n" +
-                        "                document.getElementById(\"demo\").innerHTML = `Order added`;\n" +
+                        "                document.getElementById(\"demo\").innerHTML = `Request processed successfully`;\n" +
                         "            }\n" +
                         "        };\n" +
-                        "        return \"added\";\n" +
                         "    }\n" +
                         "\n" +
                         "    function clearOptions() {\n" +
@@ -68,7 +67,7 @@ public class HtmlWrappers {
                         "        var newOption = new Option(text, value, false, true);\n" +
                         "        ids.options[ids.options.length] = newOption;\n" +
                         "        document.getElementById(\"demo\").innerHTML =\n" +
-                        "            \"New Order\";\n" +
+                        "            \"Preparing shopping cart adding request\";\n" +
                         "    }\n" +
                         "\n" +
                         "    function removeOption() {\n" +
@@ -97,10 +96,10 @@ public class HtmlWrappers {
         if (size == null) {
             size = 3;
         }
-        result = "<br><i><font face=\"Times New Roman\" size=\"" +
+        result = "<i><font face=\"Times New Roman\" size=\"" +
                 size +
                 "\">" +
-                text + "</font></i><br>";
+                text + "</font></i>";
         return result;
     }
 

@@ -45,10 +45,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public String index(String id) {
         return mainTheme(
-                hrefPrep(
-                        HW_ENDPOINT + "/get", "view Orders \uD83D\uDECD - API get method (clickable)") +
+                "Orders API Description" +
                         HR +
-                        "Orders API Description" +
                         "A JSON interface is offered to manage orders via HTTP.<br>" +
                         "API access is provided at the following URLs:<br>" +
                         "<ul type=\"square\">" +
@@ -62,13 +60,13 @@ public class OrderServiceImpl implements OrderService {
                         "<li>" +
                         HW_ENDPOINT +
                         "/get" +
-                        "<br>to return current session shopping cart. (Demo link in title)" +
+                        "<br>to return current session shopping cart." +
                         "</li>" +
                         "</ul>" +
-                        commentPrep("Adding Demo (selecting in form by JS):", 3) +
-                        orderFormSnippet(id) +
-                        BR
-
+                        hrefPrep(
+                                HW_ENDPOINT + "/get", "\uD83D\uDECD ") +
+                        commentPrep("<div id=\"demo\">Select goods and push +</div>", 3) +
+                        orderFormSnippet(id)
         );
     }
 }

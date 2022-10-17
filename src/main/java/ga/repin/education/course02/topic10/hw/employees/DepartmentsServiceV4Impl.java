@@ -14,6 +14,7 @@ import static ga.repin.education.course02.topic10.hw.HwConstants.*;
 @Service
 public class DepartmentsServiceV4Impl implements DepartmentsServiceV4 {
     EmployeeServiceV4 employeeServiceV4;
+
     @Autowired
     public DepartmentsServiceV4Impl(EmployeeServiceV4 employeeServiceV4) {
         this.employeeServiceV4 = employeeServiceV4;
@@ -23,95 +24,64 @@ public class DepartmentsServiceV4Impl implements DepartmentsServiceV4 {
 
 
         return mainTheme(
-                hrefPrep(HW_ROOT_URL +
-                        "employee", "Employee API Description") +
+                hrefPrep(HW_ROOT_URL + "employee", "Employee API Description") +
                         " | <u>" +
-                        hrefPrep(HW_ROOT_URL +
-                                "departments", "Departments API Description") +
-                        "</u><hr>" +
-                        "A JSON interface is offered to manage departments via HTTP.<br>" +
-                        "API access is provided at the following URLs:<br>" +
+                        hrefPrep(HW_ROOT_URL + "departments", "Departments API Description") +
+                        "</u> " + HR +
+
+                        "A JSON interface is offered to manage departments via HTTP." + BR +
+                        "API access is provided at the following URLs:" + BR +
+
                         "<ul type=\"square\">" +
 
                         "<li>" +
-                        HW_ROOT_URL +
-                        "departments/max-salary?departmentId=&ltDepartment number&gt " +
-                        "<br>to return the employee with the highest salary based on the department number;" +
-                        "</li>" +
-                        commentPrep("Test URLs:", 4) +
+                        HW_ROOT_URL + "departments/max-salary?departmentId=&ltDepartment number&gt " + BR +
+                        "to return the employee with the highest salary based on the department number;" +
+                        "</li>" +  BR +
+                        commentPrep("Test URLs:", 4) + BR +
                         hrefPrep(
                                 HW_ROOT_URL +
                                         "departments/max-salary?departmentId=1",
-                                "[for first department]") +
+                                "[for first department]") + BR +
                         commentPrep(
                                 HW_ROOT_URL +
                                         "departments/max-salary?departmentId=1",
-                                null) +
+                                null) + BR +
                         hrefPrep(
                                 HW_ROOT_URL +
                                         "departments/max-salary?departmentId=2",
-                                "[for second department]") +
+                                "[for second department]") + BR +
                         commentPrep(
                                 HW_ROOT_URL +
                                         "departments/max-salary?departmentId=2",
-                                null) +
+                                null) + BR + BR +
 
-                        "<br><li>" +
-                        HW_ROOT_URL +
-                        "departments/min-salary?departmentId=&ltDepartment number&gt " +
-                        "<br>to return employee with the minimum salary based on the department number;" +
-                        "</li>" +
-                        commentPrep("Test URLs:", 4) +
+                        "<li>" +
+                        HW_ROOT_URL + "departments/min-salary?departmentId=&ltDepartment number&gt " + BR +
+                        "to return employee with the minimum salary based on the department number;" +
+                        "</li>" +  BR +
+                        commentPrep("Test URLs:", 4) + BR +
 
-                        "<a href=\"" +
-                        HW_ROOT_URL +
-                        "departments/min-salary?departmentId=1" +
-                        "\">[for first department]</a> " +
-                        "<i><font face=\"Times New Roman\" size=\"3\">" +
-                        HW_ROOT_URL +
-                        "departments/min-salary?departmentId=1" +
-                        "</font></i><br>" +
-                        "<a href=\"" +
-                        HW_ROOT_URL +
-                        "departments/min-salary?departmentId=2" +
-                        "\">[for second department]</a> " +
-                        "<i><font face=\"Times New Roman\" size=\"3\">" +
-                        HW_ROOT_URL +
-                        "departments/min-salary?departmentId=2" +
-                        "</font></i><br>" +
+                        hrefPrep(HW_ROOT_URL + "departments/min-salary?departmentId=1", "[for first department]") + BR +
+                        commentPrep(HW_ROOT_URL + "departments/min-salary?departmentId=1", null) + BR +
+                        hrefPrep(HW_ROOT_URL + "departments/min-salary?departmentId=2", "[for second department]") + BR +
+                        commentPrep(HW_ROOT_URL + "departments/min-salary?departmentId=2",null) + BR + BR +
 
-                        "<br><li>" +
-                        HW_ROOT_URL +
-                        "departments/all?departmentId=&ltDepartment number&gt " +
-                        "<br>to return all employees in the department;" +
-                        "</li>" +
-                        commentPrep("Test URLs:", 4) +
+                        "<li>" +
+                        HW_ROOT_URL + "departments/all?departmentId=&ltDepartment number&gt " + BR +
+                        "to return all employees in the department;" +
+                        "</li>" +  BR +
+                        commentPrep("Test URLs:", 4) + BR +
 
-                        "<a href=\"" +
-                        HW_ROOT_URL +
-                        "departments/all?departmentId=1" +
-                        "\">[for first department]</a> " +
-                        "<i><font face=\"Times New Roman\" size=\"3\">" +
-                        HW_ROOT_URL +
-                        "departments/all?departmentId=1" +
-                        "</font></i><br>" +
-                        "<a href=\"" +
-                        HW_ROOT_URL +
-                        "departments/all?departmentId=2" +
-                        "\">[for second department]</a> " +
-                        "<i><font face=\"Times New Roman\" size=\"3\">" +
-                        HW_ROOT_URL +
-                        "departments/all?departmentId=2" +
-                        "</font></i><br>" +
+                        hrefPrep(HW_ROOT_URL + "departments/all?departmentId=1", "[for first department]") + BR +
+                        commentPrep(HW_ROOT_URL + "departments/all?departmentId=1",null) + BR +
+                        hrefPrep(HW_ROOT_URL + "departments/all?departmentId=2", "[for second department]") + BR +
+                        commentPrep(HW_ROOT_URL + "departments/all?departmentId=2", null) + BR + BR +
 
-                        "<br><li>" +
-                        HW_ROOT_URL +
-                        "departments/all " +
-                        "<br>to return all employees group by department." +
-                        "<a href=\"" +
-                        HW_ROOT_URL +
-                        "departments/all" +
-                        "\"><br>[Display a list]</a>" +
+                        "<li>" +
+                        HW_ROOT_URL + "departments/all " + BR +
+                        "to return all employees group by department." + BR +
+                        hrefPrep(HW_ROOT_URL + "departments/all", "[Display a list]") +
 
                         "</ul>"
         );

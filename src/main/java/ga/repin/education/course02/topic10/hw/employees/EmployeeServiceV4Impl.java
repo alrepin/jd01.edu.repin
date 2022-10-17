@@ -3,10 +3,12 @@ package ga.repin.education.course02.topic10.hw.employees;
 import static ga.repin.education.course02.topic10.hw.HwConstants.*;
 import static ga.repin.education.creation.Common.*;
 import static ga.repin.education.creation.HtmlWrappers.*;
+
 import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeAlreadyAddedException;
 import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeNotFoundException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
 
 @Service
@@ -41,67 +43,69 @@ public class EmployeeServiceV4Impl implements EmployeeServiceV4 {
             testAddEmployees = testAddEmployees +
                     hrefPrep(HW_ROOT_URL + "employee/add?" +
                                     testEmployee + testEmployeeParams.get(i - 1),
-                            "[Append " + i + "]") +
+                            "[Append " + i + "]") + BR +
                     commentPrep(HW_ROOT_URL + "employee/add?" +
-                                    testEmployee + testEmployeeParams.get(i - 1), null);
+                            testEmployee + testEmployeeParams.get(i - 1), null) + BR;
             testRmEmployees = testRmEmployees +
                     hrefPrep(HW_ROOT_URL + "employee/remove?" +
                                     testEmployee,
-                            "[Put away " + i + "]") +
+                            "[Put away " + i + "]") + BR +
                     commentPrep(HW_ROOT_URL + "employee/remove?" +
-                                    testEmployee, null);
+                            testEmployee, null) + BR;
             testFindEmployees = testFindEmployees +
                     hrefPrep(HW_ROOT_URL +
                                     "employee/find?" + testEmployee,
-                            "[Search " + i + "]") +
+                            "[Search " + i + "]") + BR +
                     commentPrep(HW_ROOT_URL + "employee/find?" +
-                                    testEmployee, null);
+                            testEmployee, null) + BR;
             i++;
         }
 
         return mainTheme(
                 "<u>" +
-                        hrefPrep(
-                                HW_ROOT_URL + "employee", "Employee API Description") +
+                        hrefPrep(HW_ROOT_URL + "employee", "Employee API Description") +
                         "</u>" +
                         " | " +
-                        hrefPrep(
-                                HW_ROOT_URL + "departments", "Departments API Description") +
-                        HR +
+                        hrefPrep(HW_ROOT_URL + "departments", "Departments API Description") + HR +
+
                         "A JSON interface is offered to manage employees via HTTP." + BR +
-                        "API access is provided at the following URLs:" +
+                        "API access is provided at the following URLs:" + BR +
                         commentPrep("You can try to edit the key parameters in the text edits, then " +
-                        " put it to the address bar, then ENTER and see " +
-                        "the correct behavior of the program.",3) +
+                                " put it to the address bar, then ENTER and see " +
+                                "the correct behavior of the program.", 3) + BR +
+
                         "<ul type=\"square\">" +
+
                         "<li>" +
                         HW_ROOT_URL +
-                        "employee/add?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
-                        "<br>to add an employee to a list;" +
+                        "employee/add?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " + BR +
+                        "to add an employee to a list;" +
+                        "</li>" + BR +
+                        commentPrep("Test URLs:", 4) + BR +
+                        testAddEmployees + BR +
+
+                        "<li>" +
+                        HW_ROOT_URL +
+                        "employee/remove?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " + BR +
+                        "to remove an employee from the list;" +
+                        "</li>" +  BR +
+                        commentPrep("Test URLs:", 4) + BR +
+                        testRmEmployees + BR +
+
+                        "<li>" +
+                        HW_ROOT_URL +
+                        "employee/find?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " + BR +
+                        "to get information about an employee;" +
+                        "</li>" +  BR +
+                        commentPrep("Test URLs:", 4) + BR +
+                        testFindEmployees + BR +
+
+                        "<li>" +
+                        HW_ROOT_URL +
+                        "employee/list " + BR + "for a list of employees." + BR +
+                        hrefPrep(HW_ROOT_URL + "employee/list", "[Display a list]") +
                         "</li>" +
-                        commentPrep("Test URLs:", 4) +
-                        testAddEmployees +
-                        "<br><li>" +
-                        HW_ROOT_URL +
-                        "employee/remove?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
-                        "<br>to remove an employee from the list;" +
-                        "</li>" +
-                        commentPrep("Test URLs:", 4) +
-                        testRmEmployees +
-                        "<br><li>" +
-                        HW_ROOT_URL +
-                        "employee/find?firstName=&ltEmployee name&gt&lastName=&ltEmployee surname&gt " +
-                        "<br>to get information about an employee;" +
-                        "</li>" +
-                        commentPrep("Test URLs:", 4) +
-                        testFindEmployees +
-                        "<br><li>" +
-                        HW_ROOT_URL +
-                        "employee/list <br>for a list of employees." +
-                        "<br><a href=\"" +
-                        HW_ROOT_URL +
-                        "employee/list\">[Display a list]</a>" +
-                        "</li></ul>"
+                        "</ul>"
         );
     }
 
