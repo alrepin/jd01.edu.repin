@@ -1,9 +1,12 @@
 package ga.repin.education;
 
 import ga.repin.education.creation.HtmlWrappers;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 
 import static ga.repin.education.creation.Common.*;
 import static ga.repin.education.creation.HtmlWrappers.*;
@@ -45,12 +48,16 @@ public class WelcomeServiceImpl implements WelcomeService {
                         hrefPrep(ga.repin.education.course02.topic12.hw.HwConstants.HW_ENDPOINT, "CALCULATOR TASK (TEST AFTER REVISION)") + BR +
                         commentPrep(hwCaption("2.12. Unit-testing", false, "16843", 24), null) +
                         "</li>"
+
         );
     }
 
+    @Value("${session.killpass}")
+    private String sessionKillpass;
+
     @Override
     public String stopSpring(String pass) {
-        if (pass.equals(ga.repin.education.creation.NoCommitConstants.PASS)) {
+        if (Objects.equals(getMd5(pass), sessionKillpass)) {
             SpringApplication.exit(Application.appContext);
         }
         return mainTheme("У вас нет таких привилегий");

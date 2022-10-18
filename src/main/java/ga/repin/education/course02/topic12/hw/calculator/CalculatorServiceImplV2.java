@@ -1,5 +1,7 @@
 package ga.repin.education.course02.topic12.hw.calculator;
 
+import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeAlreadyAddedException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import static ga.repin.education.course02.topic12.hw.HwConstants.HW_ENDPOINT;
@@ -8,11 +10,13 @@ import static ga.repin.education.creation.HtmlWrappers.*;
 @Service
 public class CalculatorServiceImplV2 implements CalculatorServiceV2 {
 
-    private String descriptionPlus = "should add num1 and num2 and return the result in the format \"5 + 5 = 10\"";
-    private String descriptionMinus = "should subtract num2 from num1 and return the result as \"5 − 5 = 0\"";
-    private String descriptionMultiply = "should multiply num1 by num2 and return the result as \"5 * 5 = 25\"";
-    private String descriptionDivide = " should divide num1 by num2 and return the result as \"5 / 5 = 1\"";
+    private final String descriptionPlus = "should add num1 and num2 and return the result in the format \"5 + 5 = 10\"";
+    private final String descriptionMinus = "should subtract num2 from num1 and return the result as \"5 − 5 = 0\"";
+    private final String descriptionMultiply = "should multiply num1 by num2 and return the result as \"5 * 5 = 25\"";
+    private final String descriptionDivide = " should divide num1 by num2 and return the result as \"5 / 5 = 1\"";
 
+    @Value("${session.timeout}")
+    private Integer sessionTimeout;
     public String operationWelcome() {
         return mainTheme(
                 "Welcome to Calculator))" + HR +
@@ -59,7 +63,7 @@ public class CalculatorServiceImplV2 implements CalculatorServiceV2 {
             return mainTheme(descriptionDivide);
         }
         if (num2 == 0) {
-            return mainTheme("Division by 0 is impossible!");
+            throw new IllegalArgumentException("Division by 0 is impossible!");
         }
         return mainTheme(descriptionDivide + HR +
                 num1 + " / " + num2 + " = " + (num1 / num2)
