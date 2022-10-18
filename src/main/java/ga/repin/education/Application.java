@@ -34,14 +34,8 @@ public class Application {
 		ga.repin.education.course02.topic02.hw.Hw02.main();
 		Common.hwCaption("ООП — полиморфизм и интерфейсы (ч2)", true, 16832);
 		ga.repin.education.course02.topic02_2.hw.Hw02_2.main();
-		//Common.hwCaption("2.3. Введение в Maven и Spring Boot", true, 16833);
-		//Common.hwCaption("2.4. Работа с исключениями", true, 16834);
-		//Common.hwCaption("2.5. Коллекции и сеты", true, 16835);
 		Common.hwCaption("2.6. Коллекции: сеты и мапы", true, 16836);
 		ga.repin.education.course02.topic06.hw.Hw06.main();
-		//Common.hwCaption("2.7. Коллекции: многообразие реализаций", true, 16837);
-		//Common.hwCaption("2.8. Stream API и Optional", true, 16838);
-		//Common.hwCaption("2.10. Библиотеки", false, 16841);
 		appContext = SpringApplication.run(Application.class, args);
 	}
 }
