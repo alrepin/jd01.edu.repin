@@ -46,7 +46,7 @@ public class WelcomeServiceImpl implements WelcomeService {
                         commentPrep(hwCaption("2.11. Spring", true, "16842", 23), null) + BR +
                         "</li><li>" +
                         hrefPrep(ga.repin.education.course02.topic12.hw.HwConstants.HW_ENDPOINT, "CALCULATOR TASK (TEST AFTER REVISION)") + BR +
-                        commentPrep(hwCaption("2.12. Unit-testing", false, "16843", 24), null) +
+                        commentPrep(hwCaption("2.12. Unit-testing", true, "16843", 24), null) +
                         "</li>"
 
         );
