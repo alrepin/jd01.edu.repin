@@ -52,12 +52,12 @@ public class WelcomeServiceImpl implements WelcomeService {
         );
     }
 
-    @Value("${session.killpass}")
-    private String sessionKillpass;
+    @Value("${session.kill-pass}")
+    private String sessionKillPass;
 
     @Override
     public String stopSpring(String pass) {
-        if (Objects.equals(getMd5(pass), sessionKillpass)) {
+        if (Objects.equals(getMd5(pass), sessionKillPass)) {
             SpringApplication.exit(Application.appContext);
         }
         return mainTheme("У вас нет таких привилегий");

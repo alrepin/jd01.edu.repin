@@ -7,10 +7,7 @@
     <list default="true" id="afe74640-807f-42f0-b7f9-9ea2e8d7da27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/WelcomeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/WelcomeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic10/hw/employees/DepartmentsServiceV4Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic10/hw/employees/DepartmentsServiceV4Impl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic10/hw/employees/EmployeeServiceV4Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic10/hw/employees/EmployeeServiceV4Impl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic11/hw/orders/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic11/hw/orders/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/creation/HtmlWrappers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/creation/HtmlWrappers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="course2/topic12" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,25 +91,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/me/Documents/edu/sky.pro/[00]proj/forks/telion85/SkyPro-lesson-2.6-collections-set-map-homework&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;cdf645ebce2dbcc9c0a984178c2ba89f&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/me/Documents/edu/sky.pro/[00]proj/alrepin/skypro_jb_export",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "spring.configuration.checksum": "cdf645ebce2dbcc9c0a984178c2ba89f"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw" />

@@ -1,3 +1,3 @@
 session:
   timeout: 480 # minutes
-  killpass: "310dcbbf4cce62f762a2aaa148d556bd"
+  kill-pass: "310dcbbf4cce62f762a2aaa148d556bd"
