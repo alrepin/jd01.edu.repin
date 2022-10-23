@@ -1,5 +1,8 @@
 package ga.repin.education.creation;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,37 @@ public class Common {
     public static List<Integer> rndIntGenerated = new ArrayList<Integer>();
     public static List<Integer> rnd0_100Generated = new ArrayList<Integer>();
     public static List<String> rndFI = new ArrayList<String>();
+
+    public static String getMd5(String input) {
+        try {
+            // Static getInstance method is called with hashing SHA
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            // digest() method called
+            // to calculate message digest of an input
+            // and return array of byte
+            byte[] messageDigest = md.digest(input.getBytes());
+
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            // Convert message digest into hex value
+            String hashtext = no.toString(16);
+
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+
+            return hashtext;
+        }
+
+        // For specifying wrong message digest algorithms
+        catch (NoSuchAlgorithmException e) {
+            System.out.println("Exception thrown"
+                    + " for incorrect algorithm: " + e);
+            return null;
+        }
+    }
 
     public static String customReplaceAll(String str, String oldStr, String newStr) {
 
