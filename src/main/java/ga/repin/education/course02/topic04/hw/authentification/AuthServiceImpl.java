@@ -2,7 +2,7 @@ package ga.repin.education.course02.topic04.hw.authentification;
 
 import org.springframework.stereotype.Service;
 import static ga.repin.education.course02.topic04.hw.authentification.Authentication.verificateAuthenticationData;
-import static ga.repin.education.creation.HtmlWrappers.mainTheme;
+import static ga.repin.education.common.HtmlWrappers.mainTheme;
 
 @Service
 public class AuthServiceImpl implements AuthService {

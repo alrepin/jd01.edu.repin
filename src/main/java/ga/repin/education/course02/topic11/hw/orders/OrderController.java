@@ -1,8 +1,8 @@
 package ga.repin.education.course02.topic11.hw.orders;
 
 import static ga.repin.education.course02.topic11.hw.HwConstants.*;
-import ga.repin.education.exceptions.ErrorMessage;
-import ga.repin.education.exceptions.HttpException;
+import ga.repin.education.common.exceptions.ErrorMessage;
+import ga.repin.education.common.exceptions.HttpException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

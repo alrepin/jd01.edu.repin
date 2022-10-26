@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static ga.repin.education.creation.HtmlWrappers.mainTheme;
+import static ga.repin.education.common.HtmlWrappers.mainTheme;
 
 @Service
 public class DepartmentsServiceV3Impl implements DepartmentsServiceV3 {

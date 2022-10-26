@@ -1,11 +1,10 @@
 package ga.repin.education.course02.topic12.hw.calculator;
 
-import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeAlreadyAddedException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import static ga.repin.education.course02.topic12.hw.HwConstants.HW_ENDPOINT;
-import static ga.repin.education.creation.HtmlWrappers.*;
+import static ga.repin.education.common.HtmlWrappers.*;
 
 @Service
 public class CalculatorServiceImplV2 implements CalculatorServiceV2 {

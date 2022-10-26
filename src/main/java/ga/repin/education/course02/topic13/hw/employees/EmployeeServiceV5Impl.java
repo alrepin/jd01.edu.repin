@@ -1,25 +1,29 @@
-package ga.repin.education.course02.topic10.hw.employees;
+package ga.repin.education.course02.topic13.hw.employees;
 
-import static ga.repin.education.course02.topic10.hw.HwConstants.*;
-import static ga.repin.education.common.UsefulMethods.*;
-import static ga.repin.education.common.HtmlWrappers.*;
-
-import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeAlreadyAddedException;
-import ga.repin.education.course02.topic10.hw.employees.exceptions.EmployeeNotFoundException;
+import ga.repin.education.course02.topic13.hw.employees.exceptions.EmployeeAlreadyAddedException;
+import ga.repin.education.course02.topic13.hw.employees.exceptions.EmployeeNotFoundException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static ga.repin.education.course02.topic13.hw.HwConstants.HW_ROOT_URL;
+import static ga.repin.education.common.UsefulMethods.*;
+import static ga.repin.education.common.HtmlWrappers.*;
 
 @Service
-public class EmployeeServiceV4Impl implements EmployeeServiceV4 {
-    private Map<String, Employee> employees;
+public class EmployeeServiceV5Impl implements EmployeeServiceV5 {
+    private final Map<String, Employee> employees;
 
-    public EmployeeServiceV4Impl() {
+    public EmployeeServiceV5Impl() {
         this.employees = new HashMap<>();
     }
 
     public String apiInfo() {
+
         List<String> testEmployees = new ArrayList<>(List.of(
                 transliterate(randomJsonFI()),
                 transliterate(randomJsonFI()),
@@ -150,7 +154,7 @@ public class EmployeeServiceV4Impl implements EmployeeServiceV4 {
             /*return null;*/
             throw new EmployeeNotFoundException("There are no employees on the list.");
         }
-        List<Employee> employeeList = new ArrayList<Employee>(employees.values());
+        List<Employee> employeeList = new ArrayList<>(employees.values());
         return employeeList;
     }
 
@@ -164,12 +168,5 @@ public class EmployeeServiceV4Impl implements EmployeeServiceV4 {
         }
         return employees.get(employee.toString());
     }
-
-    /*@Override
-    public void throwOnEmptyList() {
-        if (listEmployee() == null) {
-            throw new EmployeeNotFoundException("There are no employees on the list.");
-        }
-    }*/
 
 }

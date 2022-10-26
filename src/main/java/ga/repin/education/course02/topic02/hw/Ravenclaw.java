@@ -15,7 +15,7 @@ public class Ravenclaw extends Hogwarts{
         this.smart = Hw02.chkValueIn0_100interval("smart", smart);
         this.wisdom = Hw02.chkValueIn0_100interval("wisdom", wisdom);
         this.wit = Hw02.chkValueIn0_100interval("wit", wit);
-        this.creation = Hw02.chkValueIn0_100interval("ga/repin/creation", creation);
+        this.creation = Hw02.chkValueIn0_100interval("ga/repin/common", creation);
     }
 
     public int getSmart() {
@@ -47,7 +47,7 @@ public class Ravenclaw extends Hogwarts{
     }
 
     public void setCreation(int creation) {
-        this.creation = Hw02.chkValueIn0_100interval("ga/repin/creation", creation);
+        this.creation = Hw02.chkValueIn0_100interval("ga/repin/common", creation);
     }
 
     @Override

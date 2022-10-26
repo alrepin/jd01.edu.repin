@@ -1,7 +1,5 @@
 package ga.repin.education.course02.topic12.hw.calculator;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,10 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorServiceImplV2Test {
     private final CalculatorServiceV2 calc = new CalculatorServiceImplV2();
-
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     public void operationWelcomeContainCriticalInfo() {

@@ -2,14 +2,14 @@ package ga.repin.education.course02.topic05.hw.employees;
 
 import ga.repin.education.course02.topic05.hw.employees.exceptions.EmployeeAlreadyAddedException;
 import ga.repin.education.course02.topic05.hw.employees.exceptions.EmployeeNotFoundException;
-import ga.repin.education.creation.Common;
+import ga.repin.education.common.UsefulMethods;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ga.repin.education.creation.Common.*;
-import static ga.repin.education.creation.HtmlWrappers.*;
+import static ga.repin.education.common.UsefulMethods.*;
+import static ga.repin.education.common.HtmlWrappers.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -21,8 +21,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public String apiInfo() {
-        String testEmployees[] = {randomFI(), randomFI(), randomFI(),
-                randomFI(), randomFI()};
+        String testEmployees[] = {randomJsonFI(), randomJsonFI(), randomJsonFI(),
+                randomJsonFI(), randomJsonFI()};
         String testAddEmployees = "";
         String testRmEmployees = "";
         String testFindEmployees = "";
@@ -63,7 +63,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee addEmployee(String firstName, String lastName) {
-        if (!(Common.isUnicodeFilled(firstName, lastName))) return null;
+        if (!(UsefulMethods.isUnicodeFilled(firstName, lastName))) return null;
         Employee employee = new Employee(firstName, lastName);
         if (employees.contains(employee))
             throw new EmployeeAlreadyAddedException("Попытка создания дублирующей записи");
@@ -72,7 +72,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee removeEmployee(String firstName, String lastName) {
-        if (!(Common.isUnicodeFilled(firstName, lastName))) return null;
+        if (!(UsefulMethods.isUnicodeFilled(firstName, lastName))) return null;
         Employee employee = new Employee(firstName, lastName);
         if (existsEmployee(firstName, lastName)) {
             employees.remove(employee);
@@ -81,7 +81,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee findEmployee(String firstName, String lastName) {
-        if (!Common.isUnicodeFilled(firstName, lastName)) return null;
+        if (!UsefulMethods.isUnicodeFilled(firstName, lastName)) return null;
         Employee employee = new Employee(firstName, lastName);
         if (!employees.contains(employee))
             throw new EmployeeNotFoundException("Сотрудник с такими данными не найден");

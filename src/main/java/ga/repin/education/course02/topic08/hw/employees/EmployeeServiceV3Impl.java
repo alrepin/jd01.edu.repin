@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static ga.repin.education.creation.Common.*;
-import static ga.repin.education.creation.HtmlWrappers.mainTheme;
+import static ga.repin.education.common.UsefulMethods.*;
+import static ga.repin.education.common.HtmlWrappers.mainTheme;
 
 @Service
 public class EmployeeServiceV3Impl implements EmployeeServiceV3 {
@@ -22,11 +22,11 @@ public class EmployeeServiceV3Impl implements EmployeeServiceV3 {
 
     public String apiInfo() {
         List<String> testEmployees = new ArrayList<>(List.of(
-                transliterate(randomFI()),
-                transliterate(randomFI()),
-                transliterate(randomFI()),
-                transliterate(randomFI()),
-                transliterate(randomFI())
+                transliterate(randomJsonFI()),
+                transliterate(randomJsonFI()),
+                transliterate(randomJsonFI()),
+                transliterate(randomJsonFI()),
+                transliterate(randomJsonFI())
         ));
         List<String> testEmployeeParams = new ArrayList<>(List.of(
                 "&department=1&salary=20000.00",

@@ -1,7 +1,7 @@
 package ga.repin.education.course02.topic03.hw.calculator;
 
 import org.springframework.stereotype.Service;
-import static ga.repin.education.creation.HtmlWrappers.mainTheme;
+import static ga.repin.education.common.HtmlWrappers.mainTheme;
 
 @Service
 public class CalculatorServiceImpl implements CalculatorService{

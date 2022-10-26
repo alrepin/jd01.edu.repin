@@ -1,4 +1,4 @@
-package ga.repin.education.course02.topic10.hw.employees;
+package ga.repin.education.course02.topic13.hw.employees;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,16 +8,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static ga.repin.education.course02.topic13.hw.HwConstants.HW_ROOT_URL;
 import static ga.repin.education.common.HtmlWrappers.*;
-import static ga.repin.education.course02.topic10.hw.HwConstants.*;
 
 @Service
-public class DepartmentsServiceV4Impl implements DepartmentsServiceV4 {
-    EmployeeServiceV4 employeeServiceV4;
+public class DepartmentsServiceV5Impl implements DepartmentsServiceV5 {
+    EmployeeServiceV5 employeeServiceV5;
 
     @Autowired
-    public DepartmentsServiceV4Impl(EmployeeServiceV4 employeeServiceV4) {
-        this.employeeServiceV4 = employeeServiceV4;
+    public DepartmentsServiceV5Impl(EmployeeServiceV5 employeeServiceV5) {
+        this.employeeServiceV5 = employeeServiceV5;
     }
 
     public String apiInfo() {
@@ -89,8 +89,8 @@ public class DepartmentsServiceV4Impl implements DepartmentsServiceV4 {
 
     @Override
     public Employee employeeWithMaxSalary(Integer departmentId) {
-//        employeeServiceV4.throwOnEmptyList();
-        return employeeServiceV4.listEmployee().stream()
+//        employeeServiceV5.throwOnEmptyList();
+        return employeeServiceV5.listEmployee().stream()
                 .filter(e -> e.getDepartment().equals(departmentId))
                 .max(Comparator.comparingDouble(Employee::getSalary))
                 .orElseThrow();
@@ -98,8 +98,8 @@ public class DepartmentsServiceV4Impl implements DepartmentsServiceV4 {
 
     @Override
     public Employee employeeWithMinSalary(Integer departmentId) {
-//        employeeServiceV4.throwOnEmptyList();
-        return employeeServiceV4.listEmployee().stream()
+//        employeeServiceV5.throwOnEmptyList();
+        return employeeServiceV5.listEmployee().stream()
                 .filter(e -> e.getDepartment().equals(departmentId))
                 .min(Comparator.comparingDouble(Employee::getSalary))
                 .orElseThrow();
@@ -107,16 +107,16 @@ public class DepartmentsServiceV4Impl implements DepartmentsServiceV4 {
 
     @Override
     public List<Employee> allEmployeeByDepartment(Integer departmentId) {
-//        employeeServiceV4.throwOnEmptyList();
-        return employeeServiceV4.listEmployee().stream()
+//        employeeServiceV5.throwOnEmptyList();
+        return employeeServiceV5.listEmployee().stream()
                 .filter(e -> e.getDepartment().equals(departmentId))
                 .collect(Collectors.toList());
     }
 
     @Override
     public Map<Integer, List<Employee>> allEmployeeGroupByDepartment() {
-//        employeeServiceV4.throwOnEmptyList();
-        return employeeServiceV4.listEmployee().stream()
+//        employeeServiceV5.throwOnEmptyList();
+        return employeeServiceV5.listEmployee().stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment));
     }
 }

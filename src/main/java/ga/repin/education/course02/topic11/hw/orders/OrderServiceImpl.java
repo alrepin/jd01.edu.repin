@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import static ga.repin.education.course02.topic11.hw.HwConstants.*;
-import static ga.repin.education.creation.HtmlWrappers.*;
+import static ga.repin.education.common.HtmlWrappers.*;
 
 @Service
 @SessionScope
