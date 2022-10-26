@@ -49,7 +49,7 @@ public class WelcomeServiceImpl implements WelcomeService {
                         commentPrep(hwCaption("2.12. Unit-testing", true, "16843", 24), null) +
                         "</li><li>" +
                         hrefPrep("/v5/employee", "V5 API EMPLOYEE DEV (JUnit+Mockito)") + BR +
-                        commentPrep(hwCaption("2.13. Spring & Mockito", false, "16844", 25), null) + BR +
+                        commentPrep(hwCaption("2.13. Spring & Mockito", true, "16844", 25), null) + BR +
                         "</li>"
 
         );
