@@ -12,7 +12,6 @@ import static ga.repin.education.common.UsefulMethods.*;
 import static ga.repin.education.common.HtmlWrappers.*;
 
 @Service
-@Scope("session")
 public class WelcomeServiceImpl implements WelcomeService {
 
 

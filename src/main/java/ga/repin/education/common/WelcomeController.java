@@ -1,12 +1,10 @@
 package ga.repin.education.common;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Scope("session")
 public class WelcomeController {
     private final WelcomeService welcomeService;
 

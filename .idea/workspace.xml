@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="afe74640-807f-42f0-b7f9-9ea2e8d7da27" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ga/repin/education/WelcomeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ga/repin/education/WelcomeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="course2/topic12" />
+        <entry key="$PROJECT_DIR$" value="course2/topic13" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,15 +51,12 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/WelcomeServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic05/hw/employees/Employee.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic05/hw/employees/EmployeeController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic05/hw/employees/EmployeeServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic05/hw/employees/exceptions/EmployeeNotFoundException.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic08/hw/employees/DepartmentsServiceV3Impl.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic10/hw/employees/DepartmentsServiceV4Impl.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/creation/Common.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/ga/repin/education/creation/HtmlWrappers.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/application.properties" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -91,25 +87,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/me/Documents/edu/sky.pro/[00]proj/alrepin/skypro_jb_export",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "spring.configuration.checksum": "cdf645ebce2dbcc9c0a984178c2ba89f"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/me/Documents/edu/sky.pro/[00]proj/forks&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d0bb80aabb8619b6e35113f02e72752b&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/ga/repin/education/course02/topic04/hw" />
@@ -132,12 +128,60 @@
     <option name="configurationTypes">
       <set>
         <option value="Application" />
+        <option value="JUnit" />
+        <option value="MavenRunConfiguration" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
-    <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.education [test]">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="education" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="education" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ga.repin.education.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ga.repin.education" />
+      <option name="MAIN_CLASS_NAME" value="ga.repin.education.ApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="education [test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="test" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" />
       <module name="education" />
@@ -152,11 +196,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.ApplicationTests" />
+      <item itemvalue="Maven.education [test]" />
+      <item itemvalue="Spring Boot.Application" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Application" />
-        <item itemvalue="Spring Boot.Application" />
-        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Maven.education [test]" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ApplicationTests" />
         <item itemvalue="Spring Boot.Application" />
         <item itemvalue="Spring Boot.Application" />
       </list>
@@ -187,6 +237,7 @@
       <workItem from="1663446666320" duration="402000" />
       <workItem from="1663519577547" duration="2139000" />
       <workItem from="1663545948613" duration="10332000" />
+      <workItem from="1666749437230" duration="22985000" />
     </task>
     <servers />
   </component>
@@ -196,6 +247,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="82809b93-2481-46c4-bd3f-614a3cdd21c0">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -228,5 +284,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/education$EmployeeServiceV5ImplTest_removeEmployee__1__name_Ivan__surname_Pupkin__department_1__salary_20000.ic" NAME="EmployeeServiceV5ImplTest.removeEmployee.[1] name=Ivan, surname=Pupkin, department=1, salary=20000 Coverage Results" MODIFIED="1666593275704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ga.repin.education.course02.topic13.hw.employees.*</FILTER>
+    </SUITE>
   </component>
 </project>

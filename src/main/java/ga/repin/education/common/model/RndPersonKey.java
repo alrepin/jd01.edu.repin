@@ -1,13 +1,20 @@
 package ga.repin.education.common.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class RndPersonKey {
+    @Setter
     private String name;
+    @Setter
     private String surname;
-
+    @Setter
     private String callingClass;
 
     public String getName() {
@@ -32,6 +39,12 @@ public class RndPersonKey {
         this.surname = surname;
     }
 
+    public RndPersonKey(String name, String surname, String callingClass) {
+        this.name = name;
+        this.surname = surname;
+        this.callingClass = callingClass;
+    }
+
     public RndPersonKey() {
         this.name = randomName();
         this.surname = randomSurname();
@@ -39,19 +52,19 @@ public class RndPersonKey {
 
     public RndPersonKey(String callingClass) {
         this.callingClass = callingClass;
-        if (getAvailableQuantity()<10) {
-                usedFI.removeIf(e -> e.getCallingClass().equals(this.callingClass));
+        if (getAvailableQuantity() < 10) {
+            usedFI.removeIf(e -> e.getCallingClass().equals(this.callingClass));
+        }
+        int initSize = usedFI.size();
+        RndPersonKey tmp = new RndPersonKey();
+        while (usedFI.size() == initSize) {
+            tmp.name = randomName();
+            tmp.surname = randomSurname();
+            tmp.callingClass = callingClass;
+            if (!usedFI.contains(tmp)) {
+                usedFI.add(tmp);
             }
-            int initSize = usedFI.size();
-            RndPersonKey tmp = new RndPersonKey();
-            while (usedFI.size() == initSize) {
-                tmp.name = randomName();
-                tmp.surname = randomSurname();
-                tmp.callingClass = callingClass;
-                if (!usedFI.contains(tmp)) {
-                    usedFI.add(tmp);
-                }
-            }
+        }
         this.name = tmp.name;
         this.surname = tmp.surname;
 
@@ -67,15 +80,41 @@ public class RndPersonKey {
                 .count();
     }
 
+    public boolean isUsed() {
+
+        return false;
+    }
+
+    public static List<RndPersonKey> listEqualCallings(String firstName, String lastName, String callingClass) {
+        return listEqualCallings(firstName, lastName).stream()
+                .filter(p ->
+                        ((p.getCallingClass().equals(callingClass))))
+                .collect(Collectors.toList());
+    }
+
+    public List<RndPersonKey> listEqualCallings() {
+        return listEqualCallings(this.name, this.surname);
+    }
+
+    public static List<RndPersonKey> listEqualCallings(String firstName, String lastName) {
+        /*RndPersonKey p = new RndPersonKey(firstName,lastName,callingClass);
+        return usedFI.contains(p);*/
+        return usedFI.stream()
+                .filter(p ->
+                        ((p.getName().equals(firstName)) &&
+                                (p.getSurname().equals(lastName)) ))
+                .collect(Collectors.toList());
+    }
+
     public static String randomName() {
 
         java.util.Random random = new java.util.Random();
-        return arrName[random.nextInt(arrName.length-1) + 1];
+        return arrName[random.nextInt(arrName.length - 1) + 1];
     }
 
     public static String randomSurname() {
         java.util.Random random = new java.util.Random();
-        return arrSurname[random.nextInt(arrSurname.length-1) + 1];
+        return arrSurname[random.nextInt(arrSurname.length - 1) + 1];
     }
 
     @Override
