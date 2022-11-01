@@ -17,7 +17,14 @@ public class UsefulMethods {
     public static List<Integer> rnd0_100Generated = new ArrayList<>();
     public static List<String> rndJsonFI = new ArrayList<>();
 
-
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
 
     public static String getMd5(String input) {
         try {

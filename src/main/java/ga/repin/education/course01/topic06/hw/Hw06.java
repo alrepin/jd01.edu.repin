@@ -1,4 +1,7 @@
 package ga.repin.education.course01.topic06.hw;
+
+import static ga.repin.education.common.UsefulMethods.generateRandomArray;
+
 public class Hw06 {
     static int[] monthReport = generateRandomArray();
     static int paymentSum = 0;
@@ -8,15 +11,6 @@ public class Hw06 {
         countPaymentMinMax();
         countPaymentAvg();
         reverseAndShowArrayItems();
-    }
-
-    public static int[] generateRandomArray() {
-        java.util.Random random = new java.util.Random();
-        int[] arr = new int[30];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
-        }
-        return arr;
     }
 
     public static void countPaymentSum() {
@@ -71,8 +65,8 @@ char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'
 В результате в консоль должно быть выведено "Ivanov Ivan".
          */
         System.out.println("Задача 4:");
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = reverseFullName.length - 1; i >= 0 ; i--) {
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int i = reverseFullName.length - 1; i >= 0; i--) {
             System.out.print(reverseFullName[i]);
         }
     }
