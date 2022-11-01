@@ -34,23 +34,23 @@ public class StringListImpl implements StringList {
         get(index);
         if ((this.size + 2) < this.elementData.length) {
             if (index < this.size) {
-                System.arraycopy(this.elementData, (index + 1), this.elementData, index + 2, this.size - index);
+                System.arraycopy(this.elementData, (index + 1), this.elementData,
+                        index + 2, this.size - index);
             }
         } else {
             String[] temp = new String[(this.elementData.length * 2)];
-            if (index == this.size) {
-                System.arraycopy(this.elementData, 0, temp, 0, (size + 1));
-                this.elementData = temp;
-            } else {
-                System.arraycopy(this.elementData, 0, temp, 0, (index + 1));
-                System.arraycopy(elementData, (index + 2), elementData, index + 2, this.size - index);
-                this.elementData = temp;
+            System.arraycopy(this.elementData, 0, temp, 0, (index + 1));
+            if (index < this.size) {
+                System.arraycopy(elementData, (index + 2), elementData,
+                        index + 2, this.size - index);
             }
+            this.elementData = temp;
         }
         this.elementData[(index + 1)] = item;
         this.size++;
         return item;
     }
+
 
     @Override
     public String set(int index, String item) {
@@ -129,10 +129,10 @@ public class StringListImpl implements StringList {
 
     @Override
     public boolean equals(StringList otherList) {
-        return  Arrays.equals(this.toArray(), otherList.toArray());
+        return Arrays.equals(this.toArray(), otherList.toArray());
     }
 
-     @Override
+    @Override
     public int size() {
         return size;
     }
