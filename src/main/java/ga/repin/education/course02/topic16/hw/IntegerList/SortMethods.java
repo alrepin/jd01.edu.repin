@@ -13,32 +13,44 @@ public class SortMethods {
         System.out.println(benchmark());
         /*
 Bubble sort method performance test
+___________________________________
 Full clone of generated 100000 random items array with sequences at the edges:
-[165818, 132483, 154770, 110288, 127143]...[170690, 193590, 120070, 174396, 133819]
+[185238, 172550, 150353, 112264, 173207]...[116405, 131710, 173601, 135369, 146756]
 have been sorted for a new array of 100000 items, with:
-[100003, 100004, 100005, 100005, 100009]...[199993, 199995, 199997, 199998, 199998]
-and completed in 100.93 seconds
+[100000, 100001, 100003, 100003, 100004]...[199995, 199996, 199996, 199997, 199999]
+and completed in 101.422 seconds
 
 Selection sort method performance test
+______________________________________
 Full clone of generated 100000 random items array with sequences at the edges:
-[165818, 132483, 154770, 110288, 127143]...[170690, 193590, 120070, 174396, 133819]
+[185238, 172550, 150353, 112264, 173207]...[116405, 131710, 173601, 135369, 146756]
 have been sorted for a new array of 100000 items, with:
-[100003, 100004, 100005, 100005, 100009]...[199993, 199995, 199997, 199998, 199998]
-and completed in 21.362 seconds
+[100000, 100001, 100003, 100003, 100004]...[199995, 199996, 199996, 199997, 199999]
+and completed in 23.918 seconds
 
 Insertion sort method performance test
+______________________________________
 Full clone of generated 100000 random items array with sequences at the edges:
-[165818, 132483, 154770, 110288, 127143]...[170690, 193590, 120070, 174396, 133819]
+[185238, 172550, 150353, 112264, 173207]...[116405, 131710, 173601, 135369, 146756]
 have been sorted for a new array of 100000 items, with:
-[100003, 100004, 100005, 100005, 100009]...[199993, 199995, 199997, 199998, 199998]
-and completed in 25.554 seconds
+[100000, 100001, 100003, 100003, 100004]...[199995, 199996, 199996, 199997, 199999]
+and completed in 25.45 seconds
+
+Quick sort method performance test
+__________________________________
+Full clone of generated 100000 random items array with sequences at the edges:
+[185238, 172550, 150353, 112264, 173207]...[116405, 131710, 173601, 135369, 146756]
+have been sorted for a new array of 100000 items, with:
+[100000, 100001, 100003, 100003, 100004]...[199995, 199996, 199996, 199997, 199999]
+and completed in 0.04 seconds
 
 Tim sort method performance test
+________________________________
 Full clone of generated 100000 random items array with sequences at the edges:
-[165818, 132483, 154770, 110288, 127143]...[170690, 193590, 120070, 174396, 133819]
+[185238, 172550, 150353, 112264, 173207]...[116405, 131710, 173601, 135369, 146756]
 have been sorted for a new array of 100000 items, with:
-[100003, 100004, 100005, 100005, 100009]...[199993, 199995, 199997, 199998, 199998]
-and completed in 0.083 seconds
+[100000, 100001, 100003, 100003, 100004]...[199995, 199996, 199996, 199997, 199999]
+and completed in 0.076 seconds
         */
     }
 
@@ -51,24 +63,32 @@ and completed in 0.083 seconds
         markTheTime(false);
         sortedArr = bubbleSortMethod(generatedRandomIntegerArray);
         result = result + benchmarkReport("bubble sort",
-                headAndTail(generatedRandomIntegerArray, 5,5),
-                headAndTail(sortedArr, 5,5),
+                headAndTail(generatedRandomIntegerArray, 5, 5),
+                headAndTail(sortedArr, 5, 5),
                 generatedRandomIntegerArray.length, sortedArr.length, markTheTime(true)
         );
 
         markTheTime(false);
         sortedArr = selectionSortMethod(generatedRandomIntegerArray);
         result = result + benchmarkReport("selection sort",
-                headAndTail(generatedRandomIntegerArray, 5,5),
-                headAndTail(sortedArr, 5,5),
+                headAndTail(generatedRandomIntegerArray, 5, 5),
+                headAndTail(sortedArr, 5, 5),
                 generatedRandomIntegerArray.length, sortedArr.length, markTheTime(true)
         );
 
         markTheTime(false);
         sortedArr = insertionSortMethod(generatedRandomIntegerArray);
         result = result + benchmarkReport("insertion sort",
-                headAndTail(generatedRandomIntegerArray, 5,5),
-                headAndTail(sortedArr, 5,5),
+                headAndTail(generatedRandomIntegerArray, 5, 5),
+                headAndTail(sortedArr, 5, 5),
+                generatedRandomIntegerArray.length, sortedArr.length, markTheTime(true)
+        );
+
+        markTheTime(false);
+        sortedArr = quickSort(generatedRandomIntegerArray, 0, generatedRandomIntegerArray.length - 1);
+        result = result + benchmarkReport("quick sort",
+                headAndTail(generatedRandomIntegerArray, 5, 5),
+                headAndTail(sortedArr, 5, 5),
                 generatedRandomIntegerArray.length, sortedArr.length, markTheTime(true)
         );
 
@@ -76,8 +96,8 @@ and completed in 0.083 seconds
         markTheTime(false);
         Arrays.sort(tmp);
         result = result + benchmarkReport("tim sort",
-                headAndTail(generatedRandomIntegerArray, 5,5),
-                headAndTail(tmp, 5,5),
+                headAndTail(generatedRandomIntegerArray, 5, 5),
+                headAndTail(tmp, 5, 5),
                 generatedRandomIntegerArray.length, tmp.length, markTheTime(true)
         );
 
@@ -86,10 +106,10 @@ and completed in 0.083 seconds
 
     private static String headAndTail(Integer[] arr, int head, int tail) {
         return Arrays.toString(Arrays.copyOf(arr, head)) + "..." +
-                Arrays.toString(Arrays.copyOfRange(arr,(arr.length-tail),arr.length));
+                Arrays.toString(Arrays.copyOfRange(arr, (arr.length - tail), arr.length));
     }
 
-    private static double markTheTime(boolean finish) {
+    public static double markTheTime(boolean finish) {
         if (finish) {
             return (System.currentTimeMillis() - measurementStartTime) / 1000.0;
         } else {
@@ -101,6 +121,9 @@ and completed in 0.083 seconds
     private static String benchmarkReport(String method, String arrPrintBefore, String arrPrintAfter,
                                           int sourceArrLength, int resultArrLength, double timeout) {
         return "\n" + StringUtils.capitalize(method) + " method performance test\n" +
+                "_________________________________________________________".substring( 0,
+                        (method + " method performance test").length()
+                ) + "\n" +
                 "Full clone of generated " + sourceArrLength + " random items" +
                 " array with sequences at the edges:\n" +
                 arrPrintBefore + "\nhave been sorted for a new array of " + resultArrLength + " items" +
@@ -111,6 +134,34 @@ and completed in 0.083 seconds
         int tmp = arr[A];
         arr[A] = arr[B];
         arr[B] = tmp;
+    }
+
+    public static Integer[] quickSort(Integer[] arr, int begin, int end) {
+        Integer[] tmp = arr.clone();
+        quickSortRecursion(tmp, begin, end);
+        return tmp;
+    }
+
+    public static void quickSortRecursion(Integer[] arr, int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = partition(arr, begin, end);
+            quickSortRecursion(arr, begin, partitionIndex - 1);
+            quickSortRecursion(arr, partitionIndex + 1, end);
+        }
+    }
+
+    private static int partition(Integer[] arr, int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin - 1);
+
+        for (int j = begin; j < end; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                swapItems(arr, i, j);
+            }
+        }
+        swapItems(arr, i + 1, end);
+        return i + 1;
     }
 
     public static Integer[] bubbleSortMethod(Integer[] arr) {
