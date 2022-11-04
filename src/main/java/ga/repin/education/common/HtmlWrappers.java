@@ -94,9 +94,9 @@ public class HtmlWrappers {
     public static String commentPrep(String text, Integer size ) {
         String result = null;
         if (size == null) {
-            size = 3;
+            size = 4;
         }
-        result = "<i><font face=\"Times New Roman\" size=\"" +
+        result = "<i><font face=\"'Montserrat', sans-serif\" size=\"" +
                 size +
                 "\">" +
                 text + "</font></i>";
@@ -123,6 +123,10 @@ public class HtmlWrappers {
             caption = "\uD83C\uDF19";
         }
         return "<html><head><style type=\"text/css\"> " +
+                "" +
+                "" +
+                "" +
+                "" +
                 "A { text-decoration: none; " +
                 "color: " + textcolor +
                 "; background: " + bgcolor +
@@ -130,27 +134,26 @@ public class HtmlWrappers {
                 "A:hover { text-decoration: none; " +
                 "color: black" + //bgcolor +
                 "; background: " + textcolor +
-                "; } </style></head>" + //+ "<body " +
+                "; } </style>" +
+                "<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap\" rel=\"stylesheet\" />" +
+                "</head>" + //+ "<body " +
                 "<body link=" + textcolor +
                 "vlink=" + textcolor +
                 "bgcolor=" + bgcolor +
                 "text=" + textcolor +
-                "><h2>" +
+                ">" +
+                "<h2>" +
                 "<a href=\"/exit?pass=\">❌</a> | " +
                 "<a href=\"/.\">\uD83C\uDFE0</a> | " +
                 "<a href=\"javascript:history.back()\">◀️</a> | " +
                 "<a href=\"/switchtheme\">" +
                 caption +
-                "</a><hr>" +
+                "</a>" +
+                "</h2>" +
+                "<hr>" +
                 unformattedString +
                 "<hr>" +
-                /*"<a href=\"/exit?pass=\">❌</a> | " +
-                "<a href=\"/.\">\uD83C\uDFE0</a> | " +
-                "<a href=\"javascript:history.back()\">◀️</a> | " +
-                "<a href=\"/switchtheme\">" +
-                caption +
-                "</a><hr>" +*/
-                "</h2></body></html>";
+                "</body></html>";
     }
 
 }

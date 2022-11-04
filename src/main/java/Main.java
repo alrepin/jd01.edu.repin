@@ -1,5 +1,5 @@
 import ga.repin.education.course02.topic14.hw.StringList.*;
-import ga.repin.education.course02.topic15.hw.IntegerList.*;
+import ga.repin.education.course02.topic16.hw.IntegerList.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class Main {
 
         }
 
-        integerList.remove((Integer) 0);
+       integerList.remove(0);
 
         for (int i = 0; i < integerList.size(); i++) {
             System.out.println(integerList.get(i));

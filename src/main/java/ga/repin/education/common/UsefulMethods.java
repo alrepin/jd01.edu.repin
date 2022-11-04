@@ -27,10 +27,14 @@ public class UsefulMethods {
     }
 
     public static Integer[] generateRandomIntegerArray() {
+        return generateRandomIntegerArray(100_000);
+    }
+
+    public static Integer[] generateRandomIntegerArray(int capacity) {
         java.util.Random random = new java.util.Random();
-        Integer[] arr = new Integer[100_000];
+        Integer[] arr = new Integer[capacity];
         for (Integer i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
+            arr[i] = random.nextInt(capacity) + capacity;
         }
         return arr;
     }
