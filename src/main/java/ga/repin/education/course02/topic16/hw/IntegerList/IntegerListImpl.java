@@ -3,6 +3,7 @@ package ga.repin.education.course02.topic16.hw.IntegerList;
 import java.util.Arrays;
 
 import static ga.repin.education.course02.topic15.hw.IntegerList.SortMethods.selectionSortMethod;
+import static ga.repin.education.course02.topic16.hw.IntegerList.SortMethods.quickSort;
 
 public class IntegerListImpl implements IntegerList {
 
@@ -28,7 +29,7 @@ public class IntegerListImpl implements IntegerList {
     @Override
     public Integer add(Integer item) {
         validateItem(item);
-        increaseArray();
+        growIfNeeded();
         elementData[size] = item;
         return elementData[size++];
     }
@@ -42,7 +43,7 @@ public class IntegerListImpl implements IntegerList {
                     + index + " is unavailable.\nNumber of elements in array = " + this.size
                     + ".\nTotal size of array = " + elementData.length);
         }
-        increaseArray();
+        growIfNeeded();
 
         if (size - index >= 0) {
             System.arraycopy(elementData, index, elementData, index + 1,
@@ -64,6 +65,16 @@ public class IntegerListImpl implements IntegerList {
         if (size == (elementData.length - 1)) {
             int newSize = elementData.length * 2 + 1;
             elementData = Arrays.copyOf(elementData, newSize);
+        }
+    }
+
+    private void grow() {
+        elementData = Arrays.copyOf(elementData, size + size / 2);
+    }
+
+    private void growIfNeeded() {
+        if (size == elementData.length) {
+            grow();
         }
     }
 
@@ -89,20 +100,29 @@ public class IntegerListImpl implements IntegerList {
     @Override
     public Integer remove(int index) {
         validateIndex(index);
-        Integer element = elementData[index];
+        Integer item = elementData[index];
 
-        if (size - index >= 0) {
+        if (index != size) {
             System.arraycopy(elementData, index + 1, elementData,
-                    index, size - index);
+                    index, size - index - 1);
         }
 
         size--;
-        return element;
+        return item;
     }
 
     @Override
     public boolean contains(Integer item) {
-        return binarySearch(selectionSortMethod(toArray()), item);
+        return binarySearch(sort(toArray()), item);
+    }
+
+    public void sort() {
+        sort(elementData);
+    }
+
+
+    public Integer[] sort(Integer[] arr) {
+        return quickSort(arr, 0, arr.length - 1);
     }
 
     @Override
@@ -198,4 +218,5 @@ public class IntegerListImpl implements IntegerList {
         }
         return false;
     }
+
 }
