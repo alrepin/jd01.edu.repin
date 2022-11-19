@@ -80,6 +80,133 @@ public class HtmlWrappers {
                         "</script>";
     }
 
+    public static String questionsSnippet(String sessionId){
+        return
+                "<style>\n" +
+                        "\t\t\ttextarea {\n" +
+                        "\t\t\t\twidth: 400px;\n" +
+                        "\t\t\t\tcolor: lightgreen;\n" +
+                        "\t\t\t\theight: 400px;\n" +
+                        "\t\t\t\tpadding: 12px 20px;\n" +
+                        "\t\t\t\tbox-sizing: border-box;\n" +
+                        "\t\t\t\tborder: 2px solid #ccc;\n" +
+                        "\t\t\t\tborder-radius: 4px;\n" +
+                        "\t\t\t\tbackground-color: black;\n" +
+                        "\t\t\t\tfont-size: 14px;\n" +
+                        "\t\t\t\tresize: none;\n" +
+                        "\t\t\t}\n" +
+                        "\t\t</style>\n" +
+                        "\t\t<textarea id=\"output\"></textarea>\n" +
+                        "\t\t<br />\n" +
+                        "\t\t<script>\n" +
+                        "\t\t\twindow.onload = function () {\n" +
+                        "\t\t\t\tdemo();\n" +
+                        "\t\t\t};\n" +
+                        "\n" +
+                        "\t\t\tlet counter = 0;\n" +
+                        "\n" +
+                        "\t\t\tasync function demo() {\n" +
+                        "\t\t\t\twhile (true) {\n" +
+                        "\t\t\t\t\tslideToOutput(\"WELCOME TO\");\n" +
+                        "\t\t\t\t\tawait pause(2000);\n" +
+                        "\t\t\t\t\tslideToOutput(\"QUESTION API DEMO\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tslideToOutput(\"Let add several questions\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/add?question=QT1&answer=QA1\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/add?question=QT2&answer=QA2\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/add?question=QT3&answer=QA3\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/add?question=QT4&answer=QA4\");\n" +
+                        "\t\t\t\t\tawait pause(5000);\n" +
+                        "\n" +
+                        "\t\t\t\t\tslideToOutput(\"Let get all added questions\");\n" +
+                        "\t\t\t\t\tawait pause(5000);\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java\");\n" +
+                        "\t\t\t\t\tawait pause(8000);\n" +
+                        "\n" +
+                        "\t\t\t\t\tslideToOutput(\"Let get two random questions\");\n" +
+                        "\t\t\t\t\tawait pause(5000);\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/get/2\");\n" +
+                        "\t\t\t\t\tawait pause(8000);\n" +
+                        "\n" +
+                        "\t\t\t\t\tslideToOutput(\"If we will try get more questions than we added we will get exception\");\n" +
+                        "\t\t\t\t\tawait pause(5000);\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/get/5\");\n" +
+                        "\t\t\t\t\tawait pause(10000);\n" +
+                        "\n" +
+                        "\t\t\t\t\tslideToOutput(\"Let remove first added question\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/remove?question=QT1&answer=QA1\");\n" +
+                        "\t\t\t\t\tawait pause(8000);\n" +
+                        "\n" +
+                        "\t\t\t\t\tslideToOutput(\"If we will try to delete it again we will get exception\");\n" +
+                        "\t\t\t\t\tawait pause(4000);\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/remove?question=QT1&answer=QA1\");\n" +
+                        "\t\t\t\t\tawait pause(10000);\n" +
+                        "\n" +
+                        "\t\t\t\t\tslideToOutput(\"Let remove remaining added questions\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/remove?question=QT2&answer=QA2\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/remove?question=QT3&answer=QA3\");\n" +
+                        "\t\t\t\t\tawait pause(3000);\n" +
+                        "\t\t\t\t\tsendReqt(\"/exam/java/remove?question=QT4&answer=QA4\");\n" +
+                        "\t\t\t\t\tawait pause(10000);\n" +
+                        "\n" +
+                        "\t\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\t\tawait pause(1000);\n" +
+                        "\t\t\t\t}\n" +
+                        "\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\tfunction pause(ms) {\n" +
+                        "\t\t\t\treturn new Promise(resolve => setTimeout(resolve, ms));\n" +
+                        "\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\tfunction reportToOutput(strOut) {\n" +
+                        "\t\t\t\tlet DT = new Date();\n" +
+                        "\t\t\t\tDT = DT.toLocaleDateString().slice(0, 15) + \" \" + DT.toLocaleTimeString().slice(0, 8);\n" +
+                        "\t\t\t\tdocument.getElementById(\"output\").innerHTML =\n" +
+                        "\t\t\t\t\t\"[\" +\n" +
+                        "\t\t\t\t\tDT +\n" +
+                        "\t\t\t\t\t\"]\\n\\n\" +\n" +
+                        "\t\t\t\t\tstrOut +\n" +
+                        "\t\t\t\t\t\"\\n------------------------------------\" +\n" +
+                        "\t\t\t\t\t\"\\n\" +\n" +
+                        "\t\t\t\t\tdocument.getElementById(\"output\").innerHTML;\n" +
+                        "\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\tfunction sendReqt(url) {\n" +
+                        "\t\t\t\tlet xhttp = new XMLHttpRequest();\n" +
+                        "\t\t\t\txhttp.onload = function () {\n" +
+                        "\t\t\t\t\tlet result =\n" +
+                        "\t\t\t\t\t\t\"Request \\n   GET \" + url + \"\\n\\nResponse \\n   code: \" + this.status + \"\\n   body: \" + this.responseText;\n" +
+                        "\t\t\t\t\treportToOutput(result);\n" +
+                        "\t\t\t\t};\n" +
+                        "\t\t\t\txhttp.open(\"GET\", url);\n" +
+                        "\t\t\t\txhttp.send();\n" +
+                        "\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\tfunction clearOutput() {\n" +
+                        "\t\t\t\tdocument.getElementById(\"output\").innerHTML = null;\n" +
+                        "\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\tasync function slideToOutput(textOut) {\n" +
+                        "\t\t\t\tclearOutput();\n" +
+                        "\t\t\t\tdocument.getElementById(\"output\").innerHTML = \"\\n\\n\\n       \" + textOut;\n" +
+                        "\t\t\t}\n" +
+                        "\t\t</script>";
+    }
+
     public static String hrefPrep(String link, String text) {
         if (text == null) {
             text = link;
@@ -122,7 +249,9 @@ public class HtmlWrappers {
             textcolor = "\"DimGray\"";
             caption = "\uD83C\uDF19";
         }
-        return "<html><head><style type=\"text/css\"> " +
+        return "<html><head>" +
+                "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />" +
+                "<style type=\"text/css\"> " +
                 "" +
                 "" +
                 "" +

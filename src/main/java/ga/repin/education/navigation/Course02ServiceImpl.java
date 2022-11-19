@@ -1,11 +1,11 @@
 package ga.repin.education.navigation;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import static ga.repin.education.common.HtmlWrappers.*;
 import static ga.repin.education.common.UsefulMethods.hwCaption;
-import static ga.repin.education.navigation.NavigationConstants.*;
+import static ga.repin.education.navigation.NavigationConstants.ROOT_URL_01;
+import static ga.repin.education.navigation.NavigationConstants.ROOT_URL_02;
 
 @Service
 public class Course02ServiceImpl implements Course02Service {
@@ -63,12 +63,13 @@ public class Course02ServiceImpl implements Course02Service {
                         commentPrep(hwCaption("2.14. Fundamentals of Algorithms, part 1", true, "16845", 26), null) + BR +
                         commentPrep(hwCaption("2.15. Fundamentals of Algorithms, part 2", true, "16846", 27), null) + BR +
                         commentPrep(hwCaption("2.16. Fundamentals of Algorithms, part 3", true, "16847", 28), null) + BR +
+                        commentPrep(hwCaption("Coursework", false, "", 29), null) + BR +
+                        "<li>" +
+                        hrefPrep("/exam", "QUESTIONS-ANSWERS API") + BR +
+                        "</li>" +
                         "</ul>"
 
         );
     }
-
-    @Value("${session.kill-pass}")
-    private String sessionKillPass;
 
 }
