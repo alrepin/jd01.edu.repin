@@ -51,9 +51,7 @@ public class JavaQuestionService implements QuestionService{
     }
 
     private void checkNull(Question question) {
-        if (question == null) {
-            throw new NullPointerException();
-        }
+        checkNull(question.getQuestion(),question.getAnswer());
     }
 
     @Override

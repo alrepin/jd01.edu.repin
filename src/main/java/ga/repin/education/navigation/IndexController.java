@@ -7,26 +7,36 @@ import org.springframework.web.bind.annotation.RestController;
 import static ga.repin.education.navigation.NavigationConstants.*;
 
 @RestController
-public class Course01Controller {
-    private final Course01Service course01Service;
+public class IndexController {
+    private final IndexService indexService;
 
-    public Course01Controller(Course01Service course01Service) {
-        this.course01Service = course01Service;
+    public IndexController(IndexService indexService) {
+        this.indexService = indexService;
     }
 
     @GetMapping(path = ROOT_URL_01)
     public String showIndexPage() {
-        return course01Service.operationIndex();
+        return indexService.course1Index();
     }
-
+    
+    @GetMapping(path = ROOT_URL_02)
+    public String showCourse2Page() {
+        return indexService.course2Index();
+    }
+    
+    @GetMapping(path = ROOT_URL_03)
+    public String showCourse3Page() {
+        return indexService.course3Index();
+    }
+    
     @GetMapping(path = "/exit")
     public String stopServer(@RequestParam(value = "pass", required = false) String pass) {
-        return course01Service.stopSpring(pass);
+        return indexService.stopSpring(pass);
     }
 
     @GetMapping(path = "/switchtheme")
     public String switchTheme() {
-        return course01Service.letSwitchTheme();
+        return indexService.letSwitchTheme();
     }
 
 }

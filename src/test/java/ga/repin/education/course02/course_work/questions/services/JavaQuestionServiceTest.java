@@ -33,6 +33,7 @@ class JavaQuestionServiceTest {
         assertEquals(ONE, o.getAll().size());
         Question expected = QUESTION_OBJ_1;
         assertTrue(o.getAll().contains(expected));
+        assertEquals(expected, actual);
         actual = o.remove(QUESTION_1, ANSWER_1);
         assertEquals(expected, actual);
         assertTrue(o.getAll().isEmpty());

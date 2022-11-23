@@ -1,14 +1,43 @@
 package ga.repin.education.common;
 
-public class HtmlWrappers {
-    public static final String BR="<br>";
-    public static final String HR="<hr>";
-    public static boolean nightTheme = false;
+import java.util.Arrays;
 
-    public static String orderFormSnippet(String sessionId){
+import static ga.repin.education.navigation.NavigationConstants.*;
+
+public class HtmlWrappers {
+    public static final String BR = "<br>";
+    public static final String HR = "<hr>";
+    public static boolean nightTheme = false;
+    
+    public static String coursesTabs(int courseNum) {
+        String[] underlineTagOpen = new String[10];
+        String[] underlineTagClose = new String[10];
+        Arrays.fill(underlineTagOpen, "");
+        Arrays.fill(underlineTagClose, "");
+        
+        underlineTagOpen[courseNum] = "<u>";
+        underlineTagClose[courseNum] = "</u>";
+        
+        return underlineTagOpen[1] +
+                hrefPrep(ROOT_URL_01, "First course") +
+                underlineTagClose[1] +
+                " | " +
+                underlineTagOpen[2] +
+                hrefPrep(ROOT_URL_02, "Second course") +
+                underlineTagClose[2] +
+                " | " +
+                underlineTagOpen[3] +
+                hrefPrep(ROOT_URL_03, "Third course") +
+                underlineTagClose[3] +
+                HR +
+                "The presented tasks were solved as a part of the educational process: " + BR
+                ;
+    }
+    
+    public static String orderFormSnippet(String sessionId) {
         return
                 //"    <div id=\"demo\">Select goods and push +</div>\n" +
-                        "<form action=\"add\" method=\"GET\" name=\"myForm\">\n" +
+                "<form action=\"add\" method=\"GET\" name=\"myForm\">\n" +
                         "\n" +
                         "    <select name=\"db\" id=\"db\">\n" +
                         "        <option value=\"1\"> good 1\n" +
@@ -79,8 +108,8 @@ public class HtmlWrappers {
                         "    removeButton.addEventListener(\"click\", removeOption);\n" +
                         "</script>";
     }
-
-    public static String questionsSnippet(String sessionId){
+    
+    public static String questionsSnippet(String sessionId) {
         return
                 "<style>\n" +
                         "\t\t\ttextarea {\n" +
@@ -206,7 +235,7 @@ public class HtmlWrappers {
                         "\t\t\t}\n" +
                         "\t\t</script>";
     }
-
+    
     public static String hrefPrep(String link, String text) {
         if (text == null) {
             text = link;
@@ -217,8 +246,8 @@ public class HtmlWrappers {
                 text +
                 "</a>";
     }
-
-    public static String commentPrep(String text, Integer size ) {
+    
+    public static String commentPrep(String text, Integer size) {
         String result = null;
         if (size == null) {
             size = 4;
@@ -229,13 +258,13 @@ public class HtmlWrappers {
                 text + "</font></i>";
         return result;
     }
-
-    public static String textFieldPrep(String text){
+    
+    public static String textFieldPrep(String text) {
         String result =
                 "<br><textarea cols=\"90\" rows=\"1\">" + text + "</textarea><br>";
         return result;
     }
-
+    
     public static String mainTheme(String unformattedString) {
         String bgcolor = "";
         String textcolor = "";
@@ -284,5 +313,5 @@ public class HtmlWrappers {
                 "<hr>" +
                 "</body></html>";
     }
-
+    
 }
