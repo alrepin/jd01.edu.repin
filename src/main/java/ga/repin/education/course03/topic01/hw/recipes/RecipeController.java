@@ -1,5 +1,7 @@
 package ga.repin.education.course03.topic01.hw.recipes;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import ga.repin.education.common.exceptions.ErrorMessage;
 import ga.repin.education.common.exceptions.HttpException;
 import org.springframework.http.HttpStatus;
@@ -47,7 +49,8 @@ public class RecipeController {
     }
     
     @GetMapping(path = "/reference_sample")
-    public Object reference() {
+    public String reference() {
+        
         return recipeService.getReference();
 
     }

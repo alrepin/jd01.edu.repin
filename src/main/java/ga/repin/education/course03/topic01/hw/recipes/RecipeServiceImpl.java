@@ -1,11 +1,16 @@
 package ga.repin.education.course03.topic01.hw.recipes;
 
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import ga.repin.education.course03.topic01.hw.recipes.model.Ingredient;
 import ga.repin.education.course03.topic01.hw.recipes.model.Recipe;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import static ga.repin.education.common.HtmlWrappers.*;
@@ -45,9 +50,9 @@ public class RecipeServiceImpl implements RecipeService {
     }
     
     @Override
-    public Object getReference() {
+    public String getReference() {
         
-        return List.of(
+        List<Recipe> outList = List.of(
                 new Recipe(1, "Сырники из творога", 30,
                         Set.of(new Ingredient("Творог", 350.0, "г"),
                                 new Ingredient("Куриное яйцо", 2.0, "шт."),
@@ -144,5 +149,23 @@ public class RecipeServiceImpl implements RecipeService {
                         )
                 )
         );
+    
+        /*Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
+        String jsonOutput = gson.toJson(outList);
+        return mainTheme(jsonOutput);*/
+    
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .setPrettyPrinting()
+                .create(); // enable pretty printing
+    
+        Map<String, List<Recipe>> wrap = new HashMap<>();
+        wrap.put("recipes", outList);  // wrap user list in a map
+    
+        String json = gson.toJson(wrap);
+        return mainTheme("<pre>" + json + "</pre>");
+        
     }
 }

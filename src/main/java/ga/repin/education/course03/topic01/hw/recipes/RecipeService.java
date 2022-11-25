@@ -4,5 +4,5 @@ public interface RecipeService {
 
     String index(String id);
     
-    Object getReference();
+    String getReference();
 }
