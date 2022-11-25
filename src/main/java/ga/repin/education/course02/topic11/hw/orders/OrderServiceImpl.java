@@ -2,11 +2,13 @@ package ga.repin.education.course02.topic11.hw.orders;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
-import java.util.*;
+
+import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import static ga.repin.education.course02.topic11.hw.HwConstants.*;
+
 import static ga.repin.education.common.HtmlWrappers.*;
+import static ga.repin.education.course02.topic11.hw.HwConstants.HW_ENDPOINT;
 
 @Service
 @SessionScope

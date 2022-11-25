@@ -12,6 +12,8 @@ import java.util.Collection;
 
 import static ga.repin.education.course02.course_work.HwConstants.HW_ENDPOINT;
 
+//@SessionScope
+//@Scope("Session")
 //@CrossOrigin
 @RestController
 @RequestMapping(HW_ENDPOINT)

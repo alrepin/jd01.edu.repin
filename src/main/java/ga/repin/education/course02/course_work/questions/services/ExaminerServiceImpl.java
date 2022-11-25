@@ -12,6 +12,7 @@ import java.util.Set;
 import static ga.repin.education.common.HtmlWrappers.*;
 
 @Service
+//@Scope("Session")
 @SessionScope
 public class ExaminerServiceImpl implements ExaminerService {
     private final QuestionService questionService;

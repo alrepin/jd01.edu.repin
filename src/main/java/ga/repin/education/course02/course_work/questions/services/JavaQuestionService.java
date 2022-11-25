@@ -9,6 +9,8 @@ import java.util.*;
 
 @Service
 @SessionScope
+//@CrossOrigin
+//@Scope("Session")
 public class JavaQuestionService implements QuestionService{
     private final Set<Question> questions = new HashSet<>();
     Random random = new Random();
