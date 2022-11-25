@@ -103,7 +103,7 @@ public class IndexServiceImpl implements IndexService {
                 coursesTabs(3) +
                         "<ul type=\"square\">" +
                         "<h3>Third course of study</h3>" +
-                        commentPrep(hwCaption("3.1. Introduction to web development. HTTP, REST Protocols", false, "16848", 30), null) + BR +
+                        commentPrep(hwCaption("3.1. Introduction to web development. HTTP, REST Protocols", true, "16848", 30), null) + BR +
                         "<li>" +
                         hrefPrep(ga.repin.education.course03.topic01.hw.HwConstants.HW_ENDPOINT,
                                 "RECIPES JSON CONVERTER") + BR + "</li>" +
