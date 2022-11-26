@@ -2,6 +2,7 @@ package ga.repin.education.navigation;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import static ga.repin.education.navigation.NavigationConstants.*;
@@ -33,10 +34,15 @@ public class IndexController {
     public String stopServer(@RequestParam(value = "pass", required = false) String pass) {
         return indexService.stopSpring(pass);
     }
-
+    
     @GetMapping(path = "/switchtheme")
     public String switchTheme() {
         return indexService.letSwitchTheme();
     }
-
+    
+    @GetMapping(path = "/school/openapi.json", produces = "application/json;UTF-8")
+    @ResponseBody
+    public String schoolOpenApi() {
+        return indexService.schoolOpenApiSvc();
+    }
 }

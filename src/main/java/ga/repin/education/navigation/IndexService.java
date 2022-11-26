@@ -10,4 +10,6 @@ public interface IndexService {
     String stopSpring(String pass);
 
     String letSwitchTheme();
+    
+    String schoolOpenApiSvc();
 }

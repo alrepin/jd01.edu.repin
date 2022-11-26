@@ -1,14 +1,21 @@
 package ga.repin.education.common;
 
+import com.gargoylesoftware.htmlunit.Page;
+import com.gargoylesoftware.htmlunit.WebClient;
+import ga.repin.education.course02.topic10.hw.employees.exceptions.HttpException;
+import org.apache.commons.lang3.StringUtils;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.SerializationConfig;
+import org.springframework.boot.web.servlet.server.Encoding;
+import org.springframework.http.HttpStatus;
+
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-
-import ga.repin.education.course02.topic10.hw.employees.exceptions.HttpException;
-import org.apache.commons.lang3.*;
-import org.springframework.http.HttpStatus;
 
 import static ga.repin.education.common.HtmlWrappers.hrefPrep;
 
@@ -16,7 +23,37 @@ public class UsefulMethods {
     public static List<Integer> rndIntGenerated = new ArrayList<>();
     public static List<Integer> rnd0_100Generated = new ArrayList<>();
     public static List<String> rndJsonFI = new ArrayList<>();
-
+    
+    public static String getPageContent(String pageURL) {
+        String pageContent;
+        Page page;
+        try (WebClient client = new WebClient()) {
+            client.getOptions().setCssEnabled(false);
+            client.getOptions().setJavaScriptEnabled(false);
+            try {
+                page = client.getPage(pageURL);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        pageContent = page.getWebResponse().getContentAsString(Encoding.DEFAULT_CHARSET);
+        return pageContent;
+    }
+    
+    public static String pretifyJSON(String jsonOriginal) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+        JsonNode tree;
+        String formattedJson;
+        try {
+            tree = objectMapper.readTree(jsonOriginal);
+            formattedJson = objectMapper.writeValueAsString(tree);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return formattedJson;
+    }
+    
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
         int[] arr = new int[100_000];

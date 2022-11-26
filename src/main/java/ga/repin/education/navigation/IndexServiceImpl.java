@@ -9,8 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 
 import static ga.repin.education.common.HtmlWrappers.*;
-import static ga.repin.education.common.UsefulMethods.getMd5;
-import static ga.repin.education.common.UsefulMethods.hwCaption;
+import static ga.repin.education.common.UsefulMethods.*;
 
 @Service
 public class IndexServiceImpl implements IndexService {
@@ -108,11 +107,23 @@ public class IndexServiceImpl implements IndexService {
                         hrefPrep(ga.repin.education.course03.topic01.hw.HwConstants.HW_ENDPOINT,
                                 "RECIPES JSON CONVERTER") + BR + "</li>" +
                         "</li>" +
+        
+                        commentPrep(hwCaption("3.2. API Creation. SwaggerUI, Postman", true, "16849", 31), null) + BR +
+                        "<li>" +
+                        hrefPrep("/swagger-ui/index.html?urls.primaryName=school",
+                                "OPENAPI SCHOOL SWAGGER-UI") + " | " +
+                        hrefPrep("/school/openapi.json",
+                                "OPENAPI SCHOOL JSON") +
+                        
+                        BR + "</li>" +
+                        "</li>" +
+                        
                         "</ul>"
         
         );
     }
     
+
     @Value("${session.kill-pass}")
     private String sessionKillPass;
     
@@ -128,6 +139,11 @@ public class IndexServiceImpl implements IndexService {
     public String letSwitchTheme() {
         HtmlWrappers.nightTheme = !HtmlWrappers.nightTheme;
         return course3Index();
+    }
+    
+    @Override
+    public String schoolOpenApiSvc() {
+        return pretifyJSON(getPageContent("http://repin.ga/openapi.json/school"));
     }
     
 }
