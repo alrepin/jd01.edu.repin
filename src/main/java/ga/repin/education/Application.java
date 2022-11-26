@@ -1,11 +1,33 @@
 package ga.repin.education;
 
 import ga.repin.education.common.UsefulMethods;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
+@OpenAPIDefinition(
+		info = @Info(
+				title = "School API",
+				version = "0.0.1",
+				description = "The client-server API provides a " +
+						"simple lightweight school openapi including " +
+						"CRUD operations with student and faculty models.",
+				contact = @Contact(
+						name = "alrepin",
+						email = "alrepin@list.ru",
+						url = "http://repin.ga"
+				),
+				license = @License(
+						url = "http://www.apache.org/licenses/LICENSE-2.0.html",
+						name = "Apache 2.0"
+				)
+		)
+)
 public class Application {
 	public static ApplicationContext appContext = null;
 	public static void main(String[] args) {

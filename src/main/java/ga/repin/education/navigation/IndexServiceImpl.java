@@ -108,6 +108,17 @@ public class IndexServiceImpl implements IndexService {
                         hrefPrep(ga.repin.education.course03.topic01.hw.HwConstants.HW_ENDPOINT,
                                 "RECIPES JSON CONVERTER") + BR + "</li>" +
                         "</li>" +
+        
+                        commentPrep(hwCaption("3.2. API Creation. SwaggerUI, Postman", true, "16849", 31), null) + BR +
+                        "<li>" +
+                        hrefPrep("/swagger-ui.html",
+                                "SWAGGER-UI") + " | " +
+                        hrefPrep("/openapi.json",
+                                "OPENAPI JSON") +
+                        
+                        BR + "</li>" +
+                        "</li>" +
+                        
                         "</ul>"
         
         );
