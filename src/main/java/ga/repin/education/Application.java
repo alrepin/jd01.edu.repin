@@ -36,7 +36,14 @@ public class Application {
 	@Bean
 	public GroupedOpenApi schoolOpenApi() {
 		String packagesToscan[] = {"ga.repin.education.course03.topic02.hw.school"};
-		return GroupedOpenApi.builder().group("school").packagesToScan(packagesToscan)
+		return GroupedOpenApi.builder().group(ga.repin.education.course03.topic02.hw.HwConstants.HW_ENDPOINT).packagesToScan(packagesToscan)
+				.build();
+	}
+	
+	@Bean
+	public GroupedOpenApi schoolV2OpenApi() {
+		String packagesToscan[] = {"ga.repin.education.course03.topic03.hw.school"};
+		return GroupedOpenApi.builder().group(ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT).packagesToScan(packagesToscan)
 				.build();
 	}
 	

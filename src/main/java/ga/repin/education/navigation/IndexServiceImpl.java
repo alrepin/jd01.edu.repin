@@ -110,10 +110,11 @@ public class IndexServiceImpl implements IndexService {
         
                         commentPrep(hwCaption("3.2. API Creation. SwaggerUI, Postman", true, "16849", 31), null) + BR +
                         "<li>" +
-                        hrefPrep("/swagger-ui/index.html?urls.primaryName=school",
+                        hrefPrep("/swagger-ui/index.html?urls.primaryName=" + ga.repin.education.course03.topic02.hw.HwConstants.HW_ENDPOINT,
                                 "OPENAPI SCHOOL SWAGGER-UI") + " | " +
-                        hrefPrep("/school/openapi.json",
-                                "OPENAPI SCHOOL JSON") +
+                        hrefPrep("/openapi.json/v1school",
+                        //hrefPrep(ga.repin.education.course03.topic02.hw.HwConstants.HW_ENDPOINT + "/openapi.json",
+                                "OPENAPI SCHOOL V1 JSON") +
                         
                         BR + "</li>" +
                         "</li>" +
@@ -152,7 +153,7 @@ public class IndexServiceImpl implements IndexService {
     
     @Override
     public String schoolOpenApiSvc() {
-        return pretifyJSON(getPageContent("http://repin.ga/openapi.json/school"));
+        return pretifyJSON(getPageContent("http://repin.ga/openapi.json/" + ga.repin.education.course03.topic02.hw.HwConstants.HW_ENDPOINT));
     }
     
 }

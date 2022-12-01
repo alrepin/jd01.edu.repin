@@ -40,9 +40,9 @@ public class IndexController {
         return indexService.letSwitchTheme();
     }
     
-    @GetMapping(path = "/school/openapi.json", produces = "application/json;UTF-8")
+    @GetMapping(path = ga.repin.education.course03.topic02.hw.HwConstants.HW_ENDPOINT + "/openapi.json", produces = "application/json;UTF-8")
     @ResponseBody
     public String schoolOpenApi() {
-        return indexService.schoolOpenApiSvc();
+        return null; //indexService.schoolOpenApiSvc();
     }
 }

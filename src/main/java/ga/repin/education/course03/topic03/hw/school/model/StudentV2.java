@@ -1,4 +1,4 @@
-package ga.repin.education.course03.topic02.hw.school.model;
+package ga.repin.education.course03.topic03.hw.school.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+public class StudentV2 {
     //@Schema(hidden = true)
     //@Schema(readOnly = true)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
@@ -52,9 +52,9 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        //return getAge() == student.getAge() &&
-        return getName().equals(student.getName());
+        StudentV2 studentV2 = (StudentV2) o;
+        //return getAge() == studentV2.getAge() &&
+        return getName().equals(studentV2.getName());
     }
     
     @Override

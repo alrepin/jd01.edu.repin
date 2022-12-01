@@ -1,4 +1,4 @@
-package ga.repin.education.course03.topic02.hw.school.model;
+package ga.repin.education.course03.topic03.hw.school.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -8,13 +8,13 @@ import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+public class FacultyV2 {
+    
     //@Schema(hidden = true)
-    //@Schema(readOnly = true)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
     private String name;
-    private int age;
+    private String color;
     
     public Long getId() {
         return id;
@@ -32,35 +32,26 @@ public class Student {
         this.name = name;
     }
     
-    public int getAge() {
-        return age;
+    public String getColor() {
+        return color;
     }
     
-    public void setAge(int age) {
-        this.age = age;
-    }
-    
-    @Override
-    public String toString() {
-        return "StudentV2{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+    public void setColor(String color) {
+        this.color = color;
     }
     
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        //return getAge() == student.getAge() &&
-        return getName().equals(student.getName());
+        FacultyV2 facultyV2 = (FacultyV2) o;
+        //Objects.equals(id, facultyV2.id) &&
+        return Objects.equals(name, facultyV2.name);
+        //  && Objects.equals(color, facultyV2.color);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getAge());
+        return Objects.hash(id, name, color);
     }
-    
 }
-

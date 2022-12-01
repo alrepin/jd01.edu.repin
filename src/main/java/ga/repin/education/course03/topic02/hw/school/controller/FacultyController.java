@@ -13,8 +13,8 @@ import java.util.List;
 import static ga.repin.education.course03.topic02.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
-@RequestMapping(HW_ENDPOINT + "faculty")
-@Tag(name = "\uD83C\uDF93 Faculty store", description = "Faculty model CRUD endpoints")
+@RequestMapping(HW_ENDPOINT + "/faculty")
+@Tag(name = "\uD83C\uDF93 FacultyV1 store", description = "FacultyV1 model CRUD endpoints")
 public class FacultyController {
     private final FacultyService facultyService;
     
