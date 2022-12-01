@@ -34,7 +34,7 @@ public class FacultyController {
     
     @GetMapping("/{id}")
     public ResponseEntity<Faculty> readFacultyByID(@PathVariable long id) {
-        Faculty result = facultyService.get(id);
+        Faculty result = facultyService.read(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -43,7 +43,7 @@ public class FacultyController {
     
     @GetMapping
     public ResponseEntity<List<Faculty>> readFacultiesOptionalColorFilter(@RequestParam(value = "color", required = false) String color) {
-        List<Faculty> result = new ArrayList<>(facultyService.getFaculties(color));
+        List<Faculty> result = new ArrayList<>(facultyService.filter(color));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
