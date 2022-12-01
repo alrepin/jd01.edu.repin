@@ -1,17 +1,17 @@
 package ga.repin.education.course03.topic03.hw.school.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
+import javax.persistence.*;
 import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Faculty {
-    
-    //@Schema(hidden = true)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String color;
