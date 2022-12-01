@@ -103,6 +103,7 @@ public class IndexServiceImpl implements IndexService {
                 coursesTabs(3) +
                         "<ul type=\"square\">" +
                         "<h3>Third course of study</h3>" +
+                       
                         commentPrep(hwCaption("3.1. Introduction to web development. HTTP, REST Protocols", true, "16848", 30), null) + BR +
                         "<li>" +
                         hrefPrep(ga.repin.education.course03.topic01.hw.HwConstants.HW_ENDPOINT,
@@ -115,9 +116,14 @@ public class IndexServiceImpl implements IndexService {
                                 "SWAGGER-UI") + " | " +
                         hrefPrep("/openapi.json",
                                 "OPENAPI JSON") +
-                        
-                        BR + "</li>" +
+                        BR +
                         "</li>" +
+        
+                        commentPrep(hwCaption("3.3. Introduction to databases", false, "16850", 32), null) + BR +
+                        /*"<li>" +
+                        hrefPrep("/" + ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT,
+                                "") + BR + "</li>" +
+                        "</li>" +*/
                         
                         "</ul>"
         

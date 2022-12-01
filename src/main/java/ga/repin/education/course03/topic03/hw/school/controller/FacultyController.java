@@ -1,7 +1,7 @@
-package ga.repin.education.course03.topic02.hw.school.controller;
+package ga.repin.education.course03.topic03.hw.school.controller;
 
-import ga.repin.education.course03.topic02.hw.school.model.Faculty;
-import ga.repin.education.course03.topic02.hw.school.service.FacultyService;
+import ga.repin.education.course03.topic03.hw.school.model.Faculty;
+import ga.repin.education.course03.topic03.hw.school.service.FacultyService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ga.repin.education.course03.topic02.hw.HwConstants.HW_ENDPOINT;
+import static ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
-@RequestMapping(HW_ENDPOINT + "faculty")
+@RequestMapping(HW_ENDPOINT + "/faculty")
 @Tag(name = "\uD83C\uDF93 Faculty store", description = "Faculty model CRUD endpoints")
 public class FacultyController {
     private final FacultyService facultyService;

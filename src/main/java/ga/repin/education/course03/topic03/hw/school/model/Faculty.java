@@ -1,4 +1,4 @@
-package ga.repin.education.course03.topic02.hw.school.model;
+package ga.repin.education.course03.topic03.hw.school.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

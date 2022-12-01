@@ -1,6 +1,6 @@
-package ga.repin.education.course03.topic02.hw.school.service;
+package ga.repin.education.course03.topic03.hw.school.service;
 
-import ga.repin.education.course03.topic02.hw.school.model.Faculty;
+import ga.repin.education.course03.topic03.hw.school.model.Faculty;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

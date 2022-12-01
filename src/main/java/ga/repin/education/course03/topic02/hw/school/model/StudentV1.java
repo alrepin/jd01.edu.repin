@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+public class StudentV1 {
     //@Schema(hidden = true)
     //@Schema(readOnly = true)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
@@ -42,7 +42,7 @@ public class Student {
     
     @Override
     public String toString() {
-        return "Student{" +
+        return "StudentV1{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
@@ -52,7 +52,7 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
+        StudentV1 student = (StudentV1) o;
         //return getAge() == student.getAge() &&
         return getName().equals(student.getName());
     }
