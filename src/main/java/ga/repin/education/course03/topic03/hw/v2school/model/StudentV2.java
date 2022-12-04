@@ -1,17 +1,19 @@
-package ga.repin.education.course03.topic02.hw.school.model;
+package ga.repin.education.course03.topic03.hw.v2school.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
+import javax.persistence.*;
 import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentV1 {
+@Entity
+public class StudentV2 {
     //@Schema(hidden = true)
     //@Schema(readOnly = true)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int age;
@@ -52,7 +54,7 @@ public class StudentV1 {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StudentV1 student = (StudentV1) o;
+        StudentV2 student = (StudentV2) o;
         //return getAge() == student.getAge() &&
         return getName().equals(student.getName());
     }

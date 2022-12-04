@@ -1,7 +1,7 @@
-package ga.repin.education.course03.topic03.hw.school.service;
+package ga.repin.education.course03.topic04.hw.v3school.service;
 
-import ga.repin.education.course03.topic03.hw.school.model.Student;
-import ga.repin.education.course03.topic03.hw.school.repository.StudentRepository;
+import ga.repin.education.course03.topic04.hw.v3school.model.Student;
+import ga.repin.education.course03.topic04.hw.v3school.repository.StudentRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 

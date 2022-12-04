@@ -1,7 +1,7 @@
-package ga.repin.education.course03.topic03.hw.school.controller;
+package ga.repin.education.course03.topic03.hw.v2school.controller;
 
-import ga.repin.education.course03.topic03.hw.school.model.Faculty;
-import ga.repin.education.course03.topic03.hw.school.service.FacultyService;
+import ga.repin.education.course03.topic03.hw.v2school.model.FacultyV2;
+import ga.repin.education.course03.topic03.hw.v2school.service.FacultyServiceV2;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,18 +14,18 @@ import static ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
 @RequestMapping(HW_ENDPOINT + "/faculty")
-@Tag(name = "\uD83C\uDF93 Faculty store", description = "Faculty model CRUD endpoints")
-public class FacultyController {
-    private final FacultyService facultyService;
+@Tag(name = "\uD83C\uDF93 FacultyV2 store", description = "FacultyV2 model CRUD endpoints")
+public class FacultyControllerV2 {
+    private final FacultyServiceV2 facultyServiceV2;
     
-    public FacultyController(FacultyService facultyService) {
-        this.facultyService = facultyService;
+    public FacultyControllerV2(FacultyServiceV2 facultyServiceV2) {
+        this.facultyServiceV2 = facultyServiceV2;
     }
     
     
     @PostMapping()
-    public ResponseEntity<Faculty> createFaculty(@RequestBody Faculty faculty) {
-        Faculty result = facultyService.create(faculty);
+    public ResponseEntity<FacultyV2> createFaculty(@RequestBody FacultyV2 faculty) {
+        FacultyV2 result = facultyServiceV2.create(faculty);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -33,8 +33,8 @@ public class FacultyController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Faculty> readFacultyByID(@PathVariable long id) {
-        Faculty result = facultyService.read(id);
+    public ResponseEntity<FacultyV2> readFacultyByID(@PathVariable long id) {
+        FacultyV2 result = facultyServiceV2.read(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -42,8 +42,8 @@ public class FacultyController {
     }
     
     @GetMapping
-    public ResponseEntity<List<Faculty>> readFacultiesOptionalColorFilter(@RequestParam(value = "color", required = false) String color) {
-        List<Faculty> result = new ArrayList<>(facultyService.filter(color));
+    public ResponseEntity<List<FacultyV2>> readFacultiesOptionalColorFilter(@RequestParam(value = "color", required = false) String color) {
+        List<FacultyV2> result = new ArrayList<>(facultyServiceV2.filter(color));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -51,8 +51,8 @@ public class FacultyController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<Faculty> updateFaculty(@PathVariable long id, @RequestBody Faculty faculty) {
-        Faculty result = facultyService.update(id, faculty);
+    public ResponseEntity<FacultyV2> updateFaculty(@PathVariable long id, @RequestBody FacultyV2 faculty) {
+        FacultyV2 result = facultyServiceV2.update(id, faculty);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -60,8 +60,8 @@ public class FacultyController {
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Faculty> deleteFaculty(@PathVariable long id) {
-        Faculty result = facultyService.delete(id);
+    public ResponseEntity<FacultyV2> deleteFaculty(@PathVariable long id) {
+        FacultyV2 result = facultyServiceV2.delete(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

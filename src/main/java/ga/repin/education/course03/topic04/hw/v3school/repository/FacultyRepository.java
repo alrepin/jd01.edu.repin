@@ -1,7 +1,6 @@
-package ga.repin.education.course03.topic03.hw.school.repository;
+package ga.repin.education.course03.topic04.hw.v3school.repository;
 
-import ga.repin.education.course03.topic03.hw.school.model.Faculty;
-import ga.repin.education.course03.topic03.hw.school.model.Student;
+import ga.repin.education.course03.topic04.hw.v3school.model.Faculty;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;

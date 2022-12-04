@@ -15,7 +15,7 @@ import org.springframework.context.ApplicationContext;
 				title = "School API",
 				version = "0.0.1",
 				description = "The client-server API provides a " +
-						"simple lightweight school openapi including " +
+						"simple lightweight v1school openapi including " +
 						"CRUD operations with student and faculty models.",
 				contact = @Contact(
 						name = "alrepin",

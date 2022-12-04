@@ -1,7 +1,7 @@
-package ga.repin.education.course03.topic02.hw.school.controller;
+package ga.repin.education.course03.topic02.hw.v1school.controller;
 
-import ga.repin.education.course03.topic02.hw.school.model.FacultyV1;
-import ga.repin.education.course03.topic02.hw.school.service.FacultyServiceV1;
+import ga.repin.education.course03.topic02.hw.v1school.model.FacultyV1;
+import ga.repin.education.course03.topic02.hw.v1school.service.FacultyServiceV1;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
