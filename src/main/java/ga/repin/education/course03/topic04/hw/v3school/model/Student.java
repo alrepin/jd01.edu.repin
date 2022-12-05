@@ -1,13 +1,11 @@
 package ga.repin.education.course03.topic04.hw.v3school.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @NoArgsConstructor
@@ -22,6 +20,19 @@ public class Student {
     private Long id;
     private String name;
     private int age;
+    
+    @JsonIgnore
+    @ManyToOne()
+    @JoinColumn(name = "faculty_id")
+    private Faculty faculty;
+    
+    public Faculty getFaculty() {
+        return faculty;
+    }
+    
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
     
     public Long getId() {
         return id;

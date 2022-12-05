@@ -1,6 +1,7 @@
 package ga.repin.education.course03.topic04.hw.v3school.controller;
 
 import ga.repin.education.course03.topic04.hw.v3school.model.Faculty;
+import ga.repin.education.course03.topic04.hw.v3school.model.Student;
 import ga.repin.education.course03.topic04.hw.v3school.service.FacultyService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static ga.repin.education.course03.topic04.hw.HwConstants.HW_ENDPOINT;
@@ -41,9 +43,16 @@ public class FacultyController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     
-    @GetMapping
-    public ResponseEntity<List<Faculty>> readFacultiesOptionalColorFilter(@RequestParam(value = "color", required = false) String color) {
-        List<Faculty> result = new ArrayList<>(facultyService.filter(color));
+    @GetMapping("/{id}/students")
+    public ResponseEntity<Collection<Student>> studentsByFaculty(@PathVariable long id) {
+        return ResponseEntity.ok(facultyService.studentsByFaculty(id));
+    }
+    
+    @GetMapping("/search")
+    public ResponseEntity<List<Faculty>> readFacultiesOptionalSearch(
+            @RequestParam(value = "color", required = false) String color,
+            @RequestParam(value = "query",  required = false) String query) {
+        List<Faculty> result = new ArrayList<>(facultyService.filter(query,color));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

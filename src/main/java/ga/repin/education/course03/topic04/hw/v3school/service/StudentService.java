@@ -1,5 +1,6 @@
 package ga.repin.education.course03.topic04.hw.v3school.service;
 
+import ga.repin.education.course03.topic04.hw.v3school.model.Faculty;
 import ga.repin.education.course03.topic04.hw.v3school.model.Student;
 import ga.repin.education.course03.topic04.hw.v3school.repository.StudentRepository;
 import org.springframework.data.domain.Example;
@@ -35,11 +36,19 @@ public class StudentService {
         return studentRepository.findById(id).orElse(null);
     }
     
-    public Collection<Student> filter(Integer age) {
-        if (age == null) {
-            return studentRepository.findAll();
+    public Collection<Student> filter(Integer age,Integer min,Integer max) {
+        if (age != null) {
+            min = age;
+            max = age;
+        } else {
+            if (min==null){
+                min = 1;
+            }
+            if (max == null) {
+                max = 120;
+            }
         }
-        return studentRepository.findByAge(age);
+        return studentRepository.findByAgeBetween(min,max);
     }
     
     public Student update(long id, Student student) {
@@ -62,5 +71,10 @@ public class StudentService {
             }
         }
         return null;
+    }
+    
+    public Faculty facultyOfStudentBy(Long studentId){
+        return studentRepository.findById(studentId)
+                .map(Student::getFaculty).orElse(null);
     }
 }

@@ -1,11 +1,13 @@
 package ga.repin.education.course03.topic04.hw.v3school.service;
 
 import ga.repin.education.course03.topic04.hw.v3school.model.Faculty;
+import ga.repin.education.course03.topic04.hw.v3school.model.Student;
 import ga.repin.education.course03.topic04.hw.v3school.repository.FacultyRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -19,10 +21,10 @@ public class FacultyService {
     }
     
     public Faculty create(Faculty faculty) {
-    
+        
         Example<Faculty> e = Example.of(faculty);
         boolean exists = facultyRepository.exists(e);
-    
+        
         if (!exists) {
             return facultyRepository.save(faculty);
         }
@@ -34,11 +36,22 @@ public class FacultyService {
         return facultyRepository.findById(id).orElse(null);
     }
     
-    public Collection<Faculty> filter(String color) {
-        if (color == null) {
+    public Collection<Student> studentsByFaculty(Long facultyId){
+        return facultyRepository.findById(facultyId).map(Faculty::getStudents)
+                .orElseGet(Collections::emptyList);
+    }
+    
+    public Collection<Faculty> filter(String query, String color) {
+        if (query != null && color != null) {
+            return facultyRepository.findByNameIgnoreCaseAndColor(query, color);
+        } else if (query == null && color != null) {
+            return facultyRepository.findByColor(color);
+        } else if (query != null) {
+            return facultyRepository.findByNameIgnoreCaseOrColorIgnoreCase(query, query);
+        } else {
             return facultyRepository.findAll();
         }
-        return facultyRepository.findByColor(color);
+        
     }
     
     public Faculty update(long id, Faculty faculty) {

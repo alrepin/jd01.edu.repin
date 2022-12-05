@@ -1,13 +1,12 @@
 package ga.repin.education.course03.topic04.hw.v3school.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @NoArgsConstructor
@@ -20,6 +19,18 @@ public class Faculty {
     private Long id;
     private String name;
     private String color;
+    
+    @JsonIgnore
+    @OneToMany(mappedBy = "faculty", fetch = FetchType.LAZY)
+    private Collection<Student> students;
+    
+    public Collection<Student> getStudents() {
+        return students;
+    }
+    
+    public void setStudents(Collection<Student> students) {
+        this.students = students;
+    }
     
     public Long getId() {
         return id;

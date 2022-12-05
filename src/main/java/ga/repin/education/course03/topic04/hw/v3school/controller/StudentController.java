@@ -1,5 +1,6 @@
 package ga.repin.education.course03.topic04.hw.v3school.controller;
 
+import ga.repin.education.course03.topic04.hw.v3school.model.Faculty;
 import ga.repin.education.course03.topic04.hw.v3school.model.Student;
 import ga.repin.education.course03.topic04.hw.v3school.service.StudentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -41,9 +42,22 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     
-    @GetMapping
-    public ResponseEntity<List<Student>> readStudentsOptionalAgeFilter(@RequestParam(value = "age", required = false) Integer age) {
-        List<Student> result = new ArrayList<>(studentService.filter(age));
+    @GetMapping("/{id}/faculty")
+    public ResponseEntity<Faculty> facultyByStudent(@PathVariable Long id){
+        Faculty result = studentService.facultyOfStudentBy(id);
+        if (result == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    
+    @GetMapping ("/search")
+    public ResponseEntity<List<Student>> readStudentsOptionalFilters(
+            @RequestParam(value = "age", required = false) Integer specificAge,
+            @RequestParam(value = "min-age", required = false) Integer minAge,
+            @RequestParam(value = "max-age", required = false) Integer maxAge) {
+        
+        List<Student> result = new ArrayList<>(studentService.filter(specificAge, minAge, maxAge));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
