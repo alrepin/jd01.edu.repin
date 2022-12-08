@@ -130,6 +130,10 @@ public class IndexServiceImpl implements IndexService {
                         hrefPrep("/" + ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT,
                                 "") + BR + "</li>" +
                         "</li>" +*/
+        
+        
+                        commentPrep(hwCaption("3.5. Data streams. Working with files", false, "16852", 34), null) + BR +
+                        
                         
                         "</ul>"
         

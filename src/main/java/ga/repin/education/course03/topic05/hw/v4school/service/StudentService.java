@@ -1,8 +1,8 @@
-package ga.repin.education.course03.topic04.hw.v3school.service;
+package ga.repin.education.course03.topic05.hw.v4school.service;
 
-import ga.repin.education.course03.topic04.hw.v3school.model.Faculty;
-import ga.repin.education.course03.topic04.hw.v3school.model.Student;
-import ga.repin.education.course03.topic04.hw.v3school.repository.StudentRepository;
+import ga.repin.education.course03.topic05.hw.v4school.model.Faculty;
+import ga.repin.education.course03.topic05.hw.v4school.model.Student;
+import ga.repin.education.course03.topic05.hw.v4school.repository.StudentRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +36,7 @@ public class StudentService {
         return studentRepository.findById(id).orElse(null);
     }
     
-    public Collection<Student> filter(Integer age,Integer min,Integer max) {
+    public Collection<Student> filter(Integer age, Integer min, Integer max) {
         if (age != null) {
             min = age;
             max = age;

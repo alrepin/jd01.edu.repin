@@ -1,8 +1,8 @@
 package ga.repin.education.course03.topic04.hw.v3school.controller;
 
-import ga.repin.education.course03.topic04.hw.v3school.model.Faculty;
-import ga.repin.education.course03.topic04.hw.v3school.model.Student;
-import ga.repin.education.course03.topic04.hw.v3school.service.StudentService;
+import ga.repin.education.course03.topic04.hw.v3school.model.FacultyV3;
+import ga.repin.education.course03.topic04.hw.v3school.model.StudentV3;
+import ga.repin.education.course03.topic04.hw.v3school.service.StudentServiceV3;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,18 +15,18 @@ import static ga.repin.education.course03.topic04.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
 @RequestMapping(HW_ENDPOINT + "/student")
-@Tag(name = "\uD83D\uDC7B️ Student store", description = "Student model CRUD endpoints")
-public class StudentController {
-    private final StudentService studentService;
+@Tag(name = "\uD83D\uDC7B️ StudentV3 store", description = "StudentV3 model CRUD endpoints")
+public class StudentControllerV3 {
+    private final StudentServiceV3 studentService;
     
-    public StudentController(StudentService studentService) {
+    public StudentControllerV3(StudentServiceV3 studentService) {
         this.studentService = studentService;
     }
     
     
     @PostMapping
-    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
-        Student result = studentService.create(student);
+    public ResponseEntity<StudentV3> createStudent(@RequestBody StudentV3 student) {
+        StudentV3 result = studentService.create(student);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -34,8 +34,8 @@ public class StudentController {
     }
     
     @GetMapping("{id}")
-    public ResponseEntity<Student> readStudentByID(@PathVariable Long id) {
-        Student result = studentService.read(id);
+    public ResponseEntity<StudentV3> readStudentByID(@PathVariable Long id) {
+        StudentV3 result = studentService.read(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -43,8 +43,8 @@ public class StudentController {
     }
     
     @GetMapping("/{id}/faculty")
-    public ResponseEntity<Faculty> facultyByStudent(@PathVariable Long id){
-        Faculty result = studentService.facultyOfStudentBy(id);
+    public ResponseEntity<FacultyV3> facultyByStudent(@PathVariable Long id){
+        FacultyV3 result = studentService.facultyOfStudentBy(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -52,12 +52,12 @@ public class StudentController {
     }
     
     @GetMapping ("/search")
-    public ResponseEntity<List<Student>> readStudentsOptionalFilters(
+    public ResponseEntity<List<StudentV3>> readStudentsOptionalFilters(
             @RequestParam(value = "age", required = false) Integer specificAge,
             @RequestParam(value = "min-age", required = false) Integer minAge,
             @RequestParam(value = "max-age", required = false) Integer maxAge) {
         
-        List<Student> result = new ArrayList<>(studentService.filter(specificAge, minAge, maxAge));
+        List<StudentV3> result = new ArrayList<>(studentService.filter(specificAge, minAge, maxAge));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -65,8 +65,8 @@ public class StudentController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable long id, @RequestBody Student student) {
-        Student result = studentService.update(id, student);
+    public ResponseEntity<StudentV3> updateStudent(@PathVariable long id, @RequestBody StudentV3 student) {
+        StudentV3 result = studentService.update(id, student);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -74,8 +74,8 @@ public class StudentController {
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Student> deleteStudent(@PathVariable long id) {
-        Student result = studentService.delete(id);
+    public ResponseEntity<StudentV3> deleteStudent(@PathVariable long id) {
+        StudentV3 result = studentService.delete(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
