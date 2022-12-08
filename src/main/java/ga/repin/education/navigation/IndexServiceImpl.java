@@ -125,7 +125,7 @@ public class IndexServiceImpl implements IndexService {
                                 "") + BR + "</li>" +
                         "</li>" +*/
         
-                        commentPrep(hwCaption("3.4. Introduction to SQL", false, "16851", 33), null) + BR +
+                        commentPrep(hwCaption("3.4. Introduction to SQL", true, "16851", 33), null) + BR +
                         /*"<li>" +
                         hrefPrep("/" + ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT,
                                 "") + BR + "</li>" +

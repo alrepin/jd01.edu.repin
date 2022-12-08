@@ -36,22 +36,22 @@ public class FacultyService {
         return facultyRepository.findById(id).orElse(null);
     }
     
-    public Collection<Student> studentsByFaculty(Long facultyId){
+    public Collection<Student> studentsByFaculty(Long facultyId) {
         return facultyRepository.findById(facultyId).map(Faculty::getStudents)
                 .orElseGet(Collections::emptyList);
     }
     
     public Collection<Faculty> filter(String query, String color) {
-        if (query != null && color != null) {
+        if (query != null && !query.isBlank() && color != null && !color.isBlank()) {
             return facultyRepository.findByNameIgnoreCaseAndColor(query, color);
-        } else if (query == null && color != null) {
+        } else if ((query == null || query.isBlank()) && (color != null && !color.isBlank())) {
             return facultyRepository.findByColor(color);
-        } else if (query != null) {
+        } else if (query != null && !query.isBlank()) {
             return facultyRepository.findByNameIgnoreCaseOrColorIgnoreCase(query, query);
-        } else {
+        } else if ((query == null || query.isBlank()) && (color == null || color.isBlank())) {
             return facultyRepository.findAll();
         }
-        
+        return null;
     }
     
     public Faculty update(long id, Faculty faculty) {
