@@ -132,7 +132,7 @@ public class IndexServiceImpl implements IndexService {
                         "</li>" +*/
         
         
-                        commentPrep(hwCaption("3.5. Data streams. Working with files", false, "16852", 34), null) + BR +
+                        commentPrep(hwCaption("3.5. Data streams. Working with files", true, "16852", 34), null) + BR +
                         
                         
                         "</ul>"
