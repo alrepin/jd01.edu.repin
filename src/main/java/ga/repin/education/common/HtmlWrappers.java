@@ -294,6 +294,7 @@ public class HtmlWrappers {
                 "; background: " + textcolor +
                 "; } </style>" +
                 "<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap\" rel=\"stylesheet\" />" +
+                "<link rel=\"icon\" type=\"image/jpeg\" href=\"/school/student/2/avatar/preview\" />" +
                 "</head>" + //+ "<body " +
                 "<body link=" + textcolor +
                 "vlink=" + textcolor +

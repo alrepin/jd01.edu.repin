@@ -1,4 +1,4 @@
-package ga.repin.education.course03.topic05.hw.v4school.model;
+package ga.repin.education.course03.topic06.hw.v5school.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

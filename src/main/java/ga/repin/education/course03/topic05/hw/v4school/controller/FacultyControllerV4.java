@@ -1,8 +1,8 @@
 package ga.repin.education.course03.topic05.hw.v4school.controller;
 
-import ga.repin.education.course03.topic05.hw.v4school.model.Faculty;
-import ga.repin.education.course03.topic05.hw.v4school.model.Student;
-import ga.repin.education.course03.topic05.hw.v4school.service.FacultyService;
+import ga.repin.education.course03.topic05.hw.v4school.model.FacultyV4;
+import ga.repin.education.course03.topic05.hw.v4school.model.StudentV4;
+import ga.repin.education.course03.topic05.hw.v4school.service.FacultyServiceV4;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +17,17 @@ import static ga.repin.education.course03.topic05.hw.HwConstants.HW_ENDPOINT;
 @RestController
 @RequestMapping(HW_ENDPOINT + "/faculty")
 @Tag(name = "\uD83C\uDF93 Faculty store", description = "Faculty model CRUD endpoints")
-public class FacultyController {
-    private final FacultyService facultyService;
+public class FacultyControllerV4 {
+    private final FacultyServiceV4 facultyService;
     
-    public FacultyController(FacultyService facultyService) {
+    public FacultyControllerV4(FacultyServiceV4 facultyService) {
         this.facultyService = facultyService;
     }
     
     
     @PostMapping()
-    public ResponseEntity<Faculty> createFaculty(@RequestBody Faculty faculty) {
-        Faculty result = facultyService.create(faculty);
+    public ResponseEntity<FacultyV4> createFaculty(@RequestBody FacultyV4 faculty) {
+        FacultyV4 result = facultyService.create(faculty);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -35,8 +35,8 @@ public class FacultyController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Faculty> readFacultyByID(@PathVariable long id) {
-        Faculty result = facultyService.read(id);
+    public ResponseEntity<FacultyV4> readFacultyByID(@PathVariable long id) {
+        FacultyV4 result = facultyService.read(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
@@ -44,15 +44,15 @@ public class FacultyController {
     }
     
     @GetMapping("/{id}/students")
-    public ResponseEntity<Collection<Student>> studentsByFaculty(@PathVariable long id) {
+    public ResponseEntity<Collection<StudentV4>> studentsByFaculty(@PathVariable long id) {
         return ResponseEntity.ok(facultyService.studentsByFaculty(id));
     }
     
     @GetMapping("/search")
-    public ResponseEntity<List<Faculty>> readFacultiesOptionalSearch(
+    public ResponseEntity<List<FacultyV4>> readFacultiesOptionalSearch(
             @RequestParam(value = "color", required = false) String color,
             @RequestParam(value = "query",  required = false) String query) {
-        List<Faculty> result = new ArrayList<>(facultyService.filter(query,color));
+        List<FacultyV4> result = new ArrayList<>(facultyService.filter(query,color));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -60,8 +60,8 @@ public class FacultyController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<Faculty> updateFaculty(@PathVariable long id, @RequestBody Faculty faculty) {
-        Faculty result = facultyService.update(id, faculty);
+    public ResponseEntity<FacultyV4> updateFaculty(@PathVariable long id, @RequestBody FacultyV4 faculty) {
+        FacultyV4 result = facultyService.update(id, faculty);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
@@ -69,8 +69,8 @@ public class FacultyController {
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Faculty> deleteFaculty(@PathVariable long id) {
-        Faculty result = facultyService.delete(id);
+    public ResponseEntity<FacultyV4> deleteFaculty(@PathVariable long id) {
+        FacultyV4 result = facultyService.delete(id);
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

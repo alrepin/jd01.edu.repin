@@ -133,7 +133,8 @@ public class IndexServiceImpl implements IndexService {
         
         
                         commentPrep(hwCaption("3.5. Data streams. Working with files", true, "16852", 34), null) + BR +
-                        
+        
+                        commentPrep(hwCaption("3.6. Testing Web Applications with Spring Boot", false, "16853", 35), null) + BR +
                         
                         "</ul>"
         

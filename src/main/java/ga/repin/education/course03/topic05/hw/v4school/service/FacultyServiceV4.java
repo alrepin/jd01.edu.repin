@@ -1,8 +1,8 @@
 package ga.repin.education.course03.topic05.hw.v4school.service;
 
-import ga.repin.education.course03.topic05.hw.v4school.model.Faculty;
-import ga.repin.education.course03.topic05.hw.v4school.model.Student;
-import ga.repin.education.course03.topic05.hw.v4school.repository.FacultyRepository;
+import ga.repin.education.course03.topic05.hw.v4school.model.FacultyV4;
+import ga.repin.education.course03.topic05.hw.v4school.model.StudentV4;
+import ga.repin.education.course03.topic05.hw.v4school.repository.FacultyRepositoryV4;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -12,17 +12,17 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class FacultyService {
+public class FacultyServiceV4 {
     
-    private final FacultyRepository facultyRepository;
+    private final FacultyRepositoryV4 facultyRepository;
     
-    public FacultyService(FacultyRepository facultyRepository) {
+    public FacultyServiceV4(FacultyRepositoryV4 facultyRepository) {
         this.facultyRepository = facultyRepository;
     }
     
-    public Faculty create(Faculty faculty) {
+    public FacultyV4 create(FacultyV4 faculty) {
         
-        Example<Faculty> e = Example.of(faculty);
+        Example<FacultyV4> e = Example.of(faculty);
         boolean exists = facultyRepository.exists(e);
         
         if (!exists) {
@@ -32,16 +32,16 @@ public class FacultyService {
         
     }
     
-    public Faculty read(Long id) {
+    public FacultyV4 read(Long id) {
         return facultyRepository.findById(id).orElse(null);
     }
     
-    public Collection<Student> studentsByFaculty(Long facultyId) {
-        return facultyRepository.findById(facultyId).map(Faculty::getStudents)
+    public Collection<StudentV4> studentsByFaculty(Long facultyId) {
+        return facultyRepository.findById(facultyId).map(FacultyV4::getStudents)
                 .orElseGet(Collections::emptyList);
     }
     
-    public Collection<Faculty> filter(String query, String color) {
+    public Collection<FacultyV4> filter(String query, String color) {
         if (query != null && !query.isBlank() && color != null && !color.isBlank()) {
             return facultyRepository.findByNameIgnoreCaseAndColor(query, color);
         } else if ((query == null || query.isBlank()) && (color != null && !color.isBlank())) {
@@ -54,7 +54,7 @@ public class FacultyService {
         return null;
     }
     
-    public Faculty update(long id, Faculty faculty) {
+    public FacultyV4 update(long id, FacultyV4 faculty) {
         if (facultyRepository.existsById(id)) {
             faculty.setId(id);
             return facultyRepository.save(faculty);
@@ -62,8 +62,8 @@ public class FacultyService {
         return null;
     }
     
-    public Faculty delete(Long id) {
-        Optional<Faculty> f = facultyRepository.findById(id);
+    public FacultyV4 delete(Long id) {
+        Optional<FacultyV4> f = facultyRepository.findById(id);
         if (f.isPresent()) {
             try {
                 facultyRepository.deleteAll(f.stream().collect(Collectors.toList()));

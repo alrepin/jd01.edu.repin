@@ -1,8 +1,8 @@
 package ga.repin.education.course03.topic05.hw.v4school.controller;
 
 
-import ga.repin.education.course03.topic05.hw.v4school.model.Avatar;
-import ga.repin.education.course03.topic05.hw.v4school.service.AvatarService;
+import ga.repin.education.course03.topic05.hw.v4school.model.AvatarV4;
+import ga.repin.education.course03.topic05.hw.v4school.service.AvatarServiceV4;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,10 +23,10 @@ import static ga.repin.education.course03.topic05.hw.HwConstants.HW_ENDPOINT;
 @RestController
 @RequestMapping(HW_ENDPOINT + "/student")
 @Tag(name = "\uD83D\uDDBC Avatar store", description = "Avatar model endpoints")
-public class AvatarController {
-    private final AvatarService avatarService;
+public class AvatarControllerV4 {
+    private final AvatarServiceV4 avatarService;
     
-    public AvatarController(AvatarService avatarService) {
+    public AvatarControllerV4(AvatarServiceV4 avatarService) {
         this.avatarService = avatarService;
     }
     
@@ -42,7 +42,7 @@ public class AvatarController {
     
     @GetMapping(value = "/{id}/avatar/preview")
     public ResponseEntity<byte[]> downloadAvatar(@PathVariable Long id) {
-        Avatar avatar = avatarService.findAvatar(id);
+        AvatarV4 avatar = avatarService.findAvatar(id);
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(avatar.getMediaType()));
@@ -53,7 +53,7 @@ public class AvatarController {
     
     @GetMapping(value = "/{id}/avatar")
     public void downloadAvatar(@PathVariable Long id, HttpServletResponse response) throws IOException {
-        Avatar avatar = avatarService.findAvatar(id);
+        AvatarV4 avatar = avatarService.findAvatar(id);
         
         Path path = Path.of(avatar.getFilePath());
         

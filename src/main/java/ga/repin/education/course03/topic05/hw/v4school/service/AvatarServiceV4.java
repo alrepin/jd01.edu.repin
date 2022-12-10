@@ -1,8 +1,8 @@
 package ga.repin.education.course03.topic05.hw.v4school.service;
 
-import ga.repin.education.course03.topic05.hw.v4school.model.Avatar;
-import ga.repin.education.course03.topic05.hw.v4school.model.Student;
-import ga.repin.education.course03.topic05.hw.v4school.repository.AvatarRepository;
+import ga.repin.education.course03.topic05.hw.v4school.model.AvatarV4;
+import ga.repin.education.course03.topic05.hw.v4school.model.StudentV4;
+import ga.repin.education.course03.topic05.hw.v4school.repository.AvatarRepositoryV4;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,24 +21,24 @@ import static java.nio.file.StandardOpenOption.CREATE_NEW;
 
 @Service
 @Transactional
-public class AvatarService {
+public class AvatarServiceV4 {
     @Value("${student.path.dir}")
     String studentsDir;
     
-    private final AvatarRepository avatarRepository;
-    private final StudentService studentService;
+    private final AvatarRepositoryV4 avatarRepository;
+    private final StudentServiceV4 studentService;
     
-    public AvatarService(AvatarRepository avatarRepository, StudentService studentService) {
+    public AvatarServiceV4(AvatarRepositoryV4 avatarRepository, StudentServiceV4 studentService) {
         this.avatarRepository = avatarRepository;
         this.studentService = studentService;
     }
     
-    public Avatar findAvatar(long studentId) {
-        return avatarRepository.findByStudentId(studentId).orElseThrow();
+    public AvatarV4 findAvatar(long studentId) {
+        return avatarRepository.findByStudentId(studentId).orElse(null);
     }
     
     public void uploadAvatar(Long studentId, MultipartFile file) throws IOException {
-        Student student = studentService.read(studentId);
+        StudentV4 student = studentService.read(studentId);
         String studentProfilePath = studentsDir + "/" + studentId;
         Path filePath = Path.of(studentProfilePath, "ava." + getExtension(Objects.requireNonNull(file.getOriginalFilename())));
         Files.createDirectories(filePath.getParent());
@@ -52,7 +52,7 @@ public class AvatarService {
             bis.transferTo(bos);
         }
         
-        Avatar avatar = avatarRepository.findByStudentId(studentId).orElseGet(Avatar::new);
+        AvatarV4 avatar = avatarRepository.findByStudentId(studentId).orElseGet(AvatarV4::new);
         avatar.setStudent(student);
         avatar.setFilePath(filePath.toString());
         avatar.setFileSize(file.getSize());

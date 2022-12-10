@@ -1,4 +1,4 @@
-package ga.repin.education.course03.topic05.hw.v4school.model;
+package ga.repin.education.course03.topic06.hw.v5school.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -6,30 +6,32 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Faculty {
+public class Student {
+    //@Schema(hidden = true)
+    //@Schema(readOnly = true)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String color;
+    private int age;
     
     @JsonIgnore
-    @OneToMany(mappedBy = "faculty", fetch = FetchType.LAZY)
-    private Collection<Student> students;
+    @ManyToOne()
+    @JoinColumn(name = "faculty_id")
+    private Faculty faculty;
     
-    public Collection<Student> getStudents() {
-        return students;
+    public Faculty getFaculty() {
+        return faculty;
     }
     
-    public void setStudents(Collection<Student> students) {
-        this.students = students;
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
     
     public Long getId() {
@@ -48,26 +50,35 @@ public class Faculty {
         this.name = name;
     }
     
-    public String getColor() {
-        return color;
+    public int getAge() {
+        return age;
     }
     
-    public void setColor(String color) {
-        this.color = color;
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    @Override
+    public String toString() {
+        return "StudentV1{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
     
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Faculty faculty = (Faculty) o;
-        //Objects.equals(id, faculty.id) &&
-        return Objects.equals(name, faculty.name);
-        //  && Objects.equals(color, faculty.color);
+        Student student = (Student) o;
+        //return getAge() == student.getAge() &&
+        return getName().equals(student.getName());
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, color);
+        return Objects.hash(getName(), getAge());
     }
+    
 }
+

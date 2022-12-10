@@ -1,5 +1,6 @@
 HELP.md
 target/
+/data/**
 gradle/
 .gradle/
 gradlew*
@@ -39,3 +40,4 @@ build/
 
 ### VS Code ###
 .vscode/
+
