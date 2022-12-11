@@ -63,14 +63,14 @@ public class FacultyService {
     }
     
     public Faculty delete(Long id) {
-        Optional<Faculty> f = facultyRepository.findById(id);
-        if (f.isPresent()) {
+        Optional<Faculty> currentFaculty = facultyRepository.findById(id);
+        if (currentFaculty.isPresent()) {
             try {
-                facultyRepository.deleteAll(f.stream().collect(Collectors.toList()));
+                facultyRepository.deleteAll(currentFaculty.stream().collect(Collectors.toList()));
             } catch (Exception e) {
-                f = Optional.empty();
+                //currentFaculty = Optional.empty();
             } finally {
-                return f.get();
+                return currentFaculty.orElse(null);
             }
         }
         return null;
