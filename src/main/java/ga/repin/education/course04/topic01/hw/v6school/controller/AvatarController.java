@@ -2,6 +2,7 @@ package ga.repin.education.course04.topic01.hw.v6school.controller;
 
 
 import ga.repin.education.course04.topic01.hw.v6school.entity.Avatar;
+import ga.repin.education.course04.topic01.hw.v6school.entity.AvatarInfo;
 import ga.repin.education.course04.topic01.hw.v6school.service.AvatarService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +18,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 import static ga.repin.education.course04.topic01.hw.HwConstants.HW_ENDPOINT;
 
@@ -65,5 +68,17 @@ public class AvatarController {
         }
     }
     
-    
+    @GetMapping("/avatar/list")
+    public ResponseEntity<List<AvatarInfo>> listAvatarInfo(
+            @RequestParam(value = "page", required = false) Integer pageNumber,
+            @RequestParam(value = "item-count", required = false) Integer pageSize) {
+        if ((pageNumber != null && pageNumber < 1) || (pageSize != null && pageSize < 1) || (pageSize == null && pageNumber != null)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        List<AvatarInfo> result = new ArrayList<>(avatarService.listAvatarInfo(pageNumber, pageSize));
+        if (result.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 }

@@ -1,6 +1,7 @@
 package ga.repin.education.course04.topic01.hw.v6school.service;
 
 import ga.repin.education.course04.topic01.hw.v6school.entity.Avatar;
+import ga.repin.education.course04.topic01.hw.v6school.entity.AvatarInfo;
 import ga.repin.education.course04.topic01.hw.v6school.entity.Student;
 import ga.repin.education.course04.topic01.hw.v6school.repository.AvatarRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Objects;
 
 import static java.nio.file.StandardOpenOption.CREATE_NEW;
@@ -31,6 +33,12 @@ public class AvatarService {
     public AvatarService(AvatarRepository avatarRepository, StudentService studentService) {
         this.avatarRepository = avatarRepository;
         this.studentService = studentService;
+    }
+    
+    public List<AvatarInfo> listAvatarInfo(Integer pageNumber, Integer pageSize) {
+        int limit = pageSize !=null ? pageSize : Integer.MAX_VALUE;
+        int offset = pageNumber !=null ? (limit * (pageNumber - 1)) : 0 ;
+        return avatarRepository.queryListAvatarInfo(offset, limit);
     }
     
     public Avatar findAvatar(long studentId) {

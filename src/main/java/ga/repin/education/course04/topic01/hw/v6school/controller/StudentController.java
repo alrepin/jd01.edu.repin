@@ -81,4 +81,24 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     
+    @GetMapping("/total")
+    public ResponseEntity<Integer> calculateTotal(){
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.calculateTotal());
+    }
+    
+    @GetMapping("/average-age")
+    public Double calculateAvgAge(){
+        return studentService.calculateAvgAge();
+    }
+    
+    
+    @GetMapping ("/list-tail")
+    public ResponseEntity<List<Student>> listTail(
+            @RequestParam(value = "n", required = false,defaultValue = "5") Integer n) {
+        List<Student> result = new ArrayList<>(studentService.listTail(n));
+        if (result.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 }

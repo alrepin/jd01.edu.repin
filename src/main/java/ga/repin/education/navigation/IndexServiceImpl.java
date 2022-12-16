@@ -177,7 +177,7 @@ public class IndexServiceImpl implements IndexService {
     @Override
     public String letSwitchTheme() {
         HtmlWrappers.nightTheme = !HtmlWrappers.nightTheme;
-        return course3Index();
+        return course4Index();
     }
     
 }

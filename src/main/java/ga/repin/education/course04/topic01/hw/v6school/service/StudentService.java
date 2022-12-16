@@ -7,6 +7,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -76,5 +77,17 @@ public class StudentService {
     public Faculty facultyOfStudentBy(Long studentId){
         return studentRepository.findById(studentId)
                 .map(Student::getFaculty).orElse(null);
+    }
+    
+    public Integer calculateTotal(){
+        return studentRepository.queryCalculateTotal();
+    }
+    
+    public Double calculateAvgAge() {
+        return studentRepository.queryCalculateAvgAge();
+    }
+    
+    public List<Student> listTail(Integer n){
+        return studentRepository.queryListTail(calculateTotal()>n ? calculateTotal() - n : 0);
     }
 }
