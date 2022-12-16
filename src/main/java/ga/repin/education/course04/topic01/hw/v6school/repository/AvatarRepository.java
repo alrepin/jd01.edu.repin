@@ -1,6 +1,6 @@
-package ga.repin.education.course03.topic06.hw.v5school.repository;
+package ga.repin.education.course04.topic01.hw.v6school.repository;
 
-import ga.repin.education.course03.topic06.hw.v5school.model.Avatar;
+import ga.repin.education.course04.topic01.hw.v6school.entity.Avatar;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

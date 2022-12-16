@@ -1,4 +1,4 @@
-package ga.repin.education.course03.topic06.hw.v5school.model;
+package ga.repin.education.course04.topic01.hw.v6school.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;

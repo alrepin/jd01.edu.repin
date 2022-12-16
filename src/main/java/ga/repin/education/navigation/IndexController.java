@@ -29,6 +29,11 @@ public class IndexController {
         return indexService.course3Index();
     }
     
+    @GetMapping(path = ROOT_URL_04)
+    public String showCourse4Page() {
+        return indexService.course4Index();
+    }
+    
     @GetMapping(path = "/exit")
     public String stopServer(@RequestParam(value = "pass", required = false) String pass) {
         return indexService.stopSpring(pass);

@@ -6,6 +6,7 @@ public interface IndexService {
     String course2Index();
     
     String course3Index();
+    String course4Index();
     
     String stopSpring(String pass);
 

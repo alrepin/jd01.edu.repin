@@ -1,8 +1,8 @@
-package ga.repin.education.course03.topic06.hw.v5school.service;
+package ga.repin.education.course04.topic01.hw.v6school.service;
 
-import ga.repin.education.course03.topic06.hw.v5school.model.Faculty;
-import ga.repin.education.course03.topic06.hw.v5school.model.Student;
-import ga.repin.education.course03.topic06.hw.v5school.repository.StudentRepository;
+import ga.repin.education.course04.topic01.hw.v6school.entity.Faculty;
+import ga.repin.education.course04.topic01.hw.v6school.entity.Student;
+import ga.repin.education.course04.topic01.hw.v6school.repository.StudentRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 

@@ -29,6 +29,10 @@ public class HtmlWrappers {
                 underlineTagOpen[3] +
                 hrefPrep(ROOT_URL_03, "Third course") +
                 underlineTagClose[3] +
+                " | " +
+                underlineTagOpen[4] +
+                hrefPrep(ROOT_URL_04, "Fourth course") +
+                underlineTagClose[4] +
                 HR +
                 "The presented tasks were solved as a part of the educational process: " + BR
                 ;

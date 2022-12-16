@@ -1,8 +1,8 @@
-package ga.repin.education.course03.topic06.hw.v5school.service;
+package ga.repin.education.course04.topic01.hw.v6school.service;
 
-import ga.repin.education.course03.topic06.hw.v5school.model.Avatar;
-import ga.repin.education.course03.topic06.hw.v5school.model.Student;
-import ga.repin.education.course03.topic06.hw.v5school.repository.AvatarRepository;
+import ga.repin.education.course04.topic01.hw.v6school.entity.Avatar;
+import ga.repin.education.course04.topic01.hw.v6school.entity.Student;
+import ga.repin.education.course04.topic01.hw.v6school.repository.AvatarRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

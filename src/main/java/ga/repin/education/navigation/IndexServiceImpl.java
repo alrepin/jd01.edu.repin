@@ -141,6 +141,28 @@ public class IndexServiceImpl implements IndexService {
         );
     }
     
+    @Override
+    public String course4Index() {
+        
+        return mainTheme(
+                coursesTabs(4) +
+                        "<ul type=\"square\">" +
+                        "<h3>Fourth course of study</h3>" +
+                        
+                        commentPrep(hwCaption("4.1. Continuing our SQL experience", false, "25284", 36), null) + BR +
+                        "<li>" +
+                        hrefPrep("/swagger-ui.html",
+                                "SWAGGER-UI") + " | " +
+                        hrefPrep("/openapi.json",
+                                "OPENAPI JSON") +
+                        BR +
+                        "</li>" +
+                        
+                        "</ul>"
+        
+        );
+    }
+    
     @Value("${session.kill-pass}")
     private String sessionKillPass;
     
