@@ -149,7 +149,7 @@ public class IndexServiceImpl implements IndexService {
                         "<ul type=\"square\">" +
                         "<h3>Fourth course of study</h3>" +
                         
-                        commentPrep(hwCaption("4.1. Continuing our SQL experience", false, "25284", 36), null) + BR +
+                        commentPrep(hwCaption("4.1. Continuing our SQL experience", true, "25284", 36), null) + BR +
                         "<li>" +
                         hrefPrep("/swagger-ui.html",
                                 "SWAGGER-UI") + " | " +
