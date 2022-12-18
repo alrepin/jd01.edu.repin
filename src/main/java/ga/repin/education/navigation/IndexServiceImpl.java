@@ -157,7 +157,7 @@ public class IndexServiceImpl implements IndexService {
                                 "OPENAPI JSON") +
                         BR +
                         "</li>" +
-                        
+                        commentPrep(hwCaption("4.2. Managing database schemas", true, "25285", 37), null) + BR +
                         "</ul>"
         
         );
