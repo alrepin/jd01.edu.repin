@@ -30,6 +30,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10'
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
     implementation 'org.postgresql:postgresql:42.3.8'
+    implementation 'org.liquibase:liquibase-core'
 }
 
 group = 'ga.repin'
