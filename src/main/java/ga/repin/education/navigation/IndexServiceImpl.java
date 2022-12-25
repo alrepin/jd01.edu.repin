@@ -160,6 +160,8 @@ public class IndexServiceImpl implements IndexService {
                         commentPrep(hwCaption("4.2. Managing database schemas", true, "25285", 37), null) + BR +
         
                         commentPrep(hwCaption("4.3. Migrations and indexes", true, "25286", 38), null) + BR +
+        
+                        commentPrep(hwCaption("4.4. Logging and configuring in the app", false, "25287", 39), null) + BR +
                         
                         "</ul>"
         

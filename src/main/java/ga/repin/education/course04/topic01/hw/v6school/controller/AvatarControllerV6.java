@@ -1,9 +1,9 @@
 package ga.repin.education.course04.topic01.hw.v6school.controller;
 
 
-import ga.repin.education.course04.topic01.hw.v6school.entity.Avatar;
-import ga.repin.education.course04.topic01.hw.v6school.entity.AvatarInfo;
-import ga.repin.education.course04.topic01.hw.v6school.service.AvatarService;
+import ga.repin.education.course04.topic01.hw.v6school.entity.AvatarV6;
+import ga.repin.education.course04.topic01.hw.v6school.entity.AvatarInfoV6;
+import ga.repin.education.course04.topic01.hw.v6school.service.AvatarServiceV6;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -26,10 +26,10 @@ import static ga.repin.education.course04.topic01.hw.HwConstants.HW_ENDPOINT;
 @RestController
 @RequestMapping(HW_ENDPOINT + "/student")
 @Tag(name = "\uD83D\uDDBC Avatar store", description = "Avatar model endpoints")
-public class AvatarController {
-    private final AvatarService avatarService;
+public class AvatarControllerV6 {
+    private final AvatarServiceV6 avatarService;
     
-    public AvatarController(AvatarService avatarService) {
+    public AvatarControllerV6(AvatarServiceV6 avatarService) {
         this.avatarService = avatarService;
     }
     
@@ -45,7 +45,7 @@ public class AvatarController {
     
     @GetMapping(value = "/{id}/avatar/preview")
     public ResponseEntity<byte[]> downloadAvatar(@PathVariable Long id) {
-        Avatar avatar = avatarService.findAvatar(id);
+        AvatarV6 avatar = avatarService.findAvatar(id);
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(avatar.getMediaType()));
@@ -56,7 +56,7 @@ public class AvatarController {
     
     @GetMapping(value = "/{id}/avatar")
     public void downloadAvatar(@PathVariable Long id, HttpServletResponse response) throws IOException {
-        Avatar avatar = avatarService.findAvatar(id);
+        AvatarV6 avatar = avatarService.findAvatar(id);
         
         Path path = Path.of(avatar.getFilePath());
         
@@ -69,13 +69,13 @@ public class AvatarController {
     }
     
     @GetMapping("/avatar/list")
-    public ResponseEntity<List<AvatarInfo>> listAvatarInfo(
+    public ResponseEntity<List<AvatarInfoV6>> listAvatarInfo(
             @RequestParam(value = "page", required = false) Integer pageNumber,
             @RequestParam(value = "item-count", required = false) Integer pageSize) {
         if ((pageNumber != null && pageNumber < 1) || (pageSize != null && pageSize < 1) || (pageSize == null && pageNumber != null)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-        List<AvatarInfo> result = new ArrayList<>(avatarService.listAvatarInfo(pageNumber, pageSize));
+        List<AvatarInfoV6> result = new ArrayList<>(avatarService.listAvatarInfo(pageNumber, pageSize));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

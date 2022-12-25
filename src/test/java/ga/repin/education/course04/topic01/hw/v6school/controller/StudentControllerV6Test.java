@@ -1,6 +1,6 @@
 package ga.repin.education.course04.topic01.hw.v6school.controller;
 
-import ga.repin.education.course04.topic01.hw.v6school.entity.Student;
+import ga.repin.education.course04.topic01.hw.v6school.entity.StudentV6;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +13,13 @@ import org.springframework.http.RequestEntity;
 import java.net.URI;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class StudentControllerTest {
+class StudentControllerV6Test {
     
     @LocalServerPort
     private String port;
     
     @Autowired
-    private StudentController studentController;
+    private StudentControllerV6 studentController;
     
     @Autowired
     private TestRestTemplate restTemplate;
@@ -58,7 +58,7 @@ class StudentControllerTest {
     
     @Test
     void create_student_endpoint_test(){
-        Student student = new Student();
+        StudentV6 student = new StudentV6();
         student.setAge(20);
         student.setName("stud10");
         Assertions.assertThat(this.restTemplate.postForObject("http://localhost:" + port + "/student", student, String.class))
@@ -67,12 +67,12 @@ class StudentControllerTest {
     
     @Test
     void update_student_endpoint_test(){
-        Student student = new Student();
+        StudentV6 student = new StudentV6();
         student.setAge(20);
         student.setName("stud2");
         student.setId(2L);
         
-        RequestEntity<Student> requestEntity = new RequestEntity<>(student, HttpMethod.PUT,
+        RequestEntity<StudentV6> requestEntity = new RequestEntity<>(student, HttpMethod.PUT,
                 URI.create("http://localhost:" + port + "/student"));
         
         Assertions.assertThat(this.restTemplate.exchange(requestEntity, String.class)).isNotNull();

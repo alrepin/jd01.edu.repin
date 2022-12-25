@@ -1,7 +1,7 @@
-package ga.repin.education.course04.topic01.hw.v6school.repository;
+package ga.repin.education.course04.topic04.hw.v7school.repository;
 
-import ga.repin.education.course04.topic01.hw.v6school.entity.Avatar;
-import ga.repin.education.course04.topic01.hw.v6school.entity.AvatarInfo;
+import ga.repin.education.course04.topic04.hw.v7school.entity.Avatar;
+import ga.repin.education.course04.topic04.hw.v7school.entity.AvatarInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

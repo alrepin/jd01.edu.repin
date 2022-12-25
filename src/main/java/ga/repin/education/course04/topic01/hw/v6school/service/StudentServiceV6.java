@@ -1,8 +1,8 @@
 package ga.repin.education.course04.topic01.hw.v6school.service;
 
-import ga.repin.education.course04.topic01.hw.v6school.entity.Faculty;
-import ga.repin.education.course04.topic01.hw.v6school.entity.Student;
-import ga.repin.education.course04.topic01.hw.v6school.repository.StudentRepository;
+import ga.repin.education.course04.topic01.hw.v6school.entity.FacultyV6;
+import ga.repin.education.course04.topic01.hw.v6school.entity.StudentV6;
+import ga.repin.education.course04.topic01.hw.v6school.repository.StudentRepositoryV6;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -12,18 +12,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class StudentService {
+public class StudentServiceV6 {
 
-    private final StudentRepository studentRepository;
+    private final StudentRepositoryV6 studentRepository;
     
-    public StudentService(StudentRepository studentRepository) {
+    public StudentServiceV6(StudentRepositoryV6 studentRepository) {
         this.studentRepository = studentRepository;
     }
     
     
-    public Student create(Student student) {
+    public StudentV6 create(StudentV6 student) {
         
-        Example<Student> e = Example.of(student);
+        Example<StudentV6> e = Example.of(student);
         boolean exists = studentRepository.exists(e);
         
         //if (!studentRepository.existsByName(student.getName())) {
@@ -33,11 +33,11 @@ public class StudentService {
         return null;
     }
     
-    public Student read(Long id) {
+    public StudentV6 read(Long id) {
         return studentRepository.findById(id).orElse(null);
     }
     
-    public Collection<Student> filter(Integer age, Integer min, Integer max) {
+    public Collection<StudentV6> filter(Integer age, Integer min, Integer max) {
         if (age != null) {
             min = age;
             max = age;
@@ -52,7 +52,7 @@ public class StudentService {
         return studentRepository.findByAgeBetween(min,max);
     }
     
-    public Student update(long id, Student student) {
+    public StudentV6 update(long id, StudentV6 student) {
         if (studentRepository.existsById(id)) {
             student.setId(id);
             return studentRepository.save(student);
@@ -60,8 +60,8 @@ public class StudentService {
         return null;
     }
     
-    public Student delete(Long id) {
-        Optional<Student> s = studentRepository.findById(id);
+    public StudentV6 delete(Long id) {
+        Optional<StudentV6> s = studentRepository.findById(id);
         if (s.isPresent()) {
             try {
                 studentRepository.deleteAll(s.stream().collect(Collectors.toList()));
@@ -74,9 +74,9 @@ public class StudentService {
         return null;
     }
     
-    public Faculty facultyOfStudentBy(Long studentId){
+    public FacultyV6 facultyOfStudentBy(Long studentId){
         return studentRepository.findById(studentId)
-                .map(Student::getFaculty).orElse(null);
+                .map(StudentV6::getFaculty).orElse(null);
     }
     
     public Integer calculateTotal(){
@@ -87,7 +87,7 @@ public class StudentService {
         return studentRepository.queryCalculateAvgAge();
     }
     
-    public List<Student> listTail(Integer n){
+    public List<StudentV6> listTail(Integer n){
         return studentRepository.queryListTail(calculateTotal()>n ? calculateTotal() - n : 0);
     }
 }

@@ -1,13 +1,13 @@
 package ga.repin.education.course04.topic01.hw.v6school.controller;
 
-import ga.repin.education.course04.topic01.hw.v6school.entity.Faculty;
-import ga.repin.education.course04.topic01.hw.v6school.entity.Student;
-import ga.repin.education.course04.topic01.hw.v6school.repository.AvatarRepository;
-import ga.repin.education.course04.topic01.hw.v6school.repository.FacultyRepository;
-import ga.repin.education.course04.topic01.hw.v6school.repository.StudentRepository;
-import ga.repin.education.course04.topic01.hw.v6school.service.AvatarService;
-import ga.repin.education.course04.topic01.hw.v6school.service.FacultyService;
-import ga.repin.education.course04.topic01.hw.v6school.service.StudentService;
+import ga.repin.education.course04.topic01.hw.v6school.entity.FacultyV6;
+import ga.repin.education.course04.topic01.hw.v6school.entity.StudentV6;
+import ga.repin.education.course04.topic01.hw.v6school.repository.AvatarRepositoryV6;
+import ga.repin.education.course04.topic01.hw.v6school.repository.FacultyRepositoryV6;
+import ga.repin.education.course04.topic01.hw.v6school.repository.StudentRepositoryV6;
+import ga.repin.education.course04.topic01.hw.v6school.service.AvatarServiceV6;
+import ga.repin.education.course04.topic01.hw.v6school.service.FacultyServiceV6;
+import ga.repin.education.course04.topic01.hw.v6school.service.StudentServiceV6;
 import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
@@ -31,37 +31,37 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = FacultyController.class)
-class FacultyControllerTest {
+@WebMvcTest(controllers = FacultyControllerV6.class)
+class FacultyControllerV6Test {
     @Autowired
     private MockMvc mockMvc;
     
     @SpyBean
-    private FacultyService facultyService;
+    private FacultyServiceV6 facultyService;
     @SpyBean
-    private AvatarService avatarService;
+    private AvatarServiceV6 avatarService;
     @SpyBean
-    private StudentService studentService;
+    private StudentServiceV6 studentService;
     
     @MockBean
-    private FacultyRepository facultyRepository;
+    private FacultyRepositoryV6 facultyRepository;
     @MockBean
-    private StudentRepository studentRepository;
+    private StudentRepositoryV6 studentRepository;
     @MockBean
-    private AvatarRepository avatarRepository;
+    private AvatarRepositoryV6 avatarRepository;
     
     @InjectMocks
-    private FacultyController facultyController;
+    private FacultyControllerV6 facultyController;
     
-    final private List<Faculty> FACULTY_LIST = List.of(
-            new Faculty(1L, "fac1", "red"),
-            new Faculty(2L, "fac2", "green"),
-            new Faculty(3L, "fac3", "green"),
-            new Faculty(4L, "fAc3", "grEen"));
-    List<Student> STUDENT_LIST = List.of(
-            new Student(1L, "stud1", 11),
-            new Student(2L, "stud2", 12),
-            new Student(3L, "stud3", 13)
+    final private List<FacultyV6> FACULTY_LIST = List.of(
+            new FacultyV6(1L, "fac1", "red"),
+            new FacultyV6(2L, "fac2", "green"),
+            new FacultyV6(3L, "fac3", "green"),
+            new FacultyV6(4L, "fAc3", "grEen"));
+    List<StudentV6> STUDENT_LIST = List.of(
+            new StudentV6(1L, "stud1", 11),
+            new StudentV6(2L, "stud2", 12),
+            new StudentV6(3L, "stud3", 13)
     );
     final String COLOR_GREEN = "green";
     final String NAME_IGNORE_CASE = "FAc3";
@@ -123,7 +123,7 @@ class FacultyControllerTest {
     
     @Test
     void read_faculty_by_ID_endpoint_test() throws Exception {
-        Faculty expected = FACULTY_LIST.get(ZERO);
+        FacultyV6 expected = FACULTY_LIST.get(ZERO);
         when(facultyRepository.findById(anyLong())).thenReturn(Optional.of(expected));
         
         mockMvc.perform(MockMvcRequestBuilders
@@ -138,7 +138,7 @@ class FacultyControllerTest {
     @Test
     void students_by_faculty_endpoint_test() throws Exception {
         final long FIRST_FACULTY_ID = 1L;
-        final Faculty FIRST_FACULTY = FACULTY_LIST.get(ZERO);
+        final FacultyV6 FIRST_FACULTY = FACULTY_LIST.get(ZERO);
         FIRST_FACULTY.setStudents(STUDENT_LIST);
         when(facultyRepository.findById(anyLong())).thenReturn(Optional.of(FIRST_FACULTY));
         mockMvc.perform(MockMvcRequestBuilders
@@ -150,13 +150,13 @@ class FacultyControllerTest {
     
     @Test
     void create_faculty_endpoint_test() throws Exception {
-        final Faculty SECOND_FACULTY = FACULTY_LIST.get(ONE);
+        final FacultyV6 SECOND_FACULTY = FACULTY_LIST.get(ONE);
         JSONObject facultyJSON = new JSONObject();
         facultyJSON.put("id", SECOND_FACULTY.getId());
         facultyJSON.put("name", SECOND_FACULTY.getName());
         facultyJSON.put("color", SECOND_FACULTY.getColor());
         
-        when(facultyRepository.save(any(Faculty.class))).thenReturn(SECOND_FACULTY);
+        when(facultyRepository.save(any(FacultyV6.class))).thenReturn(SECOND_FACULTY);
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/" + ga.repin.education.course04.topic01.hw.HwConstants.HW_ENDPOINT + "/faculty")
                         .content(facultyJSON.toString())
@@ -169,13 +169,13 @@ class FacultyControllerTest {
     
     @Test
     void update_faculty_endpoint_test() throws Exception {
-        final Faculty THIRD_FACULTY = FACULTY_LIST.get(TWO);
+        final FacultyV6 THIRD_FACULTY = FACULTY_LIST.get(TWO);
         JSONObject facultyJSON = new JSONObject();
         facultyJSON.put("id", THIRD_FACULTY.getId());
         facultyJSON.put("name", THIRD_FACULTY.getName());
         facultyJSON.put("color", THIRD_FACULTY.getColor());
         when(facultyRepository.existsById(anyLong())).thenReturn(true);
-        when(facultyRepository.save(any(Faculty.class))).thenReturn(THIRD_FACULTY);
+        when(facultyRepository.save(any(FacultyV6.class))).thenReturn(THIRD_FACULTY);
         mockMvc.perform(MockMvcRequestBuilders
                         .put("/" + ga.repin.education.course04.topic01.hw.HwConstants.HW_ENDPOINT + "/faculty/" + THREE)
                         .content(facultyJSON.toString())
@@ -189,7 +189,7 @@ class FacultyControllerTest {
     
     @Test
     void delete_faculty_endpoint_test() throws Exception {
-        final Faculty THIRD_FACULTY = FACULTY_LIST.get(TWO);
+        final FacultyV6 THIRD_FACULTY = FACULTY_LIST.get(TWO);
         when(facultyRepository.findById(anyLong())).thenReturn(Optional.of(THIRD_FACULTY));
         doNothing().when(facultyRepository).deleteAll(anyList());
         mockMvc.perform(MockMvcRequestBuilders

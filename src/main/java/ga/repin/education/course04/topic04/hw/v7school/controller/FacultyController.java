@@ -1,8 +1,8 @@
-package ga.repin.education.course04.topic01.hw.v6school.controller;
+package ga.repin.education.course04.topic04.hw.v7school.controller;
 
-import ga.repin.education.course04.topic01.hw.v6school.entity.Faculty;
-import ga.repin.education.course04.topic01.hw.v6school.entity.Student;
-import ga.repin.education.course04.topic01.hw.v6school.service.FacultyService;
+import ga.repin.education.course04.topic04.hw.v7school.entity.Faculty;
+import ga.repin.education.course04.topic04.hw.v7school.entity.Student;
+import ga.repin.education.course04.topic04.hw.v7school.service.FacultyService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static ga.repin.education.course04.topic01.hw.HwConstants.HW_ENDPOINT;
+import static ga.repin.education.course04.topic04.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
 @RequestMapping(HW_ENDPOINT + "/faculty")
