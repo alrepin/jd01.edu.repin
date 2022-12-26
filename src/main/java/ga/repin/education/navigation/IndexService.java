@@ -11,4 +11,9 @@ public interface IndexService {
     String stopSpring(String pass);
 
     String letSwitchTheme();
+    
+    String getServerPort();
+    
+    String getServerPort(String description);
+    
 }

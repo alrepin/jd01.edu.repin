@@ -30,6 +30,9 @@ import org.springframework.context.ApplicationContext;
         ),
         servers = {
                 @Server(
+                        description = "",
+                        url = "/"),
+                /*@Server(
                         description = "(with LetsEncrypt cert.)",
                         url = "https://repin.ga"),
                 @Server(
@@ -37,7 +40,7 @@ import org.springframework.context.ApplicationContext;
                         url = "http://repin.ga"),
                 @Server(
                         description = "(just HTTP only, no ssl)",
-                        url = "http://localhost:8085"),
+                        url = "http://localhost:8085"),*/
         }
 )
 

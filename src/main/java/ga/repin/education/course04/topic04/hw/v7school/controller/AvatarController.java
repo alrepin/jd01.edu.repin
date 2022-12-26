@@ -44,28 +44,42 @@ public class AvatarController {
     }
     
     @GetMapping(value = "/{id}/avatar/preview")
-    public ResponseEntity<byte[]> downloadAvatar(@PathVariable Long id) {
+    public ResponseEntity<byte[]> downloadAvatarPreview(@PathVariable Long id) {
         Avatar avatar = avatarService.findAvatar(id);
+        if (avatar != null) {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.parseMediaType(avatar.getMediaType()));
+            headers.setContentLength(avatar.getData().length);
+            return ResponseEntity.status(HttpStatus.OK).headers(headers).body(avatar.getData());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
         
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.parseMediaType(avatar.getMediaType()));
-        headers.setContentLength(avatar.getData().length);
-        
-        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(avatar.getData());
     }
     
     @GetMapping(value = "/{id}/avatar")
     public void downloadAvatar(@PathVariable Long id, HttpServletResponse response) throws IOException {
+        boolean exists = false;
+        Path path = null;
         Avatar avatar = avatarService.findAvatar(id);
-        
-        Path path = Path.of(avatar.getFilePath());
-        
-        try (InputStream is = Files.newInputStream(path); OutputStream os = response.getOutputStream()) {
-            response.setStatus(200);
-            response.setContentType(avatar.getMediaType());
-            response.setContentLength((int) avatar.getFileSize());
-            is.transferTo(os);
+        if (avatar != null) {
+            path = Path.of(avatar.getFilePath());
+            exists = avatarService.fileExists(path);
         }
+        if (exists) {
+            try (InputStream is = Files.newInputStream(path); OutputStream os = response.getOutputStream()) {
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType(avatar.getMediaType());
+                response.setContentLength((int) avatar.getFileSize());
+                is.transferTo(os);
+            }
+        } else {
+            try (InputStream is = InputStream.nullInputStream(); OutputStream os = response.getOutputStream()) {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                is.transferTo(os);
+            }
+        }
+        
     }
     
     @GetMapping("/avatar/list")

@@ -103,13 +103,13 @@ public class IndexServiceImpl implements IndexService {
                 coursesTabs(3) +
                         "<ul type=\"square\">" +
                         "<h3>Third course of study</h3>" +
-                       
+                        
                         commentPrep(hwCaption("3.1. Introduction to web development. HTTP, REST Protocols", true, "16848", 30), null) + BR +
                         "<li>" +
                         hrefPrep(ga.repin.education.course03.topic01.hw.HwConstants.HW_ENDPOINT,
                                 "RECIPES JSON CONVERTER") + BR + "</li>" +
                         "</li>" +
-        
+                        
                         commentPrep(hwCaption("3.2. API Creation. SwaggerUI, Postman", true, "16849", 31), null) + BR +
                         "<li>" +
                         hrefPrep("/swagger-ui.html",
@@ -118,22 +118,22 @@ public class IndexServiceImpl implements IndexService {
                                 "OPENAPI JSON") +
                         BR +
                         "</li>" +
-        
+                        
                         commentPrep(hwCaption("3.3. Introduction to databases", true, "16850", 32), null) + BR +
                         /*"<li>" +
                         hrefPrep("/" + ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT,
                                 "") + BR + "</li>" +
                         "</li>" +*/
-        
+                        
                         commentPrep(hwCaption("3.4. Introduction to SQL", true, "16851", 33), null) + BR +
                         /*"<li>" +
                         hrefPrep("/" + ga.repin.education.course03.topic03.hw.HwConstants.HW_ENDPOINT,
                                 "") + BR + "</li>" +
                         "</li>" +*/
-        
-        
+                        
+                        
                         commentPrep(hwCaption("3.5. Data streams. Working with files", true, "16852", 34), null) + BR +
-        
+                        
                         commentPrep(hwCaption("3.6. Testing Web Applications with Spring Boot", true, "16853", 35), null) + BR +
                         
                         "</ul>"
@@ -158,9 +158,9 @@ public class IndexServiceImpl implements IndexService {
                         BR +
                         "</li>" +
                         commentPrep(hwCaption("4.2. Managing database schemas", true, "25285", 37), null) + BR +
-        
+                        
                         commentPrep(hwCaption("4.3. Migrations and indexes", true, "25286", 38), null) + BR +
-        
+                        
                         commentPrep(hwCaption("4.4. Logging and configuring in the app", false, "25287", 39), null) + BR +
                         
                         "</ul>"
@@ -184,5 +184,21 @@ public class IndexServiceImpl implements IndexService {
         HtmlWrappers.nightTheme = !HtmlWrappers.nightTheme;
         return course4Index();
     }
+    
+    @Value("${server.port}")
+    private String serverPort;
+    
+    public String getServerPort() {
+        return serverPort;
+    }
+    
+    public String getServerPort(String description) {
+        return mainTheme(
+                description
+                        + HR +
+                        getServerPort());
+    }
+    
+    
     
 }

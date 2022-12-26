@@ -1,5 +1,7 @@
 package ga.repin.education.navigation;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,5 +45,10 @@ public class IndexController {
     public String switchTheme() {
         return indexService.letSwitchTheme();
     }
-
+    
+    @GetMapping("/getPort")
+    public ResponseEntity<String> getPort(){
+        return ResponseEntity.status(HttpStatus.OK).body(indexService.getServerPort("Port, on which app started"));
+    }
+    
 }
