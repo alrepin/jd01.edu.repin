@@ -12,6 +12,7 @@ public interface AvatarRepository extends JpaRepository<Avatar, Long> {
     Optional<Avatar> findByStudentId(Long id);
     
     @Query(value = "SELECT a.id         AS avatar_id,\n" +
+            "             s.id         AS student_id,\n" +
             "             s.name       AS student_name,\n" +
             "             a.file_path  AS avatar_file_path,\n" +
             "             a.file_size  AS avatar_file_size,\n" +

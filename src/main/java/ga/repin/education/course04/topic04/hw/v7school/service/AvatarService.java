@@ -1,7 +1,6 @@
 package ga.repin.education.course04.topic04.hw.v7school.service;
 
 import ga.repin.education.course04.topic04.hw.v7school.entity.Avatar;
-import ga.repin.education.course04.topic04.hw.v7school.entity.AvatarInfo;
 import ga.repin.education.course04.topic04.hw.v7school.entity.Student;
 import ga.repin.education.course04.topic04.hw.v7school.repository.AvatarRepository;
 import org.slf4j.Logger;
@@ -17,9 +16,13 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
+import static ga.repin.education.common.UsefulMethods.formatSize;
 import static java.nio.file.StandardOpenOption.CREATE_NEW;
 
 
@@ -50,11 +53,32 @@ public class AvatarService {
         }
     }
     
-    public List<AvatarInfo> listAvatarInfo(Integer pageNumber, Integer pageSize) {
+    public List<Map<String,String>> listAvatarInfo(Integer pageNumber, Integer pageSize) {
         logger.info("Method listAvatarInfo was invoked");
         int limit = pageSize !=null ? pageSize : Integer.MAX_VALUE;
         int offset = pageNumber !=null ? (limit * (pageNumber - 1)) : 0 ;
-        return avatarRepository.queryListAvatarInfo(offset, limit);
+        return avatarRepository.queryListAvatarInfo(offset, limit).stream()
+                .map(a -> {
+                    
+                    Map<String, String> rec = new HashMap<>();
+                    rec.put("avatar_id", a.getAvatar_id().toString());
+                    rec.put("student_id", a.getStudent_id().toString());
+                    String size = formatSize(a.getAvatar_file_size());
+                    String path = a.getAvatar_file_path();
+                    String type = a.getAvatar_media_type();
+                    if (!fileExists(Path.of(path))) {
+                        path = "file lost";
+                        size = path;
+                        type = path;
+                        
+                    }
+                    rec.put("student_name", a.getStudent_name());
+                    rec.put("file_type",type);
+                    rec.put("file_size", size);
+                    rec.put("file_path", path);
+                    return rec;
+                })
+                .collect(Collectors.toList());
     }
     
     public Avatar findAvatar(long studentId) {

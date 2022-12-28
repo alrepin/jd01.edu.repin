@@ -5,6 +5,9 @@ import ga.repin.education.course04.topic04.hw.v7school.entity.Avatar;
 import ga.repin.education.course04.topic04.hw.v7school.entity.AvatarInfo;
 import ga.repin.education.course04.topic04.hw.v7school.service.AvatarService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static ga.repin.education.course04.topic04.hw.HwConstants.HW_ENDPOINT;
 
@@ -32,6 +37,11 @@ public class AvatarController {
     public AvatarController(AvatarService avatarService) {
         this.avatarService = avatarService;
     }
+    
+    @Autowired
+    HttpServletRequest request;
+    
+    private final Logger logger = LoggerFactory.getLogger(AvatarController.class);
     
     @PostMapping(value = "/{id}/avatar", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> uploadAvatar(@PathVariable Long id, @RequestParam MultipartFile avatar) throws IOException {
@@ -46,6 +56,8 @@ public class AvatarController {
     @GetMapping(value = "/{id}/avatar/preview")
     public ResponseEntity<byte[]> downloadAvatarPreview(@PathVariable Long id) {
         Avatar avatar = avatarService.findAvatar(id);
+        String ip = "ip: " + request.getRemoteAddr();
+        logger.info(ip);
         if (avatar != null) {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.parseMediaType(avatar.getMediaType()));
@@ -59,6 +71,7 @@ public class AvatarController {
     
     @GetMapping(value = "/{id}/avatar")
     public void downloadAvatar(@PathVariable Long id, HttpServletResponse response) throws IOException {
+        
         boolean exists = false;
         Path path = null;
         Avatar avatar = avatarService.findAvatar(id);
@@ -83,13 +96,13 @@ public class AvatarController {
     }
     
     @GetMapping("/avatar/list")
-    public ResponseEntity<List<AvatarInfo>> listAvatarInfo(
+    public ResponseEntity<List<Map<String,String>>> listAvatarInfo(
             @RequestParam(value = "page", required = false) Integer pageNumber,
             @RequestParam(value = "item-count", required = false) Integer pageSize) {
         if ((pageNumber != null && pageNumber < 1) || (pageSize != null && pageSize < 1) || (pageSize == null && pageNumber != null)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-        List<AvatarInfo> result = new ArrayList<>(avatarService.listAvatarInfo(pageNumber, pageSize));
+        List<Map<String,String>> result = new ArrayList<>(avatarService.listAvatarInfo(pageNumber, pageSize));
         if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
