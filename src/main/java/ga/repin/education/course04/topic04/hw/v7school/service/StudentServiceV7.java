@@ -1,8 +1,8 @@
 package ga.repin.education.course04.topic04.hw.v7school.service;
 
-import ga.repin.education.course04.topic04.hw.v7school.entity.Faculty;
-import ga.repin.education.course04.topic04.hw.v7school.entity.Student;
-import ga.repin.education.course04.topic04.hw.v7school.repository.StudentRepository;
+import ga.repin.education.course04.topic04.hw.v7school.entity.FacultyV7;
+import ga.repin.education.course04.topic04.hw.v7school.entity.StudentV7;
+import ga.repin.education.course04.topic04.hw.v7school.repository.StudentRepositoryV7;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Example;
@@ -14,20 +14,20 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class StudentService {
+public class StudentServiceV7 {
 
-    private final StudentRepository studentRepository;
-    private final Logger logger = LoggerFactory.getLogger(StudentService.class);
+    private final StudentRepositoryV7 studentRepository;
+    private final Logger logger = LoggerFactory.getLogger(StudentServiceV7.class);
     
-    public StudentService(StudentRepository studentRepository) {
+    public StudentServiceV7(StudentRepositoryV7 studentRepository) {
         logger.debug("Service wire with Repository");
         this.studentRepository = studentRepository;
     }
     
     
-    public Student create(Student student) {
+    public StudentV7 create(StudentV7 student) {
         logger.info("Method create was invoked");
-        Example<Student> e = Example.of(student);
+        Example<StudentV7> e = Example.of(student);
         boolean exists = studentRepository.exists(e);
         
         //if (!studentRepository.existsByName(student.getName())) {
@@ -39,12 +39,12 @@ public class StudentService {
         return null;
     }
     
-    public Student read(Long id) {
+    public StudentV7 read(Long id) {
         logger.info("Method read was invoked");
         return studentRepository.findById(id).orElse(null);
     }
     
-    public Collection<Student> filter(Integer age, Integer min, Integer max) {
+    public Collection<StudentV7> filter(Integer age, Integer min, Integer max) {
         logger.info("Method filter was invoked");
         if (age != null) {
             min = age;
@@ -62,7 +62,7 @@ public class StudentService {
         return studentRepository.findByAgeBetween(min,max);
     }
     
-    public Student update(long id, Student student) {
+    public StudentV7 update(long id, StudentV7 student) {
         logger.info("Method update was invoked");
         if (studentRepository.existsById(id)) {
             student.setId(id);
@@ -72,9 +72,9 @@ public class StudentService {
         return null;
     }
     
-    public Student delete(Long id) {
+    public StudentV7 delete(Long id) {
         logger.info("Method delete was invoked");
-        Optional<Student> s = studentRepository.findById(id);
+        Optional<StudentV7> s = studentRepository.findById(id);
         if (s.isPresent()) {
             try {
                 studentRepository.deleteAll(s.stream().collect(Collectors.toList()));
@@ -87,10 +87,10 @@ public class StudentService {
         return null;
     }
     
-    public Faculty facultyOfStudentBy(Long studentId){
+    public FacultyV7 facultyOfStudentBy(Long studentId){
         logger.info("Method facultyOfStudentBy was invoked");
         return studentRepository.findById(studentId)
-                .map(Student::getFaculty).orElse(null);
+                .map(StudentV7::getFaculty).orElse(null);
     }
     
     public Integer calculateTotal(){
@@ -103,7 +103,7 @@ public class StudentService {
         return studentRepository.queryCalculateAvgAge();
     }
     
-    public List<Student> listTail(Integer n){
+    public List<StudentV7> listTail(Integer n){
         logger.info("Method listTail was invoked");
         return studentRepository.queryListTail(calculateTotal()>n ? calculateTotal() - n : 0);
     }

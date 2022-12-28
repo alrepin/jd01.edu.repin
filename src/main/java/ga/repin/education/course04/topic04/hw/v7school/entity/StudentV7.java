@@ -11,7 +11,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Student {
+public class StudentV7 {
     //@Schema(hidden = true)
     //@Schema(readOnly = true)
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
@@ -24,19 +24,19 @@ public class Student {
     @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "faculty_id")
-    private Faculty faculty;
+    private FacultyV7 faculty;
     
-    public Student(Long id, String name, int age) {
+    public StudentV7(Long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
     
-    public Faculty getFaculty() {
+    public FacultyV7 getFaculty() {
         return faculty;
     }
     
-    public void setFaculty(Faculty faculty) {
+    public void setFaculty(FacultyV7 faculty) {
         this.faculty = faculty;
     }
     
@@ -76,7 +76,7 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
+        StudentV7 student = (StudentV7) o;
         //return getAge() == student.getAge() &&
         return getName().equals(student.getName());
     }

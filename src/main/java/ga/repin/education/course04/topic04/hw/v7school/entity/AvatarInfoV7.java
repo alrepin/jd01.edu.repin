@@ -1,6 +1,6 @@
 package ga.repin.education.course04.topic04.hw.v7school.entity;
 
-public interface AvatarInfo {
+public interface AvatarInfoV7 {
     Long getAvatar_id();
     
     Long getStudent_id();

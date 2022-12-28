@@ -14,7 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Avatar {
+public class AvatarV7 {
     @Id
     @GeneratedValue
     private Long id;
@@ -25,7 +25,7 @@ public class Avatar {
     private byte[] data;
     
     @OneToOne
-    private Student student;
+    private StudentV7 student;
     
     @Override
     public boolean equals(Object o) {
@@ -33,7 +33,7 @@ public class Avatar {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        Avatar avatar = (Avatar) o;
+        AvatarV7 avatar = (AvatarV7) o;
         return fileSize == avatar.fileSize && Objects.equals(id, avatar.id) && Objects.equals(filePath, avatar.filePath) && Objects.equals(mediaType, avatar.mediaType) && Arrays.equals(data, avatar.data) && Objects.equals(student, avatar.student);
     }
     

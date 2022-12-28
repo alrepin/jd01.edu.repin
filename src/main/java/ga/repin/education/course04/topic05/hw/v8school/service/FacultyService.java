@@ -1,8 +1,8 @@
-package ga.repin.education.course04.topic04.hw.v7school.service;
+package ga.repin.education.course04.topic05.hw.v8school.service;
 
-import ga.repin.education.course04.topic04.hw.v7school.entity.Faculty;
-import ga.repin.education.course04.topic04.hw.v7school.repository.FacultyRepository;
-import ga.repin.education.course04.topic04.hw.v7school.entity.Student;
+import ga.repin.education.course04.topic05.hw.v8school.entity.Faculty;
+import ga.repin.education.course04.topic05.hw.v8school.entity.Student;
+import ga.repin.education.course04.topic05.hw.v8school.repository.FacultyRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Example;

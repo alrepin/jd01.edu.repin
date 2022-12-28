@@ -86,16 +86,7 @@ and completed in 0.083 seconds
         return Arrays.toString(Arrays.copyOf(arr, head)) + "..." +
                 Arrays.toString(Arrays.copyOfRange(arr,(arr.length-tail),arr.length));
     }
-
-    private static double markTheTime(boolean finish) {
-        if (finish) {
-            return (System.currentTimeMillis() - measurementStartTime) / 1000.0;
-        } else {
-            measurementStartTime = System.currentTimeMillis();
-        }
-        return measurementStartTime;
-    }
-
+    
     private static String benchmarkReport(String method, String arrPrintBefore, String arrPrintAfter,
                                           int sourceArrLength, int resultArrLength, double timeout) {
         return "\n" + StringUtils.capitalize(method) + " method performance test\n" +

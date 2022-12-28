@@ -1,9 +1,8 @@
-package ga.repin.education.course04.topic04.hw.v7school.controller;
+package ga.repin.education.course04.topic05.hw.v8school.controller;
 
 
-import ga.repin.education.course04.topic04.hw.v7school.entity.Avatar;
-import ga.repin.education.course04.topic04.hw.v7school.entity.AvatarInfo;
-import ga.repin.education.course04.topic04.hw.v7school.service.AvatarService;
+import ga.repin.education.course04.topic05.hw.v8school.entity.Avatar;
+import ga.repin.education.course04.topic05.hw.v8school.service.AvatarService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static ga.repin.education.course04.topic04.hw.HwConstants.HW_ENDPOINT;
+import static ga.repin.education.course04.topic05.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
 @RequestMapping(HW_ENDPOINT + "/student")

@@ -162,6 +162,8 @@ public class IndexServiceImpl implements IndexService {
                         commentPrep(hwCaption("4.3. Migrations and indexes", true, "25286", 38), null) + BR +
                         
                         commentPrep(hwCaption("4.4. Logging and configuring in the app", true, "25287", 39), null) + BR +
+        
+                        commentPrep(hwCaption("4.5. Parallel streams", false, "25288", 40), null) + BR +
                         
                         "</ul>"
         

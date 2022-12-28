@@ -1,8 +1,8 @@
-package ga.repin.education.course04.topic04.hw.v7school.service;
+package ga.repin.education.course04.topic05.hw.v8school.service;
 
-import ga.repin.education.course04.topic04.hw.v7school.entity.Avatar;
-import ga.repin.education.course04.topic04.hw.v7school.entity.Student;
-import ga.repin.education.course04.topic04.hw.v7school.repository.AvatarRepository;
+import ga.repin.education.course04.topic05.hw.v8school.entity.Avatar;
+import ga.repin.education.course04.topic05.hw.v8school.entity.Student;
+import ga.repin.education.course04.topic05.hw.v8school.repository.AvatarRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,10 +16,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static ga.repin.education.common.UsefulMethods.formatSize;
@@ -53,13 +51,12 @@ public class AvatarService {
         }
     }
     
-    public List<Map<String,String>> listAvatarInfo(Integer pageNumber, Integer pageSize) {
+    public List<Map<String, String>> listAvatarInfo(Integer pageNumber, Integer pageSize) {
         logger.info("Method listAvatarInfo was invoked");
-        int limit = pageSize !=null ? pageSize : Integer.MAX_VALUE;
-        int offset = pageNumber !=null ? (limit * (pageNumber - 1)) : 0 ;
+        int limit = pageSize != null ? pageSize : Integer.MAX_VALUE;
+        int offset = pageNumber != null ? (limit * (pageNumber - 1)) : 0;
         return avatarRepository.queryListAvatarInfo(offset, limit).stream()
                 .map(a -> {
-                    
                     Map<String, String> rec = new HashMap<>();
                     rec.put("avatar_id", a.getAvatar_id().toString());
                     rec.put("student_id", a.getStudent_id().toString());
@@ -70,14 +67,20 @@ public class AvatarService {
                         path = "file lost";
                         size = path;
                         type = path;
-                        
                     }
                     rec.put("student_name", a.getStudent_name());
-                    rec.put("file_type",type);
+                    rec.put("file_type", type);
                     rec.put("file_size", size);
                     rec.put("file_path", path);
-                    return rec;
+                    return rec.entrySet()
+                            .stream()
+                            .sorted(Map.Entry.comparingByKey())
+                            .collect(Collectors.toMap(
+                                    Map.Entry::getKey,
+                                    Map.Entry::getValue,
+                                    (z1, z2) -> z1, LinkedHashMap::new));
                 })
+                //.sorted(Comparator.comparing(o -> o.get("avatar_id")))
                 .collect(Collectors.toList());
     }
     
@@ -96,7 +99,7 @@ public class AvatarService {
     public void uploadAvatar(Long studentId, MultipartFile file) throws IOException {
         logger.info("Method uploadAvatar was invoked");
         Student student = studentService.read(studentId);
-        if (student == null){
+        if (student == null) {
             logger.error("Student with id " + studentId + " not found");
         }
         String studentProfilePath = studentsDir + "/" + studentId;
