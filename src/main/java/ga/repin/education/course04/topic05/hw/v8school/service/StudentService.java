@@ -24,7 +24,6 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
     
-    
     public Student create(Student student) {
         logger.info("Method create was invoked");
         Example<Student> e = Example.of(student);
@@ -100,11 +99,27 @@ public class StudentService {
     
     public Double calculateAvgAge() {
         logger.info("Method calculateAvgAge was invoked");
-        return studentRepository.queryCalculateAvgAge();
+        //return studentRepository.queryCalculateAvgAge();
+        return studentRepository.findAll()
+                .stream()
+                .mapToInt(Student::getAge)
+                .average()
+                .orElse(0);
     }
     
     public List<Student> listTail(Integer n){
         logger.info("Method listTail was invoked");
         return studentRepository.queryListTail(calculateTotal()>n ? calculateTotal() - n : 0);
+    }
+    
+    public List<String> listAstartedNamesUppercase() {
+        logger.info("Method listAstartedNamesUppercase was invoked");
+        return studentRepository.findAll().stream()
+                .parallel()
+                .map(Student::getName)
+                .map(String::toUpperCase)
+                .filter(s -> s.startsWith("A"))
+                .sorted()
+                .collect(Collectors.toList());
     }
 }

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static ga.repin.education.common.UsefulMethods.statusByException;
 import static ga.repin.education.course04.topic05.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
@@ -24,6 +25,14 @@ public class FacultyController {
         this.facultyService = facultyService;
     }
     
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleException(Exception exception) {
+        String exceptionMessage = exception.getMessage();
+        HttpStatus httpStatus = statusByException(exceptionMessage);
+        return ResponseEntity
+                .status(httpStatus)
+                .body(httpStatus.name() + " (" + exceptionMessage + " -  Exception thrown by " + exception.getClass().toString() + ")");
+    }
     
     @PostMapping()
     public ResponseEntity<Faculty> createFaculty(@RequestBody Faculty faculty) {
@@ -71,6 +80,15 @@ public class FacultyController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Faculty> deleteFaculty(@PathVariable long id) {
         Faculty result = facultyService.delete(id);
+        if (result == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    
+    @GetMapping("/longest-facutly-name")
+    public ResponseEntity<String> longestFacultyName(){
+        String result = facultyService.longestFacultyName();
         if (result == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ga.repin.education.common.UsefulMethods.statusByException;
 import static ga.repin.education.course04.topic05.hw.HwConstants.HW_ENDPOINT;
 
 @RestController
@@ -21,6 +22,15 @@ public class StudentController {
     
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
+    }
+    
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleException(Exception exception) {
+        String exceptionMessage = exception.getMessage();
+        HttpStatus httpStatus = statusByException(exceptionMessage);
+        return ResponseEntity
+                .status(httpStatus)
+                .body(httpStatus.name() + " (" + exceptionMessage + " -  Exception thrown by " + exception.getClass().toString() + ")");
     }
     
     @PostMapping
@@ -101,4 +111,18 @@ public class StudentController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
+    
+    @GetMapping( "/list-astarted-names-uppercase")
+    public ResponseEntity<List<String>> listAstartedNamesUppercase(){
+        List<String> result = new ArrayList<>(studentService.listAstartedNamesUppercase());
+        if (result.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    
+    /*@GetMapping("/average-age-new")
+    public Double getAverageAgeNew(){
+        return studentService.getAverageAgeNew();
+    }*/
 }

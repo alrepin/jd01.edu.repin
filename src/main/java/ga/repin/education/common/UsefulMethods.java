@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ga.repin.education.course02.topic10.hw.employees.exceptions.HttpException;
-import ga.repin.education.course02.topic15.hw.IntegerList.SortMethods;
 import org.apache.commons.lang3.*;
 import org.springframework.http.HttpStatus;
 
@@ -19,6 +18,7 @@ public class UsefulMethods {
     public static List<Integer> rndIntGenerated = new ArrayList<>();
     public static List<Integer> rnd0_100Generated = new ArrayList<>();
     public static List<String> rndJsonFI = new ArrayList<>();
+    private static long measurementStartTime;
     
     public static String formatSize(long v) {
         if (v < 1024) return v + " B";
@@ -313,10 +313,17 @@ public class UsefulMethods {
     
     public static double markTheTime(boolean finish) {
         if (finish) {
-            return (System.currentTimeMillis() - SortMethods.measurementStartTime) / 1000.0;
+            return (System.currentTimeMillis() - measurementStartTime) / 1000.0;
         } else {
-            SortMethods.measurementStartTime = System.currentTimeMillis();
+            measurementStartTime = System.currentTimeMillis();
         }
-        return SortMethods.measurementStartTime;
+        return measurementStartTime;
+    }
+    
+    public static HttpStatus statusByException(String exceptionMsg) {
+        HttpStatus result = HttpStatus.I_AM_A_TEAPOT;
+        result = exceptionMsg.matches("(?i).*" + "SQL" + ".*") ? HttpStatus.BAD_REQUEST : result;
+        result = exceptionMsg.matches("(?i).*" + "constraint" + ".*") ? HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE : result;
+        return result;
     }
 }

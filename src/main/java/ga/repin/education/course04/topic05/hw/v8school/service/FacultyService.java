@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -86,4 +87,14 @@ public class FacultyService {
         }
         return null;
     }
+    
+    public String longestFacultyName() {
+        logger.info("Method longestFacultyName was invoked");
+        return facultyRepository.findAll()
+                .stream()
+                .map(Faculty::getName)
+                .max(Comparator.comparing(String::length))
+                .orElse(null);
+    }
+    
 }

@@ -1,5 +1,7 @@
 package ga.repin.education.navigation;
 
+import java.util.Map;
+
 public interface IndexService {
     String course1Index();
     
@@ -16,4 +18,5 @@ public interface IndexService {
     
     String getServerPort(String description);
     
+    Map<String, String> task040504();
 }

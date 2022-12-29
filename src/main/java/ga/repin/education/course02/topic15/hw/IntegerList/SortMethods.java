@@ -5,8 +5,7 @@ import java.util.Arrays;
 import static ga.repin.education.common.UsefulMethods.*;
 
 public class SortMethods {
-    public static long measurementStartTime;
-
+    
     public static void main(String[] args) {
         System.out.println(benchmark());
         /*

@@ -2,15 +2,17 @@ package ga.repin.education.navigation;
 
 import ga.repin.education.Application;
 import ga.repin.education.common.HtmlWrappers;
+import liquibase.repackaged.org.apache.commons.collections4.map.ListOrderedMap;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Stream;
 
 import static ga.repin.education.common.HtmlWrappers.*;
-import static ga.repin.education.common.UsefulMethods.getMd5;
-import static ga.repin.education.common.UsefulMethods.hwCaption;
+import static ga.repin.education.common.UsefulMethods.*;
+import static ga.repin.education.common.UsefulMethods.markTheTime;
 
 @Service
 public class IndexServiceImpl implements IndexService {
@@ -150,6 +152,15 @@ public class IndexServiceImpl implements IndexService {
                         "<h3>Fourth course of study</h3>" +
                         
                         commentPrep(hwCaption("4.1. Continuing our SQL experience", true, "25284", 36), null) + BR +
+                       
+                        commentPrep(hwCaption("4.2. Managing database schemas", true, "25285", 37), null) + BR +
+                        
+                        commentPrep(hwCaption("4.3. Migrations and indexes", true, "25286", 38), null) + BR +
+                        
+                        commentPrep(hwCaption("4.4. Logging and configuring in the app", true, "25287", 39), null) + BR +
+        
+                        commentPrep(hwCaption("4.5. Parallel streams", true, "25288", 40), null) + BR +
+        
                         "<li>" +
                         hrefPrep("/swagger-ui.html",
                                 "SWAGGER-UI") + " | " +
@@ -157,13 +168,6 @@ public class IndexServiceImpl implements IndexService {
                                 "OPENAPI JSON") +
                         BR +
                         "</li>" +
-                        commentPrep(hwCaption("4.2. Managing database schemas", true, "25285", 37), null) + BR +
-                        
-                        commentPrep(hwCaption("4.3. Migrations and indexes", true, "25286", 38), null) + BR +
-                        
-                        commentPrep(hwCaption("4.4. Logging and configuring in the app", true, "25287", 39), null) + BR +
-        
-                        commentPrep(hwCaption("4.5. Parallel streams", false, "25288", 40), null) + BR +
                         
                         "</ul>"
         
@@ -201,6 +205,26 @@ public class IndexServiceImpl implements IndexService {
                         getServerPort());
     }
     
+    public Map<String, String> task040504() {
+        Map<String, String> rec = new ListOrderedMap<>();
+        markTheTime(false);
+        int value = Stream.iterate(1, a -> a + 1)
+                .limit(1_000_000)
+                .reduce(0, (a, b) -> a + b);
+        double time = markTheTime(true);
+        markTheTime(false);
+        rec.put("value calculated with original code",Integer.toString(value));
+        rec.put("original time", time + " ms");
     
+        markTheTime(false);
+        value = Stream.iterate(1, a -> a + 1)
+                .limit(1_000_000)
+                .parallel()
+                .reduce(0, Integer::sum);
+        time = markTheTime(true);
+        rec.put("calculated value with optimized code",Integer.toString(value));
+        rec.put("time with parallel stream", time + " ms");
+        return rec;
+    }
     
 }
