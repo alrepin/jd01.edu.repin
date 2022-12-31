@@ -172,6 +172,8 @@ public class PeripheralServiceImpl implements PeripheralService {
                         commentPrep(hwCaption("4.4. Logging and configuring in the app", true, "25287", 39), null) + BR +
                         
                         commentPrep(hwCaption("4.5. Parallel streams", true, "25288", 40), null) + BR +
+        
+                        commentPrep(hwCaption("4.6. Multithreading", false, "25289", 41), null) + BR +
                         
                         "<li>" +
                         hrefPrep("/swagger-ui.html",
@@ -239,6 +241,53 @@ public class PeripheralServiceImpl implements PeripheralService {
         return rec;
     }
     
+    public void task040601() {
+        List<Student> studentList = studentRepository.findAll();
+        logger.info("Original order: " + studentList);
+        logger.info("Names order printed with sout in multithreading mode: ");
+        new Thread(() -> {
+            System.out.println(studentList.get(2).getName());
+            System.out.println(studentList.get(3).getName());
+        }).start();
+        
+        new Thread(() -> {
+            System.out.println(studentList.get(4).getName());
+            System.out.println(studentList.get(5).getName());
+        }).start();
+        
+        System.out.println(studentList.get(0).getName());
+        System.out.println(studentList.get(1).getName());
+    }
     
+    public void task040602() {
+        List<Student> studentList = studentRepository.findAll();;
+        logger.info("Original order: " + studentList);
+        logger.info("Names order printed with sout in multithreading synchronized mode: ");
+        
+        System.out.println(studentList.get(0).getName());
+        System.out.println(studentList.get(1).getName());
+    
+        Thread t1 = new Thread(()->{
+            synchronized (studentList) {
+                System.out.println(studentList.get(2).getName());
+                System.out.println(studentList.get(3).getName());
+            }
+        });
+        
+        Thread t2 = new Thread(()->{
+            synchronized (studentList) {
+                System.out.println(studentList.get(4).getName());
+                System.out.println(studentList.get(5).getName());
+            }
+        });
+        
+        t1.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        t2.start();
+    }
     
 }

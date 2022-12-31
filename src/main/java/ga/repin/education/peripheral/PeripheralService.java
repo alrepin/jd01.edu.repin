@@ -20,4 +20,7 @@ public interface PeripheralService {
     
     Map<String, String> task040504();
     
+    void task040601();
+    
+    void task040602();
 }

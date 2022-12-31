@@ -68,4 +68,14 @@ public class PeripheralController {
         return peripheralService.task040504();
     }
     
+    @GetMapping("/task040601")
+    public void task040601(){
+        peripheralService.task040601();
+    }
+    
+    @GetMapping("/task040602")
+    public void task040602(){
+        peripheralService.task040602();
+    }
+    
 }
