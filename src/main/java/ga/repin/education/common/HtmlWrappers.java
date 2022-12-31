@@ -2,7 +2,7 @@ package ga.repin.education.common;
 
 import java.util.Arrays;
 
-import static ga.repin.education.navigation.NavigationConstants.*;
+import static ga.repin.education.peripheral.PeripheralConstants.*;
 
 public class HtmlWrappers {
     public static final String BR = "<br>";

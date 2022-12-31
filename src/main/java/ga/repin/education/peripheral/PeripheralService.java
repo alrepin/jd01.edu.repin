@@ -1,8 +1,8 @@
-package ga.repin.education.navigation;
+package ga.repin.education.peripheral;
 
 import java.util.Map;
 
-public interface IndexService {
+public interface PeripheralService {
     String course1Index();
     
     String course2Index();
@@ -19,4 +19,5 @@ public interface IndexService {
     String getServerPort(String description);
     
     Map<String, String> task040504();
+    
 }

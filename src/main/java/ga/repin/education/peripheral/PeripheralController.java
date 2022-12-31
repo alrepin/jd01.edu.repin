@@ -1,4 +1,4 @@
-package ga.repin.education.navigation;
+package ga.repin.education.peripheral;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -10,62 +10,62 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-import static ga.repin.education.navigation.NavigationConstants.*;
+import static ga.repin.education.peripheral.PeripheralConstants.*;
 
 @RestController
 @Tag(name = "⚙️ Peripheral endpoints", description = "")
-public class IndexController {
-    private final IndexService indexService;
+public class PeripheralController {
+    private final PeripheralService peripheralService;
 
-    public IndexController(IndexService indexService) {
-        this.indexService = indexService;
+    public PeripheralController(PeripheralService peripheralService) {
+        this.peripheralService = peripheralService;
     }
     
     @Hidden
     @GetMapping(path = ROOT_URL_01)
     public String showIndexPage() {
-        return indexService.course1Index();
+        return peripheralService.course1Index();
     }
     
     @Hidden
     @GetMapping(path = ROOT_URL_02)
     public String showCourse2Page() {
-        return indexService.course2Index();
+        return peripheralService.course2Index();
     }
     
     @Hidden
     @GetMapping(path = ROOT_URL_03)
     public String showCourse3Page() {
-        return indexService.course3Index();
+        return peripheralService.course3Index();
     }
     
     @Hidden
     @GetMapping(path = ROOT_URL_04)
     public String showCourse4Page() {
-        return indexService.course4Index();
+        return peripheralService.course4Index();
     }
     
     @Hidden
     @GetMapping(path = "/exit")
     public String stopServer(@RequestParam(value = "pass", required = false) String pass) {
-        return indexService.stopSpring(pass);
+        return peripheralService.stopSpring(pass);
     }
     
     @Hidden
     @GetMapping(path = "/switchtheme")
     public String switchTheme() {
-        return indexService.letSwitchTheme();
+        return peripheralService.letSwitchTheme();
     }
     
     @GetMapping("/getPort")
     public ResponseEntity<String> getPort(){
-        return ResponseEntity.status(HttpStatus.OK).body(indexService.getServerPort());
+        return ResponseEntity.status(HttpStatus.OK).body(peripheralService.getServerPort());
         //("Port, on which app started"));
     }
     
     @GetMapping("/task040504")
     public Map<String, String> task040504(){
-        return indexService.task040504();
+        return peripheralService.task040504();
     }
     
 }

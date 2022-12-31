@@ -1,22 +1,34 @@
-package ga.repin.education.navigation;
+package ga.repin.education.peripheral;
 
 import ga.repin.education.Application;
 import ga.repin.education.common.HtmlWrappers;
+import ga.repin.education.course04.topic05.hw.v8school.entity.Student;
+import ga.repin.education.course04.topic05.hw.v8school.repository.StudentRepository;
 import liquibase.repackaged.org.apache.commons.collections4.map.ListOrderedMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 import static ga.repin.education.common.HtmlWrappers.*;
 import static ga.repin.education.common.UsefulMethods.*;
-import static ga.repin.education.common.UsefulMethods.markTheTime;
 
 @Service
-public class IndexServiceImpl implements IndexService {
+public class PeripheralServiceImpl implements PeripheralService {
     
+    private final StudentRepository studentRepository   ;
+    
+    private final Logger logger = LoggerFactory.getLogger(PeripheralService.class);
+    
+    public PeripheralServiceImpl(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
     
     @Override
     public String course1Index() {
@@ -152,15 +164,15 @@ public class IndexServiceImpl implements IndexService {
                         "<h3>Fourth course of study</h3>" +
                         
                         commentPrep(hwCaption("4.1. Continuing our SQL experience", true, "25284", 36), null) + BR +
-                       
+                        
                         commentPrep(hwCaption("4.2. Managing database schemas", true, "25285", 37), null) + BR +
                         
                         commentPrep(hwCaption("4.3. Migrations and indexes", true, "25286", 38), null) + BR +
                         
                         commentPrep(hwCaption("4.4. Logging and configuring in the app", true, "25287", 39), null) + BR +
-        
+                        
                         commentPrep(hwCaption("4.5. Parallel streams", true, "25288", 40), null) + BR +
-        
+                        
                         "<li>" +
                         hrefPrep("/swagger-ui.html",
                                 "SWAGGER-UI") + " | " +
@@ -213,18 +225,20 @@ public class IndexServiceImpl implements IndexService {
                 .reduce(0, (a, b) -> a + b);
         double time = markTheTime(true);
         markTheTime(false);
-        rec.put("value calculated with original code",Integer.toString(value));
+        rec.put("value calculated with original code", Integer.toString(value));
         rec.put("original time", time + " ms");
-    
+        
         markTheTime(false);
         value = Stream.iterate(1, a -> a + 1)
                 .limit(1_000_000)
                 .parallel()
                 .reduce(0, Integer::sum);
         time = markTheTime(true);
-        rec.put("calculated value with optimized code",Integer.toString(value));
+        rec.put("calculated value with optimized code", Integer.toString(value));
         rec.put("time with parallel stream", time + " ms");
         return rec;
     }
+    
+    
     
 }

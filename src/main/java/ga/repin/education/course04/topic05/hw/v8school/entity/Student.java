@@ -66,7 +66,7 @@ public class Student {
     
     @Override
     public String toString() {
-        return "StudentV1{" +
+        return "Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';

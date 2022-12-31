@@ -1,6 +1,6 @@
-package ga.repin.education.navigation;
+package ga.repin.education.peripheral;
 
-public class NavigationConstants {
+public class PeripheralConstants {
     public static final String ROOT_URL="/";
     public static final String ROOT_URL_04 = ROOT_URL;
     //public static final String ROOT_URL_04="/course04";
