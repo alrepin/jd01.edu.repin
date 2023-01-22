@@ -173,7 +173,7 @@ public class PeripheralServiceImpl implements PeripheralService {
                         
                         commentPrep(hwCaption("4.5. Parallel streams", true, "25288", 40), null) + BR +
         
-                        commentPrep(hwCaption("4.6. Multithreading", false, "25289", 41), null) + BR +
+                        commentPrep(hwCaption("4.6. Multithreading", true, "25289", 41), null) + BR +
                         
                         "<li>" +
                         hrefPrep("/swagger-ui.html",
