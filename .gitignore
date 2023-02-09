@@ -4,6 +4,10 @@ target/
 gradle/
 .gradle/
 gradlew*
+/src/main/resources/application.properties
+/src/main/resources/application.yml
+/src/main/resources/application-prod.properties
+/src/main/resources/banner.txt
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -40,4 +44,3 @@ build/
 
 ### VS Code ###
 .vscode/
-

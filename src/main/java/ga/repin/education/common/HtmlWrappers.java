@@ -18,21 +18,30 @@ public class HtmlWrappers {
         underlineTagOpen[courseNum] = "<u>";
         underlineTagClose[courseNum] = "</u>";
         
-        return underlineTagOpen[1] +
-                hrefPrep(ROOT_URL_01, "First course") +
+        return "Courses: " +
+                underlineTagOpen[1] +
+                hrefPrep(ROOT_URL_01, "First") +
                 underlineTagClose[1] +
                 " | " +
                 underlineTagOpen[2] +
-                hrefPrep(ROOT_URL_02, "Second course") +
+                hrefPrep(ROOT_URL_02, "Second") +
                 underlineTagClose[2] +
                 " | " +
                 underlineTagOpen[3] +
-                hrefPrep(ROOT_URL_03, "Third course") +
+                hrefPrep(ROOT_URL_03, "Third") +
                 underlineTagClose[3] +
                 " | " +
                 underlineTagOpen[4] +
-                hrefPrep(ROOT_URL_04, "Fourth course") +
+                hrefPrep(ROOT_URL_04, "Fourth") +
                 underlineTagClose[4] +
+                " | " +
+                underlineTagOpen[5] +
+                hrefPrep(ROOT_URL_05, "Fifth") +
+                underlineTagClose[5] +
+                " | " +
+                underlineTagOpen[6] +
+                hrefPrep(ROOT_URL_06, "Sixth") +
+                underlineTagClose[6] +
                 HR +
                 "The presented tasks were solved as a part of the educational process: " + BR
                 ;
@@ -313,6 +322,10 @@ public class HtmlWrappers {
                 caption +
                 "</a>" +
                 "</h2>" +
+                hrefPrep("/swagger-ui.html",
+                        "SWAGGER-UI") + " | " +
+                hrefPrep("/openapi.json",
+                        "OPENAPI JSON") +
                 "<hr>" +
                 unformattedString +
                 "<hr>" +

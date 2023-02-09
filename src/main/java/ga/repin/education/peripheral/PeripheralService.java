@@ -10,6 +10,10 @@ public interface PeripheralService {
     String course3Index();
     String course4Index();
     
+    String course5Index();
+    
+    String course6Index();
+    
     String stopSpring(String pass);
 
     String letSwitchTheme();

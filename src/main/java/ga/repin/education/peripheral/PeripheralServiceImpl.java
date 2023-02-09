@@ -22,7 +22,7 @@ import static ga.repin.education.common.UsefulMethods.*;
 @Service
 public class PeripheralServiceImpl implements PeripheralService {
     
-    private final StudentRepository studentRepository   ;
+    private final StudentRepository studentRepository;
     
     private final Logger logger = LoggerFactory.getLogger(PeripheralService.class);
     
@@ -36,7 +36,7 @@ public class PeripheralServiceImpl implements PeripheralService {
         return mainTheme(
                 coursesTabs(1) +
                         "<ul type=\"square\">" +
-                        "<h3>First course of study</h3>" +
+                        //"<h3>First course of study</h3>" +
                         commentPrep(hwCaption("1.1. Installing developer tools", true, "16819", 1), null) + BR +
                         commentPrep(hwCaption("1.2. Variables", true, "16820", 2), null) + BR +
                         commentPrep(hwCaption("1.3. Conditional statements", true, "16821", 3), null) + BR +
@@ -59,7 +59,7 @@ public class PeripheralServiceImpl implements PeripheralService {
         return mainTheme(
                 coursesTabs(2) +
                         "<ul type=\"square\">" +
-                        "<h3>Second course of study</h3>" +
+                        //"<h3>Second course of study</h3>" +
                         commentPrep(hwCaption("2.2.1. OOP - Encapsulation and Inheritance", true, "16831", 14), null) + BR +
                         commentPrep(hwCaption("2.2.2. OOP - Interfaces and polymorphism", true, "16832", 15), null) + BR +
                         commentPrep(hwCaption("2.3. Introduction to Maven and Spring Boot", true, "16833", 16), null) + BR +
@@ -116,7 +116,7 @@ public class PeripheralServiceImpl implements PeripheralService {
         return mainTheme(
                 coursesTabs(3) +
                         "<ul type=\"square\">" +
-                        "<h3>Third course of study</h3>" +
+                        //"<h3>Third course of study</h3>" +
                         
                         commentPrep(hwCaption("3.1. Introduction to web development. HTTP, REST Protocols", true, "16848", 30), null) + BR +
                         "<li>" +
@@ -161,7 +161,7 @@ public class PeripheralServiceImpl implements PeripheralService {
         return mainTheme(
                 coursesTabs(4) +
                         "<ul type=\"square\">" +
-                        "<h3>Fourth course of study</h3>" +
+                        //"<h3>Fourth course of study</h3>" +
                         
                         commentPrep(hwCaption("4.1. Continuing our SQL experience", true, "25284", 36), null) + BR +
                         
@@ -172,16 +172,41 @@ public class PeripheralServiceImpl implements PeripheralService {
                         commentPrep(hwCaption("4.4. Logging and configuring in the app", true, "25287", 39), null) + BR +
                         
                         commentPrep(hwCaption("4.5. Parallel streams", true, "25288", 40), null) + BR +
-        
+                        
                         commentPrep(hwCaption("4.6. Multithreading", true, "25289", 41), null) + BR +
                         
-                        "<li>" +
-                        hrefPrep("/swagger-ui.html",
-                                "SWAGGER-UI") + " | " +
-                        hrefPrep("/openapi.json",
-                                "OPENAPI JSON") +
-                        BR +
-                        "</li>" +
+                        
+                        "</ul>"
+        
+        );
+    }
+    
+    @Override
+    public String course5Index() {
+        
+        return mainTheme(
+                coursesTabs(5) +
+                        "<ul type=\"square\">" +
+                        //"<h3>Fifth course of study</h3>" +
+                        
+                        commentPrep(hwCaption("5.4. Practical task for a technical interview", true, "31707", 42), null) + BR +
+                        
+                        
+                        "</ul>"
+        
+        );
+    }
+    
+    @Override
+    public String course6Index() {
+        
+        return mainTheme(
+                coursesTabs(6) +
+                        "<ul type=\"square\">" +
+                        //"<h3>Sixth course of study</h3>" +
+                        
+                        commentPrep(hwCaption("Coursework 3 (Bot in Telegram)", false, "", 43), null) + BR +
+                        
                         
                         "</ul>"
         
@@ -260,21 +285,21 @@ public class PeripheralServiceImpl implements PeripheralService {
     }
     
     public void task040602() {
-        List<Student> studentList = studentRepository.findAll();;
+        List<Student> studentList = studentRepository.findAll();
         logger.info("Original order: " + studentList);
         logger.info("Names order printed with sout in multithreading synchronized mode: ");
         
         System.out.println(studentList.get(0).getName());
         System.out.println(studentList.get(1).getName());
-    
-        Thread t1 = new Thread(()->{
+        
+        Thread t1 = new Thread(() -> {
             synchronized (studentList) {
                 System.out.println(studentList.get(2).getName());
                 System.out.println(studentList.get(3).getName());
             }
         });
         
-        Thread t2 = new Thread(()->{
+        Thread t2 = new Thread(() -> {
             synchronized (studentList) {
                 System.out.println(studentList.get(4).getName());
                 System.out.println(studentList.get(5).getName());
