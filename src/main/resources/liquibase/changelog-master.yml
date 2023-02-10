@@ -1,3 +1,3 @@
 databaseChangeLog:
-  - include:
-      file: liquibase/scripts/course04-hw03.sql
+  - includeAll:
+      path: liquibase/scripts

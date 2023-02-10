@@ -227,7 +227,7 @@ public class PeripheralServiceImpl implements PeripheralService {
     @Override
     public String letSwitchTheme() {
         HtmlWrappers.nightTheme = !HtmlWrappers.nightTheme;
-        return course4Index();
+        return course6Index();
     }
     
     @Value("${server.port}")
