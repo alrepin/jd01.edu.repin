@@ -31,6 +31,7 @@ dependencies {
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
     implementation 'org.postgresql:postgresql:42.3.8'
     implementation 'org.liquibase:liquibase-core'
+    implementation 'com.github.pengrad:java-telegram-bot-api:6.3.0'
 }
 
 group = 'ga.repin'

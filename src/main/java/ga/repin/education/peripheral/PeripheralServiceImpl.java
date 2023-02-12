@@ -206,7 +206,8 @@ public class PeripheralServiceImpl implements PeripheralService {
                         //"<h3>Sixth course of study</h3>" +
                         
                         commentPrep(hwCaption("Coursework 3 (Bot in Telegram)", false, "", 43), null) + BR +
-                        
+                        "<a href=\"https://t.me/demo_jd01_edu_repin_ga\"><img src=\"/school/student/3/avatar\" width=\"150\" \n" +
+                        "   height=\"150\" alt=\"Demo\"></a>" +
                         
                         "</ul>"
         
