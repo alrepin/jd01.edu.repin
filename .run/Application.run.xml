@@ -3,7 +3,7 @@
     <option name="ACTIVE_PROFILES" />
     <option name="ALTERNATIVE_JRE_PATH" value="11lts" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <module name="education" />
+    <module name="jd01.edu.repin" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="ga.repin.education.Application" />
     <extension name="coverage">
       <pattern>

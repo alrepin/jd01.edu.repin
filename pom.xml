@@ -8,11 +8,11 @@
         <version>2.7.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ga.repin</groupId>
-    <artifactId>education</artifactId>
+    <groupId>repin.edu</groupId>
+    <artifactId>repin.edu.jd01</artifactId>
     <version>0.0.1</version>
     <packaging>war</packaging>
-    <name>skypro education</name>
+    <name>skypro java developer</name>
     <description>Skypro education project</description>
     <properties>
         <java.version>11</java.version>

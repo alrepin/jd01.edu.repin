@@ -34,9 +34,9 @@ dependencies {
     implementation 'com.github.pengrad:java-telegram-bot-api:6.3.0'
 }
 
-group = 'ga.repin'
+group = 'repin.edu.jd01'
 version = '0.0.1'
-description = 'skypro education'
+description = 'skypro java developer'
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 publishing {
