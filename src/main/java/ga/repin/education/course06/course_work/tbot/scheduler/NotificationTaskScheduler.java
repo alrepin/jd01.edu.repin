@@ -5,7 +5,6 @@ import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.SendResponse;
 import ga.repin.education.course06.course_work.tbot.entity.NotificationTask;
 import ga.repin.education.course06.course_work.tbot.repository.NotificationTaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,6 @@ public class NotificationTaskScheduler {
     
     private final NotificationTaskRepository repository;
     
-    @Autowired
     public NotificationTaskScheduler(TelegramBot telegramBot, NotificationTaskRepository repository) {
         this.telegramBot = telegramBot;
         this.repository = repository;
@@ -30,7 +28,7 @@ public class NotificationTaskScheduler {
     public void sendNotifications() {
         final LocalDateTime nowDateTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
         
-        final List<NotificationTask> notificationTasks = repository.findAllByDateTime(nowDateTime);
+        final List<NotificationTask> notificationTasks = repository.findAllByDateTimeLessThanEqual(nowDateTime);
         
         notificationTasks.forEach(this::sendNotification);
     }

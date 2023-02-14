@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface NotificationTaskRepository extends JpaRepository<NotificationTask, Long> {
     
-    List<NotificationTask> findAllByDateTime(LocalDateTime dateTime);
+    List<NotificationTask> findAllByDateTimeLessThanEqual(LocalDateTime dateTime);
 }

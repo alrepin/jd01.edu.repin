@@ -1,5 +1,6 @@
 package ga.repin.education.course06.course_work.tbot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.Hibernate;
@@ -19,6 +20,7 @@ public class NotificationTask {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @JsonIgnore
     private Long chatId;
     
     private String text;

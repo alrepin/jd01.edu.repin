@@ -4,6 +4,8 @@ import ga.repin.education.Application;
 import ga.repin.education.common.HtmlWrappers;
 import ga.repin.education.course04.topic05.hw.v8school.entity.Student;
 import ga.repin.education.course04.topic05.hw.v8school.repository.StudentRepository;
+import ga.repin.education.course06.course_work.tbot.entity.NotificationTask;
+import ga.repin.education.course06.course_work.tbot.repository.NotificationTaskRepository;
 import liquibase.repackaged.org.apache.commons.collections4.map.ListOrderedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +13,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static ga.repin.education.common.HtmlWrappers.*;
@@ -21,12 +25,14 @@ import static ga.repin.education.common.UsefulMethods.*;
 
 @Service
 public class PeripheralServiceImpl implements PeripheralService {
+    private final NotificationTaskRepository notificationTaskRepository;
     
     private final StudentRepository studentRepository;
     
     private final Logger logger = LoggerFactory.getLogger(PeripheralService.class);
     
-    public PeripheralServiceImpl(StudentRepository studentRepository) {
+    public PeripheralServiceImpl(NotificationTaskRepository notificationTaskRepository, StudentRepository studentRepository) {
+        this.notificationTaskRepository = notificationTaskRepository;
         this.studentRepository = studentRepository;
     }
     
@@ -205,9 +211,15 @@ public class PeripheralServiceImpl implements PeripheralService {
                         "<ul type=\"square\">" +
                         //"<h3>Sixth course of study</h3>" +
                         
-                        commentPrep(hwCaption("Coursework 3 (Bot in Telegram)", false, "", 43), null) + BR +
+                        commentPrep(hwCaption("Coursework 3 (Bot in Telegram)", true, "", 43), null) + BR +
+                        "<li>" +
+                        hrefPrep("https://t.me/demo_jd01_edu_repin_ga", "CUCKOO BOT (an auto-updated list of active notifications can be seen at the bottom of the current page)") +
+                        BR +
+                        "</li>" +
                         "<a href=\"https://t.me/demo_jd01_edu_repin_ga\"><img src=\"/school/student/3/avatar\" width=\"150\" \n" +
-                        "   height=\"150\" alt=\"Demo\"></a>" +
+                        "   height=\"150\" border=\"0\" alt=\"Demo\"></a>" +
+                        "" +
+                        notificationListSnippet() +
                         
                         "</ul>"
         
@@ -316,4 +328,12 @@ public class PeripheralServiceImpl implements PeripheralService {
         t2.start();
     }
     
+    @Override
+    public List<NotificationTask> notificationsList() {
+        final List<NotificationTask> notificationTasks = notificationTaskRepository.findAll();
+    
+        return notificationTasks.stream()
+                .sorted(Comparator.comparing(NotificationTask::getDateTime))
+                .collect(Collectors.toList());
+    }
 }

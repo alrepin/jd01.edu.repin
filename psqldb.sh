@@ -85,8 +85,9 @@ function checkdb() {
   echo "$result"
   result=$(psql "user=${PGUSER} password=${PGPASSWORD} host=${PGHOST} port=${PGPORT} dbname=postgres" -l | grep "${PGUSER}")
   echo "$result"
-
 }
+
+
 
 function die() {
   printf "%b\n" "Error: $1" >&2

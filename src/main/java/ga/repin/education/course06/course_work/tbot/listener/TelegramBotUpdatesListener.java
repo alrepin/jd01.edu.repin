@@ -8,7 +8,6 @@ import ga.repin.education.course06.course_work.tbot.entity.NotificationTask;
 import ga.repin.education.course06.course_work.tbot.repository.NotificationTaskRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -21,15 +20,16 @@ import java.util.regex.Pattern;
 @Service
 public class TelegramBotUpdatesListener implements UpdatesListener {
     
-    private static final Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
     
     private static final DateTimeFormatter DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    
+    private static final Pattern REGEX_PATTERN_CREATE_NOTIFICATION_MSG = Pattern.compile("(\\d{2}.\\d{2}.\\d{4} \\d{2}.\\d{2})(\\s)(.*)");
     
     private final TelegramBot telegramBot;
     
     private final NotificationTaskRepository notificationTaskRepository;
     
-    @Autowired
     public TelegramBotUpdatesListener(TelegramBot telegramBot, NotificationTaskRepository notificationTaskRepository) {
         this.telegramBot = telegramBot;
         this.notificationTaskRepository = notificationTaskRepository;
@@ -46,7 +46,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             updates.forEach(this::processUpdate);
         } catch (Exception e) {
             
-            logger.debug("err02");
+            LOGGER.debug(e.getMessage());
         } finally {
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         }
@@ -54,7 +54,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     }
     
     private void processUpdate(Update update) {
-        logger.debug("Processing update: {}", update);
+        LOGGER.debug("Processing update: {}", update);
         Long chatId = null;
         String text = null;
         
@@ -63,17 +63,19 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             text = update.message().text();
             chatId = update.message().chat().id();
         } catch (Exception e) {
-            logger.debug("err01");
+            LOGGER.debug(e.getMessage());
+        }
+        if (text == null || text.isBlank()) {
+            sendMessage(chatId, "no message no funny!");
+            return;
         }
         
-        
-        if ("/start" .equals(text)) {
+        if ("/start".equals(text)) {
             hintMessage(chatId);
             return;
         }
         
-        final Matcher matcher = Pattern
-                .compile("(\\d{2,2}.\\d{2,2}.\\d{4,4} \\d{2,2}.\\d{2,2})(\\s)(.*)")
+        final Matcher matcher = REGEX_PATTERN_CREATE_NOTIFICATION_MSG
                 .matcher(text);
         
         if (!matcher.matches()) {

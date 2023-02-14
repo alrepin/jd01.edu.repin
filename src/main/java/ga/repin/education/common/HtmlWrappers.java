@@ -122,6 +122,91 @@ public class HtmlWrappers {
                         "</script>";
     }
     
+    public static String notificationListSnippet() {
+        return
+                "<div id=\"output2\"></div>\n" +
+                        "\t\t\t<div id=\"output\"></div>\n" +
+                        "\t\t\t<script>\n" +
+                        "\t\t\t\twindow.onload = function () {\n" +
+                        "\t\t\t\t\tdemo();\n" +
+                        "\t\t\t\t};\n" +
+                        "\n" +
+                        "\t\t\t\tasync function demo() {\n" +
+                        "\t\t\t\t\twhile (true) {\n" +
+                        "\t\t\t\t\t\tdocument.getElementById(\"output2\").innerHTML = \" actualizing notification list...\";\n" +
+                        "\t\t\t\t\t\tawait pause(2000);\n" +
+                        "\t\t\t\t\t\tdocument.getElementById(\"output2\").innerHTML = \"<br>\";\n" +
+                        "\t\t\t\t\t\tawait pause(2000);\n" +
+                        "\t\t\t\t\t\tsendReqt(\"/notificationlist\");\n" +
+                        "\t\t\t\t\t\tawait pause(5000);\n" +
+                        "\t\t\t\t\t}\n" +
+                        "\t\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\t\tfunction pause(ms) {\n" +
+                        "\t\t\t\t\treturn new Promise(resolve => setTimeout(resolve, ms));\n" +
+                        "\t\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\t\tfunction show(strOut) {\n" +
+                        "\t\t\t\t\tvar myObj,\n" +
+                        "\t\t\t\t\t\tx,\n" +
+                        "\t\t\t\t\t\ttxt = \"\";\n" +
+                        "\n" +
+                        "\t\t\t\t\tmyObj = JSON.parse(strOut);\n" +
+                        "\t\t\t\t\tfor (x in myObj) {\n" +
+                        "\t\t\t\t\t\tlet date = new Date(Date.parse(myObj[x].dateTime));\n" +
+                        "\t\t\t\t\t\tlet diff = date - new Date();\n" +
+                        "\t\t\t\t\t\tconst days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;\n" +
+                        "\t\t\t\t\t\tconst hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;\n" +
+                        "\t\t\t\t\t\tconst minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;\n" +
+                        "\n" +
+                        "\t\t\t\t\t\ttxt += \"<table width='500' cellspacing='0' cellpadding='10' border='1'>\";\n" +
+                        "\n" +
+                        "\t\t\t\t\t\ttxt +=\n" +
+                        "\t\t\t\t\t\t\t\"<tr>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td width='100%' colspan='2'>\" +\n" +
+                        "\t\t\t\t\t\t\t\" \" +\n" +
+                        "\t\t\t\t\t\t\tmyObj[x].text.toUpperCase() +\n" +
+                        "\t\t\t\t\t\t\t\"</td>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td>\" +\n" +
+                        "\t\t\t\t\t\t\tdate.toLocaleDateString().slice(0, 15) +\n" +
+                        "\t\t\t\t\t\t\t\" \" +\n" +
+                        "\t\t\t\t\t\t\tdate.toLocaleTimeString().slice(0, 5) +\n" +
+                        "\t\t\t\t\t\t\t\"</td>\" +\n" +
+                        "\t\t\t\t\t\t\t\"</tr><tr>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td width='30%' align='center'>days\" +\n" +
+                        "\t\t\t\t\t\t\t\"</td>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td width='30%' align='center'>hours\" +\n" +
+                        "\t\t\t\t\t\t\t\"</td>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td width='30%' align='center'>minutes\" +\n" +
+                        "\t\t\t\t\t\t\t\"</tr><tr>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td width='30%' align='center'>\" +\n" +
+                        "\t\t\t\t\t\t\tdays +\n" +
+                        "\t\t\t\t\t\t\t\"</td>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td width='30%' align='center'>\" +\n" +
+                        "\t\t\t\t\t\t\thours +\n" +
+                        "\t\t\t\t\t\t\t\"</td>\" +\n" +
+                        "\t\t\t\t\t\t\t\"<td width='30%' align='center'>\" +\n" +
+                        "\t\t\t\t\t\t\tminutes +\n" +
+                        "\t\t\t\t\t\t\t\"</tr>\";\n" +
+                        "\t\t\t\t\t}\n" +
+                        "\t\t\t\t\ttxt += \"</table>\";\n" +
+                        "\t\t\t\t\tdocument.getElementById(\"output\").innerHTML = txt;\n" +
+                        "\t\t\t\t}\n" +
+                        "\n" +
+                        "\t\t\t\tfunction sendReqt(url) {\n" +
+                        "\t\t\t\t\tlet xhttp = new XMLHttpRequest();\n" +
+                        "\t\t\t\t\txhttp.onload = function () {\n" +
+                        "\t\t\t\t\t\tlet result = this.responseText;\n" +
+                        "\t\t\t\t\t\tshow(result);\n" +
+                        "\t\t\t\t\t};\n" +
+                        "\t\t\t\t\txhttp.open(\"GET\", url);\n" +
+                        "\t\t\t\t\txhttp.send();\n" +
+                        "\t\t\t\t}\n" +
+                        "\t\t\t</script>";
+    }
+    
+    
+    
     public static String questionsSnippet(String sessionId) {
         return
                 "<style>\n" +
