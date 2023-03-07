@@ -66,7 +66,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             LOGGER.debug(e.getMessage());
         }
         if (text == null || text.isBlank()) {
-            sendMessage(chatId, "no message no funny!");
+            //sendMessage(chatId, "no message no funny!");
             return;
         }
         
@@ -79,7 +79,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                 .matcher(text);
         
         if (!matcher.matches()) {
-            sendMessage(chatId, "dont understand you, dear)");
+            //sendMessage(chatId, "dont understand you, dear)");
             return;
         }
         
