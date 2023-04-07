@@ -19,6 +19,12 @@ public interface PeripheralService {
     
     String course6Index();
     
+    String course7Index();
+    
+    String course8Index();
+    
+    String course9Index();
+    
     String stopSpring(String pass);
     
     String letSwitchTheme();

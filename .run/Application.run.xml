@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
     <option name="ACTIVE_PROFILES" />
-    <option name="ALTERNATIVE_JRE_PATH" value="11lts" />
+    <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/apps/jdk/jdk-liberica-11.0.18" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <module name="jd01.edu.repin" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="ga.repin.education.Application" />

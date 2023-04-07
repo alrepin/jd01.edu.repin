@@ -225,6 +225,60 @@ public class PeripheralServiceImpl implements PeripheralService {
         
         );
     }
+    @Override
+    public String course7Index(){
+        return mainTheme(
+                coursesTabs(7) +
+                        "<ul type=\"square\">" +
+                        //"<h3>Sixth course of study</h3>" +
+                    
+                        BR +
+                        "<li>" +
+                        hrefPrep("http://heaven.ga", "TEAMWORKING") +
+                        BR +
+                        "</li>" +
+                        "<a href=\"http://heaven.ga\"><img src=\"http://heaven.ga/JD10%20HEAVEN-DEVS%20TEAM%2068be78968e424de5b8434d0910bb16ea/photo_2023-02-17_08-56-23.png\" width=\"150\" \n" +
+                        "   height=\"150\" border=\"0\" alt=\"Demo\"></a>" +
+                        
+                    
+                        "</ul>"
+    
+        );
+    }
+    
+    @Override
+    public String course8Index(){
+        return mainTheme(
+                coursesTabs(8) +
+                        "<ul type=\"square\">" +
+                        BR +
+                        "<li>" +
+                        hrefPrep("http://", "Preparation for a technical interview (ticket 3)") +
+                        BR +
+                        "</li>" +
+/*                        "<a href=\"http://heaven.ga\"><img src=\"http://heaven.ga/JD10%20HEAVEN-DEVS%20TEAM%2068be78968e424de5b8434d0910bb16ea/photo_2023-02-17_08-56-23.png\" width=\"150\" \n" +
+                        "   height=\"150\" border=\"0\" alt=\"Demo\"></a>" +*/
+                        "</ul>"
+        
+        );
+    }
+    
+    @Override
+    public String course9Index(){
+        return mainTheme(
+                coursesTabs(9) /*+
+                        "<ul type=\"square\">" +
+                        BR +
+                        "<li>" +
+                        hrefPrep("http://heaven.ga", "Preparation for a technical interview (ticket 3)") +
+                        BR +
+                        "</li>" +
+*//*                        "<a href=\"http://heaven.ga\"><img src=\"http://heaven.ga/JD10%20HEAVEN-DEVS%20TEAM%2068be78968e424de5b8434d0910bb16ea/photo_2023-02-17_08-56-23.png\" width=\"150\" \n" +
+                        "   height=\"150\" border=\"0\" alt=\"Demo\"></a>" +*//*
+                        "</ul>"*/
+        
+        );
+    }
     
     @Value("${session.kill-pass}")
     private String sessionKillPass;

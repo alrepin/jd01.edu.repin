@@ -63,6 +63,24 @@ public class PeripheralController {
     }
     
     @Hidden
+    @GetMapping(path = ROOT_URL_07)
+    public String showCourse7Page() {
+        return peripheralService.course7Index();
+    }
+    
+    @Hidden
+    @GetMapping(path = ROOT_URL_08)
+    public String showCourse8Page() {
+        return peripheralService.course8Index();
+    }
+    
+    @Hidden
+    @GetMapping(path = ROOT_URL_09)
+    public String showCourse9Page() {
+        return peripheralService.course9Index();
+    }
+    
+    @Hidden
     @GetMapping(path = "/exit")
     public String stopServer(@RequestParam(value = "pass", required = false) String pass) {
         return peripheralService.stopSpring(pass);
