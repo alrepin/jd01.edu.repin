@@ -196,7 +196,25 @@ public class PeripheralServiceImpl implements PeripheralService {
                         //"<h3>Fifth course of study</h3>" +
                         
                         commentPrep(hwCaption("5.4. Practical task for a technical interview", true, "31707", 42), null) + BR +
-                        
+                        "<li>" +
+                        commentPrep("Intro about myself", null) + BR +
+                        embedVideo("1_kJ6ECp") +
+                        "</li>" +
+        
+                        "<li>" +
+                        commentPrep("Video response to questions from the ticket", null) + BR +
+                        embedVideo("_xXvZiBD") +
+                        "</li>" +
+        
+                        "<li>" +
+                        commentPrep("Screencast of the progress of solving the task (part 1)", null) + BR +
+                        embedVideo("kgm9Nkf8") +
+                        "</li>" +
+        
+                        "<li>" +
+                        commentPrep("Screencast of the progress of solving the task (part 2)", null) + BR +
+                        embedVideo("eCi4RVgI") +
+                        "</li>" +
                         
                         "</ul>"
         
@@ -252,7 +270,7 @@ public class PeripheralServiceImpl implements PeripheralService {
         return mainTheme(
                 coursesTabs(8) +
                         "<ul type=\"square\">" +
-                        "<h3>Preparation for a technical interview (ticket 3)</h3>" +
+                        //"<h3>Preparation for a technical interview (ticket 3)</h3>" +
                         commentPrep(hwCaption("8.2. Preparation for a technical interview (ticket 3)", false, "43886", 44), null) + BR +
                         "<li>" +
                         commentPrep("Intro about myself", null) + BR +
