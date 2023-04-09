@@ -143,9 +143,7 @@ public class HtmlWrappers {
                 "<div id=\"output2\"></div>\n" +
                         "\t\t\t<div id=\"output\"></div>\n" +
                         "\t\t\t<script>\n" +
-                        "\t\t\t\twindow.onload = function () {\n" +
-                        "\t\t\t\t\tdemo();\n" +
-                        "\t\t\t\t};\n" +
+                        "\t\t\t\twindow.addEventListener(\"load\", demo);\n" +
                         "\n" +
                         "\t\t\t\tasync function demo() {\n" +
                         "\t\t\t\t\twhile (true) {\n" +
@@ -242,9 +240,7 @@ public class HtmlWrappers {
                         "\t\t<textarea id=\"output\"></textarea>\n" +
                         "\t\t<br />\n" +
                         "\t\t<script>\n" +
-                        "\t\t\twindow.onload = function () {\n" +
-                        "\t\t\t\tdemo();\n" +
-                        "\t\t\t};\n" +
+                        "\t\t\twindow.addEventListener(\"load\", demo);\n" +
                         "\n" +
                         "\t\t\tlet counter = 0;\n" +
                         "\n" +
@@ -398,37 +394,93 @@ public class HtmlWrappers {
             textcolor = "\"DimGray\"";
             caption = "\uD83C\uDF19";
         }
-        return "<html><head>" +
-                "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />" +
-                "<style type=\"text/css\"> " +
-                "" +
-                "" +
-                "" +
-                "" +
-                "A { text-decoration: none; " +
-                "color: " + textcolor +
-                "; background: " + bgcolor +
-                ";} " +
-                "A:hover { text-decoration: none; " +
-                "color: black" + //bgcolor +
-                "; background: " + textcolor +
-                "; } </style>" +
-                "<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap\" rel=\"stylesheet\" />" +
-                "<link rel=\"icon\" type=\"image/jpeg\" href=\"/school/student/2/avatar/preview\" />" +
-                "</head>" + //+ "<body " +
-                "<body link=" + textcolor +
-                "vlink=" + textcolor +
-                "bgcolor=" + bgcolor +
-                "text=" + textcolor +
-                ">" +
-                "<h2>" +
-                "<a href=\"/exit?pass=\">❌</a> | " +
-                "<a href=\"/.\">\uD83C\uDFE0</a> | " +
-                "<a href=\"javascript:history.back()\">◀️</a> | " +
-                "<a href=\"/switchtheme\">" +
-                caption +
-                "</a>" +
-                "</h2>" +
+        return "<html><head>\n" +
+                "\t\t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n" +
+                "\t\t<link href=\"https://fonts.googleapis.com/css2?family=Poiret+One&display=swap\" rel=\"stylesheet\" />\n" +
+                "\t\t<link rel=\"icon\" type=\"image/jpeg\" href=\"http://repin.ga/school/student/2/avatar/preview\" />\n" +
+                "\t\t<style>\n" +
+                "\t\t\t.preloader {\n" +
+                "\t\t\t\tposition: fixed;\n" +
+                "\t\t\t\tleft: 0;\n" +
+                "\t\t\t\ttop: 0;\n" +
+                "\t\t\t\tright: 0;\n" +
+                "\t\t\t\tbottom: 0;\n" +
+                "\t\t\t\tbackground: #1d1f21ff;\n" +
+                "\t\t\t\tz-index: 1001;\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\t.preloader__row {\n" +
+                "\t\t\t\tposition: relative;\n" +
+                "\t\t\t\ttop: 50%;\n" +
+                "\t\t\t\tleft: 50%;\n" +
+                "\t\t\t\twidth: 70px;\n" +
+                "\t\t\t\theight: 70px;\n" +
+                "\t\t\t\tmargin-top: -35px;\n" +
+                "\t\t\t\tmargin-left: -35px;\n" +
+                "\t\t\t\ttext-align: center;\n" +
+                "\t\t\t\tanimation: preloader-rotate 2s infinite linear;\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\t.preloader__item {\n" +
+                "\t\t\t\tposition: absolute;\n" +
+                "\t\t\t\tdisplay: inline-block;\n" +
+                "\t\t\t\ttop: 0;\n" +
+                "\t\t\t\tbackground-color: darkred;\n" +
+                "\t\t\t\tborder-radius: 100%;\n" +
+                "\t\t\t\twidth: 35px;\n" +
+                "\t\t\t\theight: 35px;\n" +
+                "\t\t\t\tanimation: preloader-bounce 2s infinite ease-in-out;\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\t.preloader__item:last-child {\n" +
+                "\t\t\t\ttop: auto;\n" +
+                "\t\t\t\tbottom: 0;\n" +
+                "\t\t\t\tanimation-delay: -1s;\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\t@keyframes preloader-rotate {\n" +
+                "\t\t\t\t100% {\n" +
+                "\t\t\t\t\ttransform: rotate(360deg);\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\t@keyframes preloader-bounce {\n" +
+                "\t\t\t\t0%,\n" +
+                "\t\t\t\t100% {\n" +
+                "\t\t\t\t\ttransform: scale(0);\n" +
+                "\t\t\t\t}\n" +
+                "\n" +
+                "\t\t\t\t50% {\n" +
+                "\t\t\t\t\ttransform: scale(1);\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\t.loaded_hiding .preloader {\n" +
+                "\t\t\t\ttransition: 0.3s opacity;\n" +
+                "\t\t\t\topacity: 0;\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\t.loaded .preloader {\n" +
+                "\t\t\t\tdisplay: none;\n" +
+                "\t\t\t}\n" +
+                "\t\t</style>\n" +
+                "\t</head>\n" +
+                "\t<body>\n" +
+                "\t\t<div class=\"preloader\">\n" +
+                "\t\t\t<div class=\"preloader__row\">\n" +
+                "\t\t\t\t<div class=\"preloader__item\"></div>\n" +
+                "\t\t\t\t<div class=\"preloader__item\"></div>\n" +
+                "\t\t\t</div>\n" +
+                "\t\t</div>\n" +
+                "\t\t<h2>\n" +
+                "\t\t\t<a href=\"/exit?pass=\">KILL</a>\n" +
+                "\t\t\t▪️\n" +
+                "\t\t\t<a href=\"/\">ROOT</a>\n" +
+                "\t\t\t▪️\n" +
+                "\t\t\t<a href=\"javascript:history.back()\">BACK</a>\n" +
+                "\t\t\t▪️\n" +
+                "\t\t\t<a id=\"tgb\" href=\"javascript:changeStyle()\">DAY</a>\n" +
+                "\t\t</h2>" +
                 hrefPrep("/swagger-ui.html",
                         "SWAGGER-UI") + " | " +
                 hrefPrep("/openapi.json",
@@ -436,6 +488,73 @@ public class HtmlWrappers {
                 "<hr>" +
                 unformattedString +
                 "<hr>" +
+                "<script>\n" +
+                "\t\t\twindow.onload = function () {\n" +
+                "\t\t\t\twindow.setTimeout(function () {\n" +
+                "\t\t\t\t\tdocument.body.classList.add(\"loaded_hiding\");\n" +
+                "\t\t\t\t\tsetStyles(\"#1D1F21FF\", \"WhiteSmoke\");\n" +
+                "\t\t\t\t\tdocument.body.classList.add(\"loaded\");\n" +
+                "\t\t\t\t\tdocument.body.classList.remove(\"loaded_hiding\");\n" +
+                "\t\t\t\t}, 2);\n" +
+                "\t\t\t};\n" +
+                "\n" +
+                "\t\t\tfunction setStyles(bg, color) {\n" +
+                "\t\t\t\tdocument.body.style.backgroundColor = bg;\n" +
+                "\t\t\t\tdocument.body.style.color = color;\n" +
+                "\t\t\t\tdocument.body.style.fontFamily = \"Poiret One, cursive\";\n" +
+                "\t\t\t\tdocument.body.style.textShadow = \"-0.5px -0.5px 18px darkred\";\n" +
+                "\t\t\t\tlet styles = document.head.getElementsByTagName(\"style\");\n" +
+                "\t\t\t\tfor (let node of styles) {\n" +
+                "\t\t\t\t\tnode.innerHTML =\n" +
+                "\t\t\t\t\t\t\"        ul {\\n\" +\n" +
+                "\t\t\t\t\t\t'            list-style-type: \"\uD83D\uDCCE️ \";\\n' +\n" +
+                "\t\t\t\t\t\t\"        }\\n\" +\n" +
+                "\t\t\t\t\t\t\"        a:visited {\\n\" +\n" +
+                "\t\t\t\t\t\t\"          color: \" +\n" +
+                "\t\t\t\t\t\tcolor +\n" +
+                "\t\t\t\t\t\t\";\" +\n" +
+                "\t\t\t\t\t\t\"\\n\" +\n" +
+                "\t\t\t\t\t\t\"        }\\n\" +\n" +
+                "\t\t\t\t\t\t\"        a:link:hover{\\n\" +\n" +
+                "\t\t\t\t\t\t\"            text-decoration: none;\\n\" +\n" +
+                "\t\t\t\t\t\t\"            color: darkred;\\n\" +\n" +
+                "\t\t\t\t\t\t\"        }\" +\n" +
+                "\t\t\t\t\t\t\"\\n\" +\n" +
+                "\t\t\t\t\t\t\"        a:active{\\n\" +\n" +
+                "\t\t\t\t\t\t\"            text-decoration: none;\\n\" +\n" +
+                "\t\t\t\t\t\t\"            color: darkred;\\n\" +\n" +
+                "\t\t\t\t\t\t\"        }\" +\n" +
+                "\t\t\t\t\t\t\"\\n\" +\n" +
+                "\t\t\t\t\t\t\"        a:hover{\\n\" +\n" +
+                "\t\t\t\t\t\t\"            text-decoration: none;\\n\" +\n" +
+                "\t\t\t\t\t\t\"            color: darkred;\\n\" +\n" +
+                "\t\t\t\t\t\t\"        }\" +\n" +
+                "\t\t\t\t\t\t\"\\n\" +\n" +
+                "\t\t\t\t\t\t\"        a:link {\\n\" +\n" +
+                "\t\t\t\t\t\t\"            text-decoration: none;\\n\" +\n" +
+                "\t\t\t\t\t\t\"            color: \" +\n" +
+                "\t\t\t\t\t\tcolor +\n" +
+                "\t\t\t\t\t\t\";\" +\n" +
+                "\t\t\t\t\t\t\"\\n\" +\n" +
+                "\t\t\t\t\t\t\"        }\";\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\tfunction changeStyle() {\n" +
+                "\t\t\t\ttoggle = document.getElementById(\"tgb\");\n" +
+                "\t\t\t\tif (toggle.innerHTML == \"DAY\") {\n" +
+                "\t\t\t\t\tsetStyles(\"WhiteSmoke\", \"#1D1F21FF\");\n" +
+                "\t\t\t\t\ttoggle.innerHTML = \"NIGHT\";\n" +
+                "\t\t\t\t} else {\n" +
+                "\t\t\t\t\tsetStyles(\"#1D1F21FF\", \"WhiteSmoke\");\n" +
+                "\t\t\t\t\ttoggle.innerHTML = \"DAY\";\n" +
+                "\t\t\t\t}\n" +
+                "\t\t\t}\n" +
+                "\n" +
+                "\t\t\tfunction go() {\n" +
+                "\t\t\t\talert(document.body.style.backgroundColor);\n" +
+                "\t\t\t}\n" +
+                "\t\t</script>" +
                 "</body></html>";
     }
     
