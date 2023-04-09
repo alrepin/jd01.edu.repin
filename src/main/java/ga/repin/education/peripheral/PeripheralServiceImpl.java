@@ -225,37 +225,50 @@ public class PeripheralServiceImpl implements PeripheralService {
         
         );
     }
+    
     @Override
-    public String course7Index(){
+    public String course7Index() {
         return mainTheme(
                 coursesTabs(7) +
                         "<ul type=\"square\">" +
                         //"<h3>Sixth course of study</h3>" +
-                    
+                        
                         BR +
                         "<li>" +
                         hrefPrep("http://heaven.ga", "TEAMWORKING") +
                         BR +
                         "</li>" +
-                        "<a href=\"http://heaven.ga\"><img src=\"http://heaven.ga/JD10%20HEAVEN-DEVS%20TEAM%2068be78968e424de5b8434d0910bb16ea/photo_2023-02-17_08-56-23.png\" width=\"150\" \n" +
-                        "   height=\"150\" border=\"0\" alt=\"Demo\"></a>" +
+                        "<a href=\"http://heaven.ga\"><img src=\"http://jd01.edu.repin.ga/school/student/6/avatar/preview\" width=\"50\" \n" +
+                        "   height=\"50\" border=\"0\" alt=\"Demo\"></a>" +
                         
-                    
+                        
                         "</ul>"
-    
+        
         );
     }
     
     @Override
-    public String course8Index(){
+    public String course8Index() {
         return mainTheme(
                 coursesTabs(8) +
                         "<ul type=\"square\">" +
-                        BR +
+                        "<h3>Preparation for a technical interview (ticket 3)</h3>" +
+                        commentPrep(hwCaption("8.2. Preparation for a technical interview (ticket 3)", false, "43886", 44), null) + BR +
                         "<li>" +
-                        hrefPrep("http://", "Preparation for a technical interview (ticket 3)") +
-                        BR +
+                        commentPrep("Intro about myself", null) + BR +
+                        embedVideo("1_kJ6ECp") +
                         "</li>" +
+                        
+                        "<li>" +
+                        commentPrep("Video response to questions from the ticket", null) + BR +
+                        embedVideo("tRIkS3Sy") +
+                        "</li>" +
+                        
+                        "<li>" +
+                        commentPrep("Screencast of the progress of solving the task", null) + BR +
+                        embedVideo("acyW-g0n") +
+                        "</li>" +
+                        hrefPrep("https://github.com/alrepin/jd01.edu.repin/pull/44/files", "Github PR Link") + BR +
 /*                        "<a href=\"http://heaven.ga\"><img src=\"http://heaven.ga/JD10%20HEAVEN-DEVS%20TEAM%2068be78968e424de5b8434d0910bb16ea/photo_2023-02-17_08-56-23.png\" width=\"150\" \n" +
                         "   height=\"150\" border=\"0\" alt=\"Demo\"></a>" +*/
                         "</ul>"
@@ -264,7 +277,7 @@ public class PeripheralServiceImpl implements PeripheralService {
     }
     
     @Override
-    public String course9Index(){
+    public String course9Index() {
         return mainTheme(
                 coursesTabs(9) /*+
                         "<ul type=\"square\">" +
@@ -294,7 +307,7 @@ public class PeripheralServiceImpl implements PeripheralService {
     @Override
     public String letSwitchTheme() {
         HtmlWrappers.nightTheme = !HtmlWrappers.nightTheme;
-        return course6Index();
+        return course8Index();
     }
     
     @Value("${server.port}")
@@ -385,7 +398,7 @@ public class PeripheralServiceImpl implements PeripheralService {
     @Override
     public List<NotificationTask> notificationsList() {
         final List<NotificationTask> notificationTasks = notificationTaskRepository.findAll();
-    
+        
         return notificationTasks.stream()
                 .sorted(Comparator.comparing(NotificationTask::getDateTime))
                 .collect(Collectors.toList());

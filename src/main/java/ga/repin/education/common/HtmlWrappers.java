@@ -361,6 +361,12 @@ public class HtmlWrappers {
                 "</a>";
     }
     
+    public static String embedVideo(String id) {
+        return "<video width=\"30%\"  controls=\"\" preload=\"metadata\" name=\"media\"><source src=\"https://disk.repin.ga/api/public/dl/" +
+                id +
+                "?inline=true\" type=\"video/mp4\"></video>";
+    }
+    
     public static String commentPrep(String text, Integer size) {
         String result = null;
         if (size == null) {
