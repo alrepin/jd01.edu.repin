@@ -397,7 +397,7 @@ public class HtmlWrappers {
         return "<html><head>\n" +
                 "\t\t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n" +
                 "\t\t<link href=\"https://fonts.googleapis.com/css2?family=Poiret+One&display=swap\" rel=\"stylesheet\" />\n" +
-                "\t\t<link rel=\"icon\" type=\"image/jpeg\" href=\"http://repin.ga/school/student/2/avatar/preview\" />\n" +
+                "\t\t<link rel=\"icon\" type=\"image/jpeg\" href=\"https://jd01.edu.repin.ga/school/student/2/avatar/preview\" />\n" +
                 "\t\t<style>\n" +
                 "\t\t\t.preloader {\n" +
                 "\t\t\t\tposition: fixed;\n" +
