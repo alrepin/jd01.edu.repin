@@ -358,7 +358,7 @@ public class HtmlWrappers {
     }
     
     public static String embedVideo(String id) {
-        return "<video width=\"30%\"  controls=\"\" preload=\"metadata\" name=\"media\"><source src=\"https://disk.repin.ga/api/public/dl/" +
+        return "<video width=\"30%\"  controls=\"\" preload=\"metadata\" name=\"media\"><source src=\"" + MEDIA_DOMAIN + "/api/public/dl/" +
                 id +
                 "?inline=true\" type=\"video/mp4\"></video>";
     }

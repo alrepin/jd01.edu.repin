@@ -26,8 +26,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
                 ),
                 contact = @Contact(
                         name = "alrepin",
-                        email = "a@repin.ga",
-                        url = "repin.ga"
+                        email = "a@post.cf",
+                        url = "alrepin.sytes.net"
                 )
         ),
         servers = {

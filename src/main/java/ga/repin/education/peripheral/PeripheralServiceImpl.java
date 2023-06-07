@@ -22,6 +22,8 @@ import java.util.stream.Stream;
 
 import static ga.repin.education.common.HtmlWrappers.*;
 import static ga.repin.education.common.UsefulMethods.*;
+import static ga.repin.education.peripheral.PeripheralConstants.MAIN_DOMAIN;
+import static ga.repin.education.peripheral.PeripheralConstants.TEAM_DOMAIN;
 
 @Service
 public class PeripheralServiceImpl implements PeripheralService {
@@ -253,10 +255,10 @@ public class PeripheralServiceImpl implements PeripheralService {
                         
                         BR +
                         "<li>" +
-                        hrefPrep("http://heaven.ga", "TEAMWORKING") +
+                        hrefPrep(TEAM_DOMAIN, "TEAMWORKING") +
                         BR +
                         "</li>" +
-                        "<a href=\"http://heaven.ga\"><img src=\"http://jd01.edu.repin.ga/school/student/6/avatar/preview\" width=\"50\" \n" +
+                        "<a href=\"" + TEAM_DOMAIN + "\"><img src=\"" + MAIN_DOMAIN + "/school/student/6/avatar/preview\" width=\"50\" \n" +
                         "   height=\"50\" border=\"0\" alt=\"Demo\"></a>" +
                         
                         
@@ -297,16 +299,20 @@ public class PeripheralServiceImpl implements PeripheralService {
     @Override
     public String course9Index() {
         return mainTheme(
-                coursesTabs(9) /*+
-                        "<ul type=\"square\">" +
+                coursesTabs(9) +
+                "<ul type=\"square\">" +
+                        //"<h3>Sixth course of study</h3>" +
+                
                         BR +
                         "<li>" +
-                        hrefPrep("http://heaven.ga", "Preparation for a technical interview (ticket 3)") +
+                        hrefPrep(TEAM_DOMAIN, "GRADUATE WORK") +
                         BR +
                         "</li>" +
-*//*                        "<a href=\"http://heaven.ga\"><img src=\"http://heaven.ga/JD10%20HEAVEN-DEVS%20TEAM%2068be78968e424de5b8434d0910bb16ea/photo_2023-02-17_08-56-23.png\" width=\"150\" \n" +
-                        "   height=\"150\" border=\"0\" alt=\"Demo\"></a>" +*//*
-                        "</ul>"*/
+                        "<a href=\"" + TEAM_DOMAIN + "\"><img src=\"" + MAIN_DOMAIN + "/school/student/6/avatar/preview\" width=\"50\" \n" +
+                        "   height=\"50\" border=\"0\" alt=\"Demo\"></a>" +
+                
+                
+                        "</ul>"
         
         );
     }
